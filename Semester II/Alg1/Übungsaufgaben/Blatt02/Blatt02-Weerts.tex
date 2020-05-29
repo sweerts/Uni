@@ -1,0 +1,178 @@
+\documentclass[12pt]{article}
+
+\usepackage{a4}  
+\usepackage{color}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+ 
+\newcommand{\corr}[1]{\textcolor{red}{#1}}
+\newcommand{\QED}{\begin{flushright} $\square$ \end{flushright}}
+\newcommand{\df}{\Longrightarrow \enspace}
+\newcommand{\koeff}[2]{\begin{pmatrix}#1 \\ #2\end{pmatrix}}
+\newcommand{\Char}{\operatorname{char}}
+
+
+
+\begin{document}
+\section*{Abgabe Algebra 1, Blatt 02}
+
+Studierende(r): Weerts, Steffen, steffen.weerts@uni-oldenburg.de
+
+\subsection*{Aufgabe 2.1}
+\begin{enumerate}
+	\item[(a)] Sei $R$ kommutativer Ring mit $\text{char}(R) = p$ prim. Es gilt:
+	\begin{align*}
+		(a+b)^p &= \sum_{k=0}^{p}\koeff{p}{k}a^{p-k}b^k \\
+		&= \koeff{p}{0}a^pb^0 + \koeff{p}{p-1}a^0b^p + \sum_{k=1}^{p-1}\koeff{p}{k}a^{p-k}b^k \\
+		&= a^p + b^p + \sum_{k=1}^{p-1}\koeff{p}{k}a^{p-k}b^k. \\
+	\end{align*}
+	Zu zeigen: $\sum\limits_{k=1}^{p-1}\koeff{p}{k}a^{p-k}b^k = 0$.
+	Es gilt:
+	\begin{align*}
+		\sum_{k=1}^{p-1}\koeff{p}{k}a^{p-k}b^k &= \sum_{k=1}^{p-1}\frac{p!}{k!(p-k)!}a^{p-k}b^k \\
+		&= p \cdot \sum_{k=1}^{p-1} \frac{(p-1)!}{k!(p-k)!}a^{p-k}b^k \enspace
+		\overset{p = \Char(R)}{=} 0.
+	\end{align*}
+	Insgesamt ergibt sich also:
+	\begin{align*}
+		(a+b)^p &= \sum_{k=0}^{p}\koeff{p}{k}a^{p-k}b^k \\
+		&= a^p + b^p + \sum_{k=1}^{p-1}\koeff{p}{k}a^{p-k}b^k \\
+		&= a^p + b^p.
+	\end{align*}
+	\QED
+	
+	\item[(b)] Sei $R$ kommutativer Ring mit $\Char(R)=p$ prim und sei $\varphi: R \rightarrow R, x \mapsto x^p$ der sogenannte Frobeniusendomorphismus. \\
+	Zu zeigen: $\varphi$ ist Ringendomorphismus, d.h.
+	\begin{enumerate}
+		\item[a)] $\forall a,b \in R:\varphi(a+b)=\varphi(a)+\varphi(b)$
+		\item[b)] $\forall a,b \in R:\varphi(a \cdot b)= \varphi(a) \cdot \varphi(b)$
+		\item[c)] $\varphi(1) = 1.$
+	\end{enumerate}
+	\begin{enumerate}
+		\item[ad a):] Seien $a,b\in R$ beliebig. Es gilt:
+		$$\varphi(a+b)=(a+b)^p\overset{(a)}{=}a^p+b^p=\varphi(a)+\varphi(b).$$
+		
+		\item[ad b):] Seien $a,b\in R$ beliebig. Es gilt:
+		$$\varphi(a\cdot b)=(a\cdot b)^p=a^p\cdot b^p=\varphi(a)\cdot\varphi(b).$$
+		
+		\item[ad c):] Es gilt:
+		$$\varphi(1)=1^p=1.$$
+	\end{enumerate}
+	$\df \varphi$ ist Ringhomomorphismus \\
+	$\overset{\varphi: R \rightarrow R}{\df} \varphi$ ist Ringendomorphismus.
+	\QED
+\end{enumerate}
+
+\subsection*{Aufgabe 2.2}
+\begin{enumerate}
+	\item[(a)] Sei $R$ kommutativer Ring. \\
+	Zu zeigen: $R$ Integritätsring $\Leftrightarrow\forall a,b,c\in R,c\neq 0:ca=cb\Rightarrow a=b$. \\
+	\begin{enumerate}
+		\item["$\Longrightarrow$":] Sei $R$ Integritätsring.
+		Es gilt:
+		\begin{align*}
+			&R\text{ Integritätsring} \\
+			\df &R\text{ nullteilerfreier, kommutativer Ring mit }1\neq 0 \\
+			\df &(R,\cdot)\text{ abelsche Gruppe} \\
+			\df &\forall c\in R\exists c^{-1}\in R:c\cdot c^{-1}=1.
+		\end{align*}
+		Außerdem gilt:
+		\begin{align*}
+			&ca=cb \\
+			\df c^{-1}ca=c^{-1}cb \\
+			\df 1\cdot a=1\cdot b \\
+			\df a=b.
+		\end{align*}
+		
+		\item["$Longrightarrow$":] Gelte $\forall a,b,c\in R,c\neq 0:ca=cb\Rightarrow a=b$. \\
+		Zu zeigen: $R$ Integritätsring, d. h. $R$ nullteilerfreier Ring mit $1$. \\
+		Sei $d\in R$ Nullteiler von $R$. Es gilt:
+		\begin{align*}
+			&\exists a\in R: da=0 \\
+			\df &2da=2\cdot 0=0 \\
+			\df &da=2da \\
+			\df &d\cdot a=d\cdot 2a \\
+			\df &a=2a. \quad \text{Widerspruch (zu $d$ Nullteiler, da $a=0$)}.
+		\end{align*}
+	\end{enumerate}
+	\QED
+	
+	\item[(b)] Fehlt.
+\end{enumerate}
+
+\subsection*{Aufgabe 2.3}
+\begin{enumerate}
+	\item[(a)] Fehlt.
+	
+	\item[(b)] Sei $R$ kommutativer Ring, $a\in R\setminus\{0\}$ nilpotent. \\
+	Zu zeigen:
+	\begin{enumerate}
+		\item[(1)] $a$ Nullteiler von $R$
+		\item[(2)] $\forall b\in R: a\cdot b=0.$
+	\end{enumerate}
+	\begin{enumerate}
+		\item[ad (1):] Es gilt:
+		\begin{align*}
+			&\exists n\in\mathbb{N}:a^n=0\text{ und }a^{n-1}\neq 0 \\
+			\df &\exists n\in\mathbb{N}:a\cdot a^{n-1}=0 \\
+			\overset{d:=a^{n-1}}{\df} &a\cdot d=0 \\
+			\df &a\text{ Nullteiler von }R.
+		\end{align*}
+		
+		\item[ad (2):] Sei $b\in R$ beliebig. Es gilt:
+		\begin{align*}
+			&a\text{ nilpotent} \\
+			\df &\exists n\in\mathbb{N}:a^nb^n=0 \\
+			\df &\exists n\in\mathbb{N}:(ab)^n=0 \\
+			\df &ab\text{ nilpotent}.
+		\end{align*}
+	\end{enumerate}
+	\QED
+	
+	\item[(c)] Sei $R$ kommutativer Ring, $a\in R$ nilpotent. \\
+	Zu zeigen:
+	\begin{enumerate}
+		\item[(1)] $a$ keine Einheit von $R$
+		\item[(2)] $1+a$ Einheit von $R$
+		\item[(3)] $\forall b\in R^*:a+b\in R^*$.
+	\end{enumerate}
+	\begin{enumerate}
+		\item[ad (1):] Annahme: $a$ Einheit von $R$, d. h. $\exists b\in R: ab=1=ba$. Sei $n$ die kleinste natürliche Zahl, für die $a^n=0$ gilt.  \\
+		Es gilt:
+		\begin{align*}
+			&ab=1 \\
+			\df &(ab)^n = 1 \\
+			\df &a^nb^n=1 \\
+			\df &0\cdot b^n=1 \\
+			\df &0=1. \quad \text{Widerspruch.}
+		\end{align*}
+		Aufgrund dieses Widerspruchs kann $a$ nicht invertierbar sein.
+		
+		\item[ad (2):] Es gilt:
+		\begin{align*}
+			(1+a)\,\cdot\left(\sum_{i=1}^{k}(-1)^{k-i}a^{k-i}\right)
+			=&\left(\sum_{i=1}^{k}(-1)^{k-i}a^{k-i}\right)+a\cdot\left(\sum_{i=1}^{k}(-1)^{k-i}a^{k-i}\right) \\
+			= &\left(\sum_{i=1}^{k}(-1)^{k-i}a^{k-i}\right)+\left(\sum_{i=1}^{k}(-1)^{k-i}a^{k-i+1}\right) \\
+			=&\left(a^{k-1}-a^{k-2}+\cdots-a^3+a^2-a+1\right) \\
+			&+\left(a^k-a^{k-1}+a^{k-2}-\cdots+a^3-a^2+a\right) \\
+			=&\,a^k+1.
+		\end{align*}
+		Da $a$ nilpotent ist, gibt es ein solches $k$, für das $a^k=0$ gilt. Für dieses $k$ ist $\sum\limits_{i=1}^{k}(-1)^{k-i}a^{k-i}$ das Inverse zu $1+a$.
+		
+		\item[ad (3):] Sei $a\in R$ nilpotent. Sei $b\in R^*$ beliebig. Es gilt:
+		$$a+b=b\cdot(1+b^{-1}a).$$
+		Da $a$ nilpotent ist, ist auch $b^{-1}a$ nilpotent, wie in (b) gezeigt wurde.
+		Außerdem wurde oben auch gezeigt, dass $1+b^{-1}a$ eine Einheit ist.
+		Da die Menge der Einheiten eine Gruppe ist, ist auch die Verknüpfung $b\cdot (1+b^{-1}a)$ eine Einheit.
+		Daraus folgt, dass $a+b=b\cdot (1+b^{-1}a)$ eine Einheit ist.
+	\end{enumerate}
+	\QED
+\end{enumerate}
+
+
+
+\bigskip
+
+\corr{korrigiert von \hspace{1cm} am }
+\end{document}

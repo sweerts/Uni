@@ -1,0 +1,120 @@
+\documentclass[12pt]{article}
+
+\usepackage{a4}  
+\usepackage{color}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage{faktor}
+ 
+\newcommand{\corr}[1]{\textcolor{red}{#1}}
+\newcommand{\QED}{\begin{flushright} $\square$ \end{flushright}}
+\newcommand{\df}{\enspace\Longrightarrow\enspace}
+\newcommand{\koeff}[2]{\begin{pmatrix}#1 \\ #2\end{pmatrix}}
+\newcommand{\Char}{\operatorname{char}}
+\newcommand{\isIdeal}{\trianglelefteq}
+\newcommand{\ann}{\operatorname{ann}}
+\newcommand{\ideal}[1]{\langle#1\rangle}
+\newcommand{\N}{\operatorname{N}}
+\newcommand{\enorm}{\operatorname{d}}
+\newcommand{\gdw}{\;\Longleftrightarrow\;}
+\newcommand{\abs}[1]{\vert #1\vert}
+\newcommand{\ggT}{\operatorname{ggT}}
+\newcommand{\kgV}{\operatorname{kgV}}
+
+\newcommand{\aal}{a_{\alpha}}
+\newcommand{\ab}{a_{\beta}}
+\newcommand{\ba}{b_{\alpha}}
+\newcommand{\bb}{b_{\beta}}
+
+
+
+\begin{document}
+\section*{Abgabe Analysis IIa, Blatt 04}
+
+Studierende(r): Weerts, Steffen, steffen.weerts@uni-oldenburg.de
+
+\subsection*{Aufgabe 1}
+\begin{enumerate}
+	\item[1.] Fehlt.
+	\item[2.] Fehlt.
+	\item[3.] Fehlt.
+\end{enumerate}
+
+\subsection*{Aufgabe 2}
+Fehlt.
+
+\subsection*{Aufgabe 3}
+\begin{enumerate}
+	\item[(a)] Untersuchen Sie $\int_{0}^{\infty}\frac{dx}{\sqrt{x}+e^x-1}$ auf Konvergenz. \\
+	Beh.: $\int_{0}^{\infty}\frac{dx}{\sqrt{x}+e^x-1}$ konvergiert absolut. \\
+	Es gilt:
+	$$\int_{0}^{\infty}\frac{dx}{\sqrt{x}+e^x-1} = \int_{0}^{1}\frac{dx}{\sqrt{x}+e^x-1} + \int_{1}^{\infty}\frac{dx}{\sqrt{x}+e^x-1}.$$
+	Betrachte zunächst $\int_{0}^{1}\frac{dx}{\sqrt{x}+e^x-1}$. Es gilt für alle $x\in(0,1)$:
+	$$\left\vert\frac{1}{\sqrt{x}+e^x-1}\right\vert = \frac{1}{\sqrt{x}+e^x-1} \overset{e^x-1\geq 0}{\leq} \frac{1}{\sqrt{x}} = \frac{1}{x^{\frac{1}{2}}}.$$
+	Daraus folgt nach Proposition 54, dass $\int_{0}^{1}\frac{dx}{\sqrt{x}+e^x-1}$ absolut konvergiert. \\
+	Betrachte nun $\int_{1}^{\infty}\frac{dx}{\sqrt{x}+e^x-1}$. Es gilt für alle $x\in(1,\infty)$:
+	$$\left\vert\frac{1}{\sqrt{x}+e^x-1}\right\vert = \frac{1}{\sqrt{x}+e^x-1} \overset{\sqrt{x}-1\geq 0}{\leq} \frac{1}{e^x} \leq \frac{1}{x^2}.$$
+	Daraus folgt nach Proposition 54, dass $\int_{1}^{\infty}\frac{dx}{\sqrt{x}+e^x-1}$ absolut konvergiert. \\
+	Insgesamt ergibt sich, dass $\int_{0}^{\infty}\frac{dx}{\sqrt{x}+e^x-1} = \int_{0}^{1}\frac{dx}{\sqrt{x}+e^x-1} + \int_{1}^{\infty}\frac{dx}{\sqrt{x}+e^x-1}$ absolut konvergent ist.
+	\QED
+	
+	\item[(b)]Untersuchen Sie $\int_{0}^{1}\frac{\ln(x)}{(1-x)^2}dx$ auf Konvergenz. \\
+	Beh.: $\int_{0}^{1}\frac{\ln(x)}{(1-x)^2}dx$ divergiert. \\
+	Es gilt:
+	\begin{align*}
+		\int_{0}^{1}\frac{\ln(x)}{(1-x)^2}dx \overset{PI}{=}& \left.\frac{\ln(x)}{1-x}\right\vert_{\frac{1}{2}}^{1}-\int_{\frac{1}{2}}^{1}\frac{1}{x}\cdot\frac{1}{1-x}dx \\
+		=& \left.\frac{\ln(x)}{1-x}\right\vert_{\frac{1}{2}}^{1}-\int_{\frac{1}{2}}^{1}\frac{-1}{x^2-x}dx \\
+		=& \left.\frac{\ln(x)}{1-x}\right\vert_{\frac{1}{2}}^{1}-\int_{\frac{1}{2}}^{1}\frac{x-1-x}{x\cdot(x-1)}dx \\
+		=& \left.\frac{\ln(x)}{1-x}\right\vert_{\frac{1}{2}}^{1}-\int_{\frac{1}{2}}^{1}\left(\frac{x-1}{x\cdot(x-1)}-\frac{x}{x\cdot(x-1)}\right)dx \\
+		=& \left.\frac{\ln(x)}{1-x}\right\vert_{\frac{1}{2}}^{1}-\left(\int_{\frac{1}{2}}^{1}\frac{x-1}{x\cdot(x-1)}dx-\int_{\frac{1}{2}}^{1}\frac{x}{x\cdot(x-1)}dx\right) \\
+		=& \left.\frac{\ln(x)}{1-x}\right\vert_{\frac{1}{2}}^{1}-\int_{\frac{1}{2}}^{1}\frac{1}{x}dx+\int_{\frac{1}{2}}^{1}\frac{1}{x-1}dx \\
+		=& \left.\frac{\ln(x)}{1-x}\right\vert_{\frac{1}{2}}^{1}-\left.\ln(x)\right\vert_{\frac{1}{2}}^{1}+\left.\ln(x-1)\right\vert_{\frac{1}{2}}^{1} \\
+		=& \lim_{k\rightarrow\infty}\frac{\ln(1)}{1-k}-\frac{\ln(\frac{1}{2})}{\frac{1}{2}}-\ln(1)+\ln\left(\frac{1}{2}\right)+\lim_{m\rightarrow 0}\ln(m)-\ln\left(\frac{1}{2}\right) \\
+		=& \lim_{k\rightarrow\infty}\frac{0}{1-k}-2\ln\left(\frac{1}{2}\right)-0-\ln(2)+\lim_{m\rightarrow 0}\ln(m)+\ln(2) \\
+		=& 0+2\ln(2)+\lim_{m\rightarrow 0}\ln(m) \\
+		=& 2\ln(2)+\lim_{m\rightarrow 0}\ln(m) \\
+	\end{align*}
+	Nun gilt:
+	$$2\ln(2)+\lim_{m\rightarrow 0}\ln(m) \longrightarrow 2\ln(2)+\infty = \infty.$$
+	Insgesamt ergibt sich, dass $\int_{0}^{1}\frac{\ln(x)}{(1-x)^2}dx$ divergiert.
+	\QED
+\end{enumerate}
+
+\subsection*{Aufgabe 4}
+\begin{enumerate}
+	\item[(a)] Berechnen Sie $\int_{-\infty}^{\infty}\frac{dx}{e^x+e^{-x}}$. \\
+	Beh.: $\int_{-\infty}^{\infty}\frac{dx}{e^x+e^{-x}} = \frac{\pi}{2}$. \\
+	Es gilt:
+	\begin{align*}
+		\int_{-\infty}^{\infty}\frac{dx}{e^x+e^{-x}} =& 2\cdot\int_{0}^{\infty}\frac{dx}{e^x+e^{-x}} \\
+		\overset{x=\ln(t)}{=}& 2\cdot\int_{1}^{\infty}\frac{1}{e^{\ln(t)}+e^{-\ln(t)}}\cdot\frac{1}{t}dt \\
+		=& 2\cdot\int_{1}^{\infty}\frac{1}{t+\frac{1}{t}}\cdot\frac{1}{t}dt \\
+		=& 2\cdot\int_{1}^{\infty}\frac{1}{t^2+1}dt \\
+		=& \left.2\cdot\arctan(t)\right\vert_{1}^{\infty} \\
+		=& 2\cdot\left(\lim_{k\rightarrow\infty}\arctan(k)-\arctan(1)\right) \\
+		=& 2\cdot\left(\frac{\pi}{2}-\frac{\pi}{4}\right) \\
+		=& \frac{\pi}{2}.
+	\end{align*}
+	\QED
+	
+	\item[(b)] Berechnen Sie $\int_{0}^{1}\frac{dx}{(2-x)\sqrt{1-x}}dx$. \\
+	Beh.: $\int_{0}^{1}\frac{dx}{(2-x)\sqrt{1-x}}dx = \frac{\pi}{2}$. \\
+	Es gilt:
+	\begin{align*}
+		\int_{0}^{1}\frac{dx}{(2-x)\sqrt{1-x}}dx \overset{t:=\sqrt{1-x}}{=}& \int_{1}^{0}\frac{-2t}{(2-(-t^2+1))\cdot t}dt \\
+		=& 2\cdot\int_{0}^{1}\frac{dt}{t^2+1} \\
+		=& 2\cdot\left(\left.\arctan(t)\right\vert_0^1\right) \\
+		=& 2\cdot\left(\arctan(1)-\arctan(0)\right) \\
+		=& 2\cdot\left(\frac{\pi}{4}-0\right) \\
+		=& \frac{\pi}{2}.
+	\end{align*}
+	\QED
+\end{enumerate}
+
+
+
+\bigskip
+
+\corr{korrigiert von \hspace{1cm} am }
+\end{document}

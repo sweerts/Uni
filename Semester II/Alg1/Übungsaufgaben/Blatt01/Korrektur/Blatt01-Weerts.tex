@@ -1,0 +1,254 @@
+\documentclass[12pt]{article}
+
+\usepackage{a4}  
+\usepackage{color}
+\usepackage{amssymb}
+\usepackage{amsmath}
+ 
+\newcommand{\corr}[1]{\textcolor{red}{#1}}
+\newcommand{\QED}{\begin{flushright} $\square$ \end{flushright}}
+\newcommand{\df}{\Longrightarrow \enspace}
+
+\begin{document}
+\section*{Abgabe Algebra 1, Blatt 01}
+
+Studierende(r): Weerts, Steffen, steffen.weerts@uni-oldenburg.de
+
+\subsection*{Aufgabe 1.1}
+\begin{enumerate}
+\item[(a)] Seien $a, b, c, d \in \mathbb{Z}$. Sei $d=ggT(a,b)$. Es gilt:
+\begin{align*}
+    &d = ggT(a,b) \\
+	\df &ggT(\frac{a}{ggT(a,b)},\frac{b}{ggT(a,b)}) = 1 \\
+\corr{\text{Genau das sollte in dieser Aufgabe gezeigt werden}}\\
+	\df &ggT(\frac{a}{d}, \frac{b}{d}) = 1.
+\end{align*}
+\QED
+\corr{Punkte Teil a): $0,5/2$}
+
+\item[(b)] Seien $a, b, c, d \in \mathbb{Z}$. Sei $ggT(a,b)=1, c \mid a$ und $d \mid b$. \\
+Sei $a = \prod\limits_{i = 1}^{n}p_i$ die Primfaktorzerlegung von $a$. Sei $b = \prod\limits_{i = 1}^{m}q_i$ die Primfaktorzerlegung von $b$.\\
+\corr{Eine eindeutige Primfaktorenzerlegung in dieser Form haben wir nur für $a,b \in \mathbb{N}$. $-0,5$ P}\\
+ Es gilt:
+$$c \mid a \enspace \Longrightarrow N := \{p \in \mathbb{P} : p \mid c\} \subseteq \{p_1, \cdots, p_n\}.$$
+
+Außerdem gilt:
+$$d \mid b \enspace \Longrightarrow M := \{p \in \mathbb{P} : p \mid d\} \subseteq \{q_1, \cdots, q_m\}.$$
+
+Da $ggT(a,b) = 1$, haben $a$ und $b$ keine gemeinsamen Teiler, insbesondere keine gemeinsamen Primteiler, d.h.
+\begin{align*}
+	&\{p_1, \cdots, p_n\} \cap \{q_1, \cdots, q_m\} = \emptyset \\
+	\df &N \cap M = \emptyset \\
+	\df &ggT(c, d) = 1.\corr{\text{Warum gilt diese Folgerung? Genauer begründen. $-0,5$ P}}
+\end{align*}
+\QED
+\corr{Punkte Teil b): $1/2$}
+
+\item[(c)] Seien $a, b, c \in \mathbb{Z}$. Sei $ggT(a, b) = ggT(a, c) = 1$. Es gilt:
+\begin{align*}
+	&ggT(a, b) = 1 \\
+	\df &\forall p \in \mathbb{P}: p \mid a \Rightarrow p \nmid b.
+\end{align*}
+
+Außerdem gilt:
+\begin{align*}
+	&ggT(a, c) = 1 \\
+	\df &\forall p \in \mathbb{P}: p \mid a \Rightarrow p \nmid c.
+\end{align*}
+
+\begin{align*}
+	\df &\forall p \in \mathbb{P}: p \mid a \Rightarrow p \nmid b \text{ und } p \nmid c \\
+	\df &\forall p \in \mathbb{P}: p \mid a \Rightarrow p \nmid b c \\
+	\df &ggT(a, b c) = 1.
+\end{align*}
+\corr{Warum gilt die letzte Implikation? Genau begründen. $-0,5$ P}
+\QED
+\corr{Punkte Teil c): $1,5/2$}
+
+\end{enumerate}
+
+\noindent
+\corr{$3/6$ P}
+
+\subsection*{Aufgabe 1.2}
+Sei $n \in \mathbb{N}$ und seien $a_1, \cdots, a_n \in \mathbb{Z}$ nicht alle gleich $0$.
+\begin{enumerate}
+	\item[\framebox{\textbf{IA}}] \underline{$n = 1$} \corr{Da der ggT nur für mindestens zwei Zahlen definiert ist, muss die Induktion bei $n=2$ starten. $-0,5$ P}
+	\begin{align*}
+		&\langle a_1 \rangle \\
+		= \enspace &\{x_1 a_1 : x_1 \in \mathbb{Z}\} \\
+		= \enspace &\{x_1 a_1 + x_2 \cdot 0 : x_1, x_2 \in \mathbb{Z}\} \\
+		= \enspace &\{x \cdot ggT(a_1, 0) : x \in \mathbb{Z}\} \\
+		= \enspace &\langle ggT(a_1, 0) \rangle.
+	\end{align*}
+	
+	\item[\framebox{\textbf{IV}}] Gelte die Behauptung für ein beliebiges, aber festes $n \in \mathbb{N}$.
+	
+	\item[\framebox{\textbf{IS}}] \underline{$n \rightarrow n + 1$}
+	\begin{align*}
+		&\langle a_1, \cdots, a_{n+1} \rangle \\
+		= \enspace &\{\sum_{i=1}^{n+1}x_i a_i \mid x_1, \cdots x_{n+1} \in \mathbb{Z}\} \\
+		= \enspace &\{\sum_{i=1}^{n}x_i a_i + x_{n+1} a_{n+1} \mid x_1, \cdots x_{n+1} \in \mathbb{Z}\} \\
+		\overset{IV}{=}  \enspace &\{x \cdot ggT(a_1, \cdots, a_n) + x_{n+1} a_{n+1} \mid x, x_{n+1} \in \mathbb{Z}\} \\
+		= \enspace &\{x \cdot ggT(ggT(a_1, \cdots, a_n), a_{n+1}) \mid x \in \mathbb{Z}\} \\
+		= \enspace &\{x \cdot ggT(a_1, \cdots, a_{n+1}) \mid x \in \mathbb{Z}\} \\
+		= \enspace &\langle ggT(a_1, \cdots, a_{n+1}) \rangle.
+	\end{align*}
+\end{enumerate}
+Somit gilt die Behauptung $\langle a_1, \cdots, a_n \rangle = \langle ggT(a_1, \cdots a_n) \rangle$ für alle $n \in \mathbb{N}$. \\\\
+Außerdem ist zu zeigen, dass $ggT(a_1, \cdots, a_n)$ die kleinste positive Zahl ist, welche als ganzzahlige Linearkombination von $a_1, \cdots, a_n$ dargestellt werden kann. \\\\
+Die induktive Definition des $ggT$ ermöglicht es, die Bézout-Identität mehrfach zu verwenden, sodass die Behauptung folgt. Es gilt:
+$$ggT(a_1, \cdots, a_n) = \enspace ggT(ggT( \cdots ggT(ggT(a_1, a_2), a_3) \cdots, a_{n-1}), a_n).$$
+Da $ggT(a_1, a_2)$ die kleinste natürliche Zahl ist, die als ganzzahlige Linearkombination von $a_1$ und $a_2$ dargestellt werden kann, ist $ggT(ggT(a_1, a_2), a_3)$ die kleinste natürliche Zahl, die als Linearkombination von $ggT(a_1, a_2)$ und $a_3$ dargestellt werden kann. \\
+Da alle Linearkombinationen von $a_1$ und $a_2$ Vielfache von $ggT(a_1, a_2)$ sind, ist $ggT(ggT(a_1, a_2), a_3) = ggT(a_1, a_2, a_3)$ die kleinste natürliche Zahl, die als Linearkombination von $a_1$, $a_2$ und $a_3$ dargestellt werden kann. \\
+Dieses Argument wird solange angewendet, bis sich ergibt, dass $ggT(a_1, \cdots, a_n)$ die kleinste natürliche Zahl ist, die als Linearkombination von $a_1, \cdots, a_n$ dargestellt werden kann.
+\QED
+\corr{$6,5/7$ P}
+
+
+\subsection*{Aufgabe 1.3}
+\begin{enumerate}
+\item[(a)]
+Sei $(M,*)$ Monoid. Zu zeigen: $(M^*,*)$ Gruppe. Es gilt:
+\begin{align*}
+	&(M,*) \text{ Monoid} \\
+	\overset{M^* \subseteq M}{\Longrightarrow} \enspace &(AG) \text{ gilt in } M^* \\
+	\df &(M^*,*) \text{ Halbgruppe.}
+\end{align*}
+\corr{Es fehlt $(M^*,*)$ abgeschlossen. $-0,5$ P}
+
+Es gilt für NE $e \in M$:
+\begin{align*}
+	e*e^{-1} = e = e^{-1}*e \\
+	\df &e \in M^* \\
+	\df &\forall a \in M^*: a*e = a = e*a \\
+	\df &(M^*,*) \text{ Monoid.}
+\end{align*}
+
+Da $M^*$ die Menge der invertierbaren Elemente aus $M$ ist, gilt:
+\begin{align*}
+	&\forall a \in M^* \; \exists b \in M^*: a*b = e = b*a \\
+	\df &(M^*,*) \text{ Gruppe.}
+\end{align*}
+\corr{Nach Definition von $M^*$ ist $b \in M$. Es muss noch gezeigt werden, dass $b \in M^*$. $-0,5$ P}\\
+Sei $R$ Ring mit 1. Zu zeigen: $R^*$ Gruppe. Es gilt:
+\begin{align*}
+	&(R,+,*) \text{ Ring mit 1} \\
+	\df &(R,*) \text{ Monoid} \\
+	\df &R^* \text{ Gruppe.}
+\end{align*}
+
+Wenn $(R,+,*)$ Ring ohne 1 ist, dann ist $(R,*)$ kein Monoid, sondern lediglich eine Halbgruppe.
+Da ein neutrales Element nicht in einer Halbgruppe gegeben ist, gilt die Aussage nicht für Ringe ohne 1.\\
+\corr{Es ist nicht ausgeschlossen, dass sich in einer Halbgruppe ein neutrales Element befindet.}
+\QED
+\corr{Punkte Teil a): $2,5/3,5$}
+
+
+\item[(b)]
+Sei $R$ kommutativer Ring mit 1. Zu zeigen: Jedes Ideal $I$ von $R$ enthält das Nullelement. \\
+Sei $I = \langle a_1, \cdots, a_n \rangle$ Ideal von $R$ beliebig. \corr{Nicht jedes Ideal ist endlich erzeugt. Es wurde in der Vorlesung nicht gezeigt, dass sich jedes Ideal sop schreiben lässt. $-0,5$ P.} Es gilt:
+\begin{align*}
+	&\forall a \in I \; \forall r \in \mathbb{Z}: a r \in I \\
+	\df &a \cdot 0 = 0 \in I.
+\end{align*}
+\corr{Es ist noch zu zeigen, dass ein $a\in I$ existiert. $-0,5$ P.}
+
+	
+Ferner ist zu zeigen, dass $I$ ein Unterring von $R$ ist, welcher genau dann das Einselement enthält, wenn $I = R$. \\
+
+Zunächst wird gezeigt, dass $I$ Unterring von $R$ ist.
+\begin{enumerate}
+\item[1.] Zu zeigen: $(I,+)$ ist abelsche Gruppe.
+\begin{enumerate}
+	\item[(U1)] Zu zeigen: $I \neq \emptyset$. Es gilt:
+	$$I \text{ ist Ideal} \df I \neq \emptyset.$$
+	
+	\item[(U2)] Seien $a,b \in I$ beliebig. Zu zeigen: $a-b \in I$. Es gilt:
+	\begin{align*}
+		&\forall x, y \in \mathbb{Z}: x a + y b \in I \\
+		\df &1 \cdot a + (-1) \cdot b \in I \\
+		\df &a - b \in I.
+	\end{align*}
+	
+\end{enumerate}
+
+$\df (I,+)$ ist nach Proposition 2.1.7 Untergruppe von $R$. \\
+
+Seien $a = \sum\limits_{i=1}^{n}x_i a_i, \enspace b = \sum\limits_{i=1}^{n}y_i a_i \in I$ beliebig. Zu zeigen: $a + b = b + a$. Es gilt:
+\begin{align*}
+	&a + b \\
+	= &\enspace \sum_{i=1}^{n}x_i a_i + \sum_{i=1}^{n}y_i a_i \\
+	= &\enspace \sum_{i=1}^{n}y_i a_i + \sum_{i=1}^{n}x_i a_i \\
+	= &\enspace b + a.
+\end{align*}
+
+$\df (I,+) \text{ abelsche Gruppe}$.
+
+\item[2.] Zu zeigen: $(I,\cdot)$ Halbgruppe. \\
+Seien $a = \sum\limits_{i=1}^{n}x_i a_i, \enspace b = \sum\limits_{i=1}^{n}y_i a_i, \enspace c = \sum\limits_{i=1}^{n}z_i a_i \in I$ beliebig. Es gilt:
+\begin{align*}
+	&(a \cdot b) \cdot c \\
+	= \enspace &((\sum_{i=1}^{n}x_i a_i) \cdot (\sum_{i=1}^{n}y_i a_i)) \cdot (\sum_{i=1}^{n}z_i a_i) \\
+	= \enspace &(\sum_{i=1}^{n}x_i a_i) \cdot ((\sum_{i=1}^{n}y_i a_i) \cdot (\sum_{i=1}^{n}z_i a_i)) \\
+	= \enspace &a \cdot (b \cdot c).
+\end{align*}
+
+$\df (I,\cdot)$ ist Halbgruppe.\\
+\corr{Abgeschlossenheit fehlt. $-0,5$ P}
+
+\item[3.] Zu zeigen:
+\begin{enumerate}
+	\item[(i)] $\forall a, b, c \in I: (a + b) \cdot c  = a c + b c$
+	\item[(ii)] $\forall a, b, c \in I: a \cdot (b + c) = a b + a c$.
+\end{enumerate}
+
+Seien $a = \sum\limits_{i=1}^{n}x_i a_i, \enspace b = \sum\limits_{i=1}^{n}y_i a_i, \enspace c = \sum\limits_{i=1}^{n}z_i a_i \in I$ beliebig. Es gilt:
+\begin{align*}
+	&(a + b) \cdot c \\
+	= \enspace &(\sum_{i=1}^{n}x_i a_i + \sum_{i=1}^{n}y_i a_i) \cdot \sum_{i=1}^{n}z_i a_i \\
+	= \enspace &(\sum_{i=1}^{n}x_i a_i) \cdot (\sum_{i=1}^{n}z_i a_i) + (\sum_{i=1}^{n}y_i a_i) \cdot (\sum_{i=1}^{n}z_i a_i) \\
+	= \enspace &a c + b c.
+\end{align*}
+
+Seien $a = \sum\limits_{i=1}^{n}x_i a_i, \enspace b = \sum\limits_{i=1}^{n}y_i a_i, \enspace c = \sum\limits_{i=1}^{n}z_i a_i \in I$ beliebig. Es gilt:
+\begin{align*}
+	&a \cdot (b + c) \\
+	= \enspace &\sum_{i=1}^{n}x_i a_i \cdot (\sum_{i=1}^{n}y_i a_i + \sum_{i=1}^{n}z_i a_i) \\
+	= \enspace &(\sum_{i=1}^{n}x_i a_i) \cdot (\sum_{i=1}^{n}y_i a_i) + (\sum_{i=1}^{n}x_i a_i) \cdot (\sum_{i=1}^{n}z_i a_i) \\
+	= \enspace &a b + a c.
+\end{align*}
+
+\end{enumerate}
+
+$\df (I,+,\cdot)$ ist Ring \\
+$\df (I,+,\cdot)$ ist Unterring von $R$. \\
+
+Nun soll gezeigt werden, dass $1 \in I \Longleftrightarrow I = R$.
+\begin{enumerate}
+	\item["$\Longrightarrow$":] Sei $I$ Ring mit 1. Es gilt:
+	$$1 \in I \enspace \df \forall a \in \mathbb{Z}: a \cdot 1 \in I \enspace \df I = R.$$
+	
+	\item["$\Longleftarrow$":] Sei $I = R$. Es gilt:
+	$$1 \in R \enspace \df 1 \in I.$$
+
+\end{enumerate}
+
+$\df \forall I \trianglelefteq R: 0 \in I.$ Außerdem ist
+$I$ Unterring von $R$, für den genau dann $1 \in I$ gilt, wenn $I = R$. 
+\QED
+\corr{Punkte Teil b): $2/3,5$}
+
+
+\end{enumerate}
+\corr{$4,5/7$ P}
+
+\bigskip
+
+\corr{Insgesamt $14/20$ Punkten}
+
+
+\bigskip
+
+\corr{korrigiert von Tom Engels am 04.05.2020}
+\end{document}

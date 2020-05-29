@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>120</x>
+      <y>240</y>
+      <w>210</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>_tiere[0]: Tier_
+--
+name = Zebra
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>120</x>
+      <y>320</y>
+      <w>210</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>_tiere[1]: Tier_
+--
+name = Löwe</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>120</x>
+      <y>400</y>
+      <w>210</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>_tiere[2]: Tier_
+--
+name = Fisch</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>120</x>
+      <y>480</y>
+      <w>210</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>_tiere[3]: Tier_
+--
+name = Bär</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>550</x>
+      <y>400</y>
+      <w>210</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>_pflanzen[1]: Pflanze_
+--
+name = Beeren
+description = rot</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>550</x>
+      <y>320</y>
+      <w>210</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>_pflanzen[0]: Pflanze_
+--
+name = Gras
+description = grün</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>320</x>
+      <y>250</y>
+      <w>480</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=-
+r1=pflanzenNahrung[0]</panel_attributes>
+    <additional_attributes>340.0;70.0;340.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>320</x>
+      <y>280</y>
+      <w>160</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=tierNahrung[0]
+</panel_attributes>
+    <additional_attributes>10.0;10.0;140.0;10.0;140.0;80.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>320</x>
+      <y>460</y>
+      <w>480</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=pflanzenNahrung[0]</panel_attributes>
+    <additional_attributes>340.0;10.0;340.0;70.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>320</x>
+      <y>430</y>
+      <w>160</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=tierNahrung[0]</panel_attributes>
+    <additional_attributes>10.0;10.0;140.0;10.0;140.0;70.0;10.0;70.0</additional_attributes>
+  </element>
+</diagram>

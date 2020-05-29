@@ -1,0 +1,145 @@
+\documentclass[12pt]{article}
+
+\usepackage{a4}  
+\usepackage{color}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{geometry}
+
+\newgeometry{
+  left=3cm,
+  right=3cm,
+  top=4cm,
+  bottom=3cm,
+  bindingoffset=5mm
+}
+\allowdisplaybreaks
+
+\newcommand{\QED}{\begin{flushright} $\square$ \end{flushright}}
+\newcommand{\df}{\Longrightarrow \enspace}
+
+\begin{document}
+
+\section*{Abgabe Ananlysis IIa, Blatt 01}
+Studierende(r): Weerts, Steffen, steffen.weerts@uni-oldenburg.de \\
+Tutorium: T8
+\subsection*{Aufgabe 1}
+Berechnen Sie folgende unbestimmte Integrale:
+\begin{enumerate}
+	\item[(a)] Beh.: ${\displaystyle \int (x-1)^2e^{-x} dx \; = \; -e^{-x}(x^2+1) + C }$. \\
+	Es gilt:
+	\begin{align*}
+		&\int (x-1)^2e^{-x} dx \\
+		= \enspace &-e^{-x}(x-1)^2 - \int 2(x-1)(-e^{-x}) dx \\
+		= \enspace &-e^{-x}(x-1)^2 - \int (-2)(x-1)e^{-x} dx \\
+		= \enspace &-e^{-x}(x-1)^2 + 2 \cdot \int (x-1)e^{-x} dx \\
+		= \enspace &-e^{-x}(x-1)^2 + \left((x-1)(-e^{-x}) - \int (-e^{-x}) dx \right) \\
+		= \enspace &-e^{-x}(x-1)^2 - 2(x-1)e^{-x} + 2 \cdot \int e^{-x} dx \\
+		= \enspace &-e^{-x}(x-1)^2 - 2(x-1)e^{-x} + 2(-e^{-x}) + C \\
+		= \enspace &-e^{-x}(x-1)^2 - 2xe^{-x} + 2e^{-x} - 2e^{-x} + C \\
+		= \enspace &-e^{-x}(x^2-2x+1) - 2xe^{-x} + C \\
+		= \enspace &-e^{-x}x^2 + 2e^{-x}x - e^{-x} - 2xe^{-x} + C \\
+		= \enspace &-e^{-x}x^2 - e^{-x} + C \\
+		= \enspace &-e^{-x}(x^2 + 1) + C.
+	\end{align*}
+	\QED
+	
+	\item[(b)] Fehlt.
+	
+	\item[(c)] Beh.: ${\displaystyle \int (x+1)^2 \cos(2x) dx \; = \; \frac{1}{2}\left(\sin(2x)\left((x+1)^2 - \frac{1}{2} \right) + \cos(2x)(x+1)\right) + C }$. \\
+	Es gilt:
+	\begin{align*}
+		&\int (x+1)^2\cos(2x) dx \\
+		= \enspace &\frac{1}{2}\sin(2x)(x+1)^2 - \int 2(x+1) \cdot \frac{1}{2} \sin(2x) dx \\
+		= \enspace &\frac{1}{2}\sin(2x)(x+1)^2 - \int (x+1) \cdot \sin(2x) dx 
+	\end{align*}
+	\begin{align*}
+		= \enspace &\frac{1}{2}\sin(2x)(x+1)^2 - (x+1)(-\cos(2x) \cdot \frac{1}{2}) + \int (-\cos(2x) \cdot \frac{1}{2}) dx \\
+		= \enspace &\frac{1}{2}\sin(2x)(x+1)^2 + \frac{1}{2} (x+1)\cos(2x) - \frac{1}{2} \cdot \int \cos(2x) dx \\
+		= \enspace &\frac{1}{2}\sin(2x)(x+1)^2 + \frac{1}{2} \cos(2x)(x+1) - \frac{1}{2} \cdot \frac{1}{2} \sin(2x) + C \\
+		= \enspace &\frac{1}{2}\left(\sin(2x)\left((x+1)^2 - \frac{1}{2} \right) + \cos(2x)(x+1)\right) + C.
+	\end{align*}
+	\QED
+\end{enumerate}
+
+\subsection*{Aufgabe 2}
+Berechnen Sie folgende unbestimmte Integrale:
+\begin{enumerate}
+	\item[(a)] Beh.: ${\displaystyle \int \sqrt{x}\sin\sqrt{x} dx \; = \; 4\sqrt{x} \cdot \sin\sqrt{x} - 2(x-2)\cos\sqrt{x} + C }$. \\
+	Es gilt:
+	\begin{align*}
+		&\int \sqrt{x}\sin\sqrt{x} dx \\
+		= \enspace &\int \sqrt{x} \cdot \sin\sqrt{x} \cdot \frac{\sqrt{x}}{\sqrt{x}} dx \\
+		= \enspace &2 \cdot \int (\sqrt{x})^2 \cdot \sin\sqrt{x} \cdot \frac{1}{2\sqrt{x}} dx \\
+		= \enspace &2 \cdot \int \varphi(x)^2 \cdot \sin\varphi(x) \cdot \varphi'(x) dx \\
+		= \enspace &2 \cdot \int \varphi^2 \cdot \sin\varphi d\varphi \\
+		= \enspace &2 \cdot \left( \varphi^2 \cdot (-\cos\varphi) - \int 2\varphi(-\cos\varphi) d\varphi \right) \\
+		= \enspace &2 \cdot \left(\varphi^2 \cdot (-\cos\varphi) - 2\varphi(-\sin\varphi) + \int 2(-\sin\varphi) d\varphi\right) \\
+		= \enspace &2 \cdot \left(-\cos\varphi \cdot \varphi^2 + 2\varphi \cdot \sin\varphi - 2(-\cos\varphi) \right) + C \\
+		= \enspace &2 \cdot \left(-\cos\varphi \cdot \varphi^2 + 2\varphi \cdot \sin\varphi + 2\cos\varphi\right) + C \\
+		= \enspace &-2x \cdot \cos\sqrt{x} + 4\sqrt{x}\cdot\sin\sqrt{x} + 4\cos\sqrt{x} + C \\
+		= \enspace &4\sqrt{x}\cdot\sin\sqrt{x} + (4-2x) \cdot \cos\sqrt{x} + C \\
+		= \enspace &4\sqrt{x}\cdot\sin\sqrt{x} - 2(x-2) \cdot \cos\sqrt{x} + C.
+	\end{align*}
+	\QED
+	
+	\item[(b)] Beh.: ${\displaystyle \int \frac{\sin\ln(x)}{x} dx \; = \; -\cos\ln(x) + C }$. \\
+	Es gilt:
+	\begin{align*}
+		&\int \frac{\sin\ln(x)}{x} dx \\
+		= \enspace &\int \sin\ln(x) \cdot \frac{1}{x} dx \\
+		= \enspace &\int \sin\varphi(x) \cdot \varphi'(x) dx \\
+		= \enspace &\int \sin\varphi d\varphi \\
+		= \enspace &-\cos\varphi + C \\
+		= \enspace &-\cos\ln(x) + C.
+	\end{align*}
+	\QED
+	
+	\item[(c)] Beh.: ${\displaystyle \int \frac{dx}{e^x + 4e^{-x}} \; = \; -\frac{1}{2} \arctan(\frac{2}{e^x}) + C }$. \\
+	Es gilt:
+	\begin{align*}
+		&\int \frac{dx}{e^x + 4e^{-x}} \\
+		= \enspace &\int \frac{dx}{e^x(1+4e^{-2x})} \\
+		= \enspace &\int \frac{e^{-x}}{1 + 4e^{-2x}} dx \\
+		= \enspace &-\frac{1}{2} \cdot \int \frac{2(-e^{-x})}{1+(2e^{-x})^2} dx \\
+		= \enspace &-\frac{1}{2} \cdot \int \frac{\varphi'(x)}{1+(\varphi(x))^2} dx \\
+		= \enspace &-\frac{1}{2} \cdot \int \frac{1}{1+\varphi^2} d\varphi \\
+		= \enspace &-\frac{1}{2} \cdot \arctan(\varphi) + C \\
+		= \enspace &-\frac{1}{2} \cdot \arctan(2e^{-x}) + C \\
+		= \enspace &-\frac{1}{2} \cdot \arctan\left(\frac{2}{e^x}\right) + C.
+	\end{align*}
+	\QED
+\end{enumerate}
+
+\subsection*{Aufgabe 3}
+Berechnen Sie ${\displaystyle \int \frac{x}{x^3+8} }$. \\
+Es gilt:
+\begin{align*}
+	&\int \frac{x}{x^3+8} dx \\
+	= \enspace &\int \left(\frac{x}{x^3+\frac{288}{36}}\right) dx \\
+	= \enspace &\int \left(\frac{36x}{36x^3 - 72x^2 + 144x + 72x^2 - 144x + 240 +48}\right) dx \\
+	= \enspace &\int \left(\frac{6x^2 + 12x + 12x + 24}{(6x^2-12x+24)(6x + 12)} - \frac{6x^2 - 12x + 24}{(6x^2-12x+24)(6x + 12)}\right) dx \\
+	= \enspace &\int \left(\frac{(x+2)(6x+12)}{(6x^2-12x+24)(6x + 12)} - \frac{6x^2 - 12x + 24}{(6x^2-12x+24)(6x + 12)}\right) dx \\
+	= \enspace &\int \left(\frac{x+2}{6x^2-12x+24} - \frac{1}{6x+12}\right) dx \\
+	= \enspace &\frac{1}{6} \left(\int \frac{x+2}{x^2-2x+4} dx - \int \frac{1}{x+2} dx\right) \\
+	= \enspace &\frac{1}{6} \left(\int \left(\frac{x-1}{x^2-2x+4} + \frac{3}{x^2-2x+4}\right) dx - \int \frac{1}{x+2} dx\right) \\
+	= \enspace &\frac{1}{6} \left(\frac{1}{2} \cdot \int \frac{2x-2}{x^2-2x+4} dx + 3 \cdot \int \frac{1}{x^2-2x+4} dx - \int \frac{1}{x+2} dx\right) \\
+	= \enspace &\frac{1}{6} \left(\frac{1}{2} \cdot \int \frac{u'(x)}{u(x)} dx + 3 \cdot \int \frac{1}{x^2-2x+4} dx - \int \frac{1}{x+2} dx\right) \\
+	= \enspace &\frac{1}{6} \left(\frac{1}{2} \cdot \int \frac{1}{u} du + 3 \cdot \int \frac{1}{x^2-2x+4} dx - \int \frac{1}{x+2} dx\right) \\
+	= \enspace &\frac{1}{6} \left(\frac{1}{2} \cdot \int \frac{1}{u} du + 3 \cdot \int \frac{1}{(x-1)^2 + 3} dx - \int \frac{1}{x+2} dx\right) \\
+	= \enspace &\frac{1}{6} \left(\frac{1}{2} \cdot \int \frac{1}{u} du + 3 \cdot \int \frac{1}{v(x)^2 + 3} v'(x) dx - \int \frac{1}{x+2} dx\right) \\
+	= \enspace &\frac{1}{6} \left(\frac{1}{2} \cdot \int \frac{1}{u} du + 3 \cdot \int \frac{1}{v^2 + 3} dv - \int \frac{1}{x+2} dx\right) \\
+	= \enspace &\frac{1}{6} \left(\frac{1}{2} \cdot \int \frac{1}{u} du + 3 \cdot \int \frac{1}{3(\frac{v^2}{3} + 1)} dv - \int \frac{1}{x+2} dx\right) \\
+	= \enspace &\frac{1}{6} \left(\frac{1}{2} \cdot \int \frac{1}{u} du + \int \frac{1}{(\frac{v}{\sqrt{3}})^2 + 1} dv - \int \frac{1}{x+2} dx\right) \\
+	= \enspace &\frac{1}{6} \left(\frac{1}{2} \cdot \int \frac{1}{u} du + \sqrt{3} \cdot \int \frac{1}{(\frac{v}{\sqrt{3}})^2 + 1} \cdot \frac{1}{\sqrt{3}} dv - \int \frac{1}{x+2} dx\right) \\
+	= \enspace &\frac{1}{6} \left(\frac{1}{2} \cdot \int \frac{1}{u} du + \sqrt{3} \cdot \int \frac{1}{(w(v))^2 + 1} \cdot w'(v) dv - \int \frac{1}{x+2} dx\right) \\
+	= \enspace &\frac{1}{6} \left(\frac{1}{2} \cdot \int \frac{1}{u} du + \sqrt{3} \cdot \int \frac{1}{w^2 + 1} dw - \int \frac{1}{x+2} dx\right) \\
+	= \enspace &\frac{1}{6} \left(\frac{1}{2} \cdot \ln\mid u \mid + \sqrt{3} \cdot \arctan(w) - \ln\mid x+2 \mid \right) + C\\
+	= \enspace &\frac{1}{6} \left( \frac{1}{2} \cdot ln\mid x^2-2x+4\mid + \sqrt{3} \cdot \arctan(\frac{v}{\sqrt{3}}) - \ln\mid x+2\mid\right) + C \\
+	= \enspace &\frac{1}{6} \left(\frac{1}{2} \cdot \ln\mid x^2-2x+4\mid + \sqrt{3} \cdot \arctan\left(\frac{x-1}{\sqrt{3}}\right) - ln\mid x+2\mid \right) + C.
+\end{align*}
+\QED
+
+\subsection*{Aufgabe 4}
+Fehlt.
+\end{document}

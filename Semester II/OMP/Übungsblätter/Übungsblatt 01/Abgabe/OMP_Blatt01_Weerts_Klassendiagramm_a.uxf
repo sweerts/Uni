@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <help_text/>
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>60</y>
+      <w>280</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>*Pflanze*
+--
+- name: String
+- description: String
+--
++ Pflanze(name: String)
++ Pflanze(name: String, description: String)
++ setName(name: String)
++ getName(): String
++ setDescription(description: String)
++ getDescription(): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>360</x>
+      <y>60</y>
+      <w>370</w>
+      <h>250</h>
+    </coordinates>
+    <panel_attributes>*Tier*
+--
+- name: String
+--
++ Tier(name: String)
++ addPflanzenNahrung(pflanze: Pflanze)
++ addTierNahrung(tier: Tier)
++ isPflanzenfresser(): boolean
++ isFleischfresser(): boolean
++ isAllesfresser(): boolean
++ setName(name: String)
++ getName(): String
++ setPflanzenNahrung(pflanzenNahrung: Pflanze[0..10])
++ getPflanzenNahrung(): Pflanze[0..10]
++ setTierNahrung(tierNahrung: Tier[0..10])
++ getTierNahrung(): Tier[0..10]</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>150</x>
+      <y>240</y>
+      <w>290</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..10
+m2=0..*
+r1=- pflanzenNahrung</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;130.0;250.0;130.0;250.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>470</x>
+      <y>300</y>
+      <w>260</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+r1=- tierNahrung
+m1=0..10
+m2=0..*</panel_attributes>
+    <additional_attributes>160.0;10.0;160.0;70.0;10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>

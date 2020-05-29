@@ -1,0 +1,109 @@
+\documentclass[12pt]{article}
+
+\usepackage{a4}  
+\usepackage{color}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage{faktor}
+ 
+\newcommand{\corr}[1]{\textcolor{red}{#1}}
+\newcommand{\QED}{\begin{flushright} $\square$ \end{flushright}}
+\newcommand{\df}{\enspace\Longrightarrow\enspace}
+\newcommand{\koeff}[2]{\begin{pmatrix}#1 \\ #2\end{pmatrix}}
+\newcommand{\vek}[2]{\begin{pmatrix}#1 \\ $\vdots$ \\ #2\end{pmatrix}}
+\newcommand{\Char}{\operatorname{char}}
+\newcommand{\isIdeal}{\trianglelefteq}
+\newcommand{\ann}{\operatorname{ann}}
+\newcommand{\ideal}[1]{\langle#1\rangle}
+\newcommand{\N}{\operatorname{N}}
+\newcommand{\enorm}{\operatorname{d}}
+\newcommand{\gdw}{\;\Longleftrightarrow\;}
+\newcommand{\abs}[1]{\vert #1\vert}
+\newcommand{\ggT}{\operatorname{ggT}}
+\newcommand{\kgV}{\operatorname{kgV}}
+\newcommand{\f}{\operatorname{f}}
+\renewcommand{\d}{\operatorname{d}}
+
+\newcommand{\aal}{a_{\alpha}}
+\newcommand{\ab}{a_{\beta}}
+\newcommand{\ba}{b_{\alpha}}
+\newcommand{\bb}{b_{\beta}}
+
+
+
+\begin{document}
+\section*{Abgabe Analysis IIa, Blatt 04}
+
+Studierende(r): Weerts, Steffen, steffen.weerts@uni-oldenburg.de
+
+\subsection*{Aufgabe 1}
+\begin{enumerate}
+	\item[(a)] Sei $f:\mathbb{R}^2\rightarrow\mathbb{R},\koeff{x}{y}\mapsto x$. \\
+	Zu zeigen: $M\subset\mathbb{R}^2$ offen $\df\f(M)\subset\mathbb{R}$ offen. \\
+	Es gilt:
+	\begin{align*}
+		&M\subset\mathbb{R}^2\text{ offen} \\
+		\df &\forall x\in M\exists\varepsilon>0:B_{\epsilon}(x)\subset M \\
+		\df &\forall x\in M\exists\varepsilon>0:\left\{ x\in\mathbb{R}^2:\d(x,a)<\varepsilon\right\} \\	
+		\df &\forall x\in M\exists\varepsilon>0:\left\{ x\in\mathbb{R}^2:\sqrt{(x_1-a_1)^2+(x_2-a_2)^2}<\varepsilon\right\}
+	\end{align*}
+	Außerdem gilt: $$\varepsilon>\sqrt{(x_1-a_1)^2+(x_2-a_2)^2}>\sqrt{(x_1-a_1)^2}=\vert x_1-a_1\vert$$
+	Also folgt:
+	\begin{align*}
+		&\forall x\in M\exists\varepsilon>0:\left\{a\in\mathbb{R}^2:\vert x_1-a_1\vert<\varepsilon\right\} \\
+		\df &\forall \koeff{x_1}{x_2}\in M\exists\varepsilon>0:\left\{\koeff{a_1}{a_2}\in\mathbb{R}^2:\vert x_1-a_1\vert<\varepsilon\right\} \\
+		\df &\forall\f(\koeff{x_1}{x_2})\in\f(M)\exists\varepsilon>0:\left\{\f(\koeff{a_1}{a_2})\in\mathbb{R}:\vert x_1-a_1\vert<\varepsilon\right\} \\
+		\df &\forall\f(\koeff{x_1}{x_2})\in\f(M)\exists\varepsilon>0:B_{\varepsilon}\left(\f\left(\koeff{a_1}{a_2}\right)\right)<\varepsilon \\
+		\df &\f(M)\text{ ist offen in }\mathbb{R}.
+	\end{align*}
+	\QED
+	
+	\item[(b)] Sei $M\subset\mathbb{R}^2$ abgeschlossen. \\
+	Zu zeigen: $\f(M)\subset\mathbb{R}$ abgeschlossen. \\
+	Es gilt:
+	\begin{align*}
+		&M\subset\mathbb{R}^2\text{ abgeschlossen} \\
+		\df &\mathbb{R}^2\setminus M\text{ offen} \\
+		\overset{(a)}{\df} &\mathbb{R}\setminus\f(M)\text{ offen in }\mathbb{R} \\
+		\df &\f(M)\text{ abgeschlossen in }\mathbb{R}.
+	\end{align*}
+	\QED
+\end{enumerate}
+
+\subsection*{Aufgabe 2}
+\begin{enumerate}
+	\item[(a)] Sei $f_i:\mathbb{R}^n\rightarrow\mathbb{R}, f_i(x_1,\cdots,x_n)=x_i$ für $i=1,\cdots,n$. \\
+	Zu zeigen: $f$ stetig. \\
+	Es gilt:
+	\begin{align*}
+		&\vek{x_{n_1}}{x_{n_n}}\rightarrow\vek{a_1}{a_n} \\
+		\df &x_{n_1}\rightarrow a_y
+	\end{align*}
+	
+	\item[(b)] Fehlt.
+\end{enumerate}
+
+\subsection*{Aufgabe 3}
+\begin{enumerate}
+	\item[(a)] Fehlt.
+	
+	\item[(b)] Fehlt.
+	
+	\item[(c)] Fehlt.
+\end{enumerate}
+
+\subsection*{Aufgabe 4}
+\begin{enumerate}
+	\item[(a)] Fehlt.
+	
+	\item[(b)] Fehlt.
+\end{enumerate}
+
+
+
+
+\bigskip
+
+\corr{korrigiert von \hspace{1cm} am }
+\end{document}

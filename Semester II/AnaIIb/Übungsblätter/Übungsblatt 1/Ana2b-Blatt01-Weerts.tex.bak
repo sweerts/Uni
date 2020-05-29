@@ -1,0 +1,100 @@
+\documentclass[12pt]{article}
+
+\usepackage{a4}  
+\usepackage{color}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage{faktor}
+ 
+\newcommand{\QED}{\begin{flushright} $\square$ \end{flushright}}
+\newcommand{\df}{\enspace\Longrightarrow\enspace}
+\newcommand{\koeff}[2]{\begin{pmatrix}#1 \\ #2\end{pmatrix}}
+\newcommand{\Char}{\operatorname{char}}
+\newcommand{\isIdeal}{\trianglelefteq}
+\newcommand{\ann}{\operatorname{ann}}
+\newcommand{\ideal}[1]{\langle#1\rangle}
+\newcommand{\gdw}{\Leftrightarrow}
+\newcommand{\klamm}[4]{\left\{\begin{array}{cc} 
+                #1,&\text{falls }#2, \\
+                #3,&\text{falls }#4. \\
+                \end{array} \right.}
+
+
+
+\begin{document}
+\section*{Abgabe Analysis IIa, Blatt 01}
+
+Studierende(r): Weerts, Steffen, steffen.weerts@uni-oldenburg.de
+
+\subsection*{Aufgabe 1}
+ Sei $M\neq\emptyset$ und $d:M\times M\rightarrow\mathbb{R}$,
+	$$d(x,y)=\klamm{1}{x\neq y}{0}{x=y}$$
+\begin{enumerate}
+	\item[(i)] Zu zeigen: $d$ ist Metrik.
+	\begin{enumerate}
+		\item[(M1)] Zu zeigen: $d(x,y)\geq0$ und $d(x,y)=0\gdw x=y$. \\
+		Es gilt:
+		\begin{align*}
+			&\forall x,y\in M:d(x,y)=0\text{ oder }d(x,y)=1 \\
+			\df &\forall x,y\in M:d(x,y)\geq0.
+		\end{align*}
+		
+		\item[(M2)] Zu zeigen: $d(x,y)=d(y,x)$. \\
+		Es gilt:
+		\begin{align*}
+			d(x,y)=&\klamm{1}{x\neq y}{0}{x=y} \\
+			=&\klamm{1}{y\neq x}{0}{y=x} \\
+			=&\,d(y,x).
+		\end{align*}
+		
+		\item[(M3)] Zu zeigen: $d(x,z)\leq d(x,y)+d(y,z)$. \\
+		Sei oBdA $x\neq z$ (ansonsten gilt $d(x,z)=0$ und nach (M1) gilt $d(x,y)+d(y,z)\geq0$). Es gilt:
+		$$d(x,z)=1\leq \begin{array}{cc}1+d(y,z)\\d(x,y)+1\\\end{array}=d(x,y)+d(y,z).$$
+	\end{enumerate}
+	Da (M1), (M2) und (M3) erfüllt sind, ist $d$ eine Metrik.
+	\QED
+	
+	\item[(ii)] Sei $x_0\in M$. Es gilt:
+	$$B_{\frac{1}{3}}={x_0},\text{ da }\forall x\in M,x\neq x_0:d(x_0,x)=1.$$
+	$$B_{13}=M,\text{ da }\forall x\in M:d(x_0,x)\leq 1.$$
+	\QED
+	
+	\item[(iii)] Damit eine Folge in $(M,d)$ konvergent gegen $a$ ist, muss $d(a,x_k)\overset{k\rightarrow\infty}{\longrightarrow}0$, d. h. $x_k\overset{k\rightarrow\infty}{\longrightarrow}a$. Da $d(x,y)=1\forall x,y\in M, x\neq y,$ müssen alle Folgenglieder ab einem bestimmten Index $N$ gleich dem Mittelpunkt $a$ sein, d. h.: \\
+	\begin{align*}
+		&\exists N\in\mathbb{N}\forall n\geq N: x_n=a \\
+		\df &\exists N\in\mathbb{N}\forall n\geq N:d(a,x_n)=0 \\
+		\df &\forall\varepsilon\geq0\exists N\in\mathbb{N}\forall n\geq N:d(x_n,a)\leq\varepsilon.
+	\end{align*}
+	\QED
+	
+	\item[(iv)] Sei $U\subset X, i\in U$ beliebig. \\
+	Sei $\varepsilon=\frac{1}{2}$. Es gilt:
+	\begin{align*}
+		B_{\varepsilon}(x)=&\{a\in X:d(x,a)<\varepsilon\} \\
+		=&\{a\in X:d(x,a)<\frac{1}{2}\} \\
+		=&\{x\},\quad\quad\text{(da }d(x,a)<1\Leftrightarrow x=a\text) \\
+		\subset&\,U.
+	\end{align*}
+	Daraus folgt: $$\forall x\in X\exists\,\varepsilon>0:B_{\varepsilon}\subset U.$$
+	\QED
+\end{enumerate}
+
+\subsection*{Aufgabe 2}
+\begin{enumerate}
+	\item[(a)] Fehlt.
+	
+	\item[(b)] Fehlt.
+\end{enumerate}
+
+\subsection*{Aufgabe 3}
+\begin{enumerate}
+	\item[(a)] Fehlt.
+	
+	\item[(b)] Fehlt.
+\end{enumerate}
+
+\subsection*{Aufgabe 4}
+Fehlt.
+
+\end{document}

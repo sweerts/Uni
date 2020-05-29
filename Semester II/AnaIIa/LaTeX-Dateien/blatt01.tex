@@ -1,0 +1,309 @@
+\documentclass[oneside]{article}
+
+\usepackage[german]{babel}
+\usepackage[latin1]{inputenc}
+
+%\usepackage{fouriernc}
+ 
+%\usepackage{showkeys}
+ 
+
+
+\hfuzz 2pt
+
+\usepackage{amsmath,amsfonts}
+\usepackage{amsthm}
+
+%\usepackage[mathcal]{euler}
+
+
+\usepackage{url}
+
+
+\newcommand{\dint}{\displaystyle\int}
+
+
+\newcommand{\la}{\langle}
+
+
+\newcommand{\ra}{\rangle}
+
+
+\renewcommand{\Tilde}{\widetilde}
+\renewcommand{\Hat}{\widehat}
+\renewcommand{\Bar}{\overline}
+
+\newcommand{\loc}{\mathrm{loc}}
+
+\newcommand{\TT}{\mathbb{T}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\NN}{\mathbb{N}}
+
+%\newcommand{\la}{\langle}
+%\newcommand{\ra}{\rangle}
+
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cH}{\mathcal{H}}
+\newcommand{\cG}{\mathcal{G}}
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\cK}{\mathcal{K}}
+\newcommand{\cJ}{\mathcal{J}}
+\newcommand{\cV}{\mathcal{V}}
+\newcommand{\cE}{\mathcal{E}}
+\newcommand{\cU}{\mathcal{U}}
+\newcommand{\cS}{\mathcal{S}}
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cF}{\mathcal{F}}
+
+\newcommand{\ELL}{\mathcal{L}}
+
+\DeclareMathOperator{\grad}{Grad}
+
+\renewcommand{\Re}{\mathop{\mathrm{Re}}}
+\renewcommand{\Im}{\mathop{\mathrm{Im}}}
+
+
+%\theoremstyle{theorem}
+
+\renewcommand{\proofname}{\bf Beweis}
+
+\newtheoremstyle{mytheorem}
+  {\topsep}   % ABOVESPACE
+  {\topsep}   % BELOWSPACE
+  {\itshape}  % BODYFONT
+  {}       % INDENT (empty value is the same as 0pt)
+  {\bfseries} % HEADFONT
+  {.}         % HEADPUNCT
+  {5pt plus 1pt minus 1pt} % HEADSPACE
+  {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}          % CUSTOM-HEAD-SPEC
+
+%\theoremstyle{plain}
+
+\theoremstyle{mytheorem}
+
+\newtheorem{satz}{Satz}
+\newtheorem*{satz*}{Satz}
+\newtheorem{prop}[satz]{Proposition}
+\newtheorem{lemma}[satz]{Lemma}
+\newtheorem{corol}[satz]{Korollar}
+
+%\theoremstyle{remark}
+
+
+\newtheoremstyle{mydefinition}
+  {\topsep}   % ABOVESPACE
+  {\topsep}   % BELOWSPACE
+  {\normalfont}  % BODYFONT
+  {}       % INDENT (empty value is the same as 0pt)
+  {\bfseries} % HEADFONT
+  {.}         % HEADPUNCT
+  {5pt plus 1pt minus 1pt} % HEADSPACE
+  {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}          % CUSTOM-HEAD-SPEC
+
+
+
+\theoremstyle{mydefinition}
+
+\newtheorem{defin}[satz]{Definition}
+\newtheorem{bsp}[satz]{Beispiel}
+\newtheorem{bmk}[satz]{Bemerkung}
+\newtheorem{ubg}{Übung}
+
+%\numberwithin{theorem}{sectio}
+%\numberwithin{exer}{section}
+%\numberwithin{equation}{section}
+
+\newcommand{\slim}{\mathop{\mathrm{s-lim}}}
+
+\newcommand{\eps}{\varepsilon}
+
+\DeclareMathOperator{\ess}{ess}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\spec}{spec}
+%\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\res}{res}
+\DeclareMathOperator{\ran}{ran}
+\DeclareMathOperator{\Ran}{ran}
+\DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\gr}{gr}
+\DeclareMathOperator{\vol}{vol}
+\DeclareMathOperator{\area}{area}
+
+\newcommand{\specd}{\spec_\mathrm{disc}}
+\newcommand{\spece}{\spec_\mathrm{ess}}
+\newcommand{\specp}{\spec_\mathrm{p}}
+
+\renewcommand{\proofname}{{\bf Proof}}
+
+%\parindent 0pt
+%\parskip 3pt
+%
+\sloppy
+
+\textwidth 150mm
+\textheight 230mm
+\oddsidemargin 4.6mm
+\topmargin -5.4mm
+
+\begin{document}
+
+
+\pagestyle{empty}
+
+\begin{center}
+
+\Large\bf
+
+SS 2020 $\bullet$ Analysis IIa $\bullet$ Übungsaufgaben
+
+\bigskip
+
+Blatt 1
+
+\bigskip
+
+{\normalsize\normalfont {\bf Abgabefrist:} bis zum 30.04.2020 um 10 Uhr (als PDF-Datei an den zuständigen Tutor)}
+
+\end{center}
+
+\bigskip
+
+\bigskip
+
+
+{\large
+
+{\bf Aufgabe 1} (2+2+2 Punkte)
+
+\medskip
+
+ Berechnen Sie folgende unbestimmte Integrale:
+\[
+\text{(a) }
+\int (x-1)^2 e^{-x}\, dx,
+ \quad
+\text{(b) } \int \sqrt{x^2-9}\, dx,
+ \quad
+\text{(c) }\int (x+1)^2 \cos (2x) \, dx.
+\]
+
+
+\bigskip
+
+\bigskip
+
+
+{\bf Aufgabe 2} (2+1+2 Punkte) 
+
+\medskip
+
+Berechnen Sie folgende unbestimmte Integrale:
+\[
+\text{(a) }
+\int \sqrt{x} \sin \sqrt x\, dx, \quad \text{(b) }\int \dfrac{\sin \ln x}{x}\, dx,
+ \quad \text{(c) }\dint \dfrac{dx}{e^x + 4e^{-x}}.
+\]
+
+\bigskip
+
+\bigskip
+
+
+{\bf Aufgabe 3} (5 Punkte)
+
+\medskip
+
+Berechnen Sie $\dint \dfrac{x}{x^3+8}\, dx$.
+
+
+\bigskip
+
+\bigskip
+
+{\bf Aufgabe 4} (4 Punkte)
+
+\medskip
+
+Berechnen Sie $\dint \dfrac{dx}{2+\sin x}$.
+}%\large
+
+\newpage
+
+\begin{center}
+
+\large\bf Präsenzaufgaben
+
+\end{center}
+
+\bigskip
+
+\noindent{\bf A.} Sei $a>0$.  Berechnen Sie die Ableitungen folgender Funktionen:
+\[
+x\mapsto \arctan\dfrac{x}{a}, \quad x\mapsto \arcsin \dfrac{x}{a}, \quad x\mapsto \ln \Big|\dfrac{x-a}{x+a}\Big|,
+\quad
+x\mapsto \ln \big(x+\sqrt{x^2\pm a^2}\big).
+\]
+und leiten Sie folgende unbestimmte Integrale her:
+\[
+\int \dfrac{dx}{\sqrt{x^2\pm a^2}}, \quad \int \dfrac{dx}{\sqrt{a^2-x^2}}, \quad \int \dfrac{dx}{x^2\pm a^2}.
+\]
+
+\bigskip
+
+\noindent{\bf B.} Berechnen Sie folgende unbestimmte Integrale:
+
+\begin{tabular}{ll}
+\begin{minipage}{60mm}\begin{enumerate}
+\item $\dint (x+1)(x-2)\, dx$,
+\item $\dint \dfrac{dx}{x^2+4x+5}$,
+\item $\dint x^2\cos x\, dx$,
+\item $\dint x^2 e^{-3x}\, dx$,
+\item $\dint x^3 \ln x\, dx$,
+\item $\dint x \arctan x\, dx$,
+\item $\dint \sqrt{1-x^2}\, dx$,
+\item $\dint \sqrt{x^2+4}\, dx$,
+\item $\dint e^x \sin x\, dx$,
+\end{enumerate}
+\end{minipage}
+&
+\begin{minipage}{60mm}
+\begin{enumerate}
+\setcounter{enumi}{9}
+\item $\dint e^{\sqrt x}\, dx$,
+\item $\dint \sin\sqrt x\, dx$,
+\item $\dint \dfrac{1}{(x+1)(x-2)}\, dx$,
+\item $\dint \dfrac{1}{x^3-1}$,
+\item $\dint \dfrac{x}{x^4-1}$,
+\item $\dint \dfrac{dx}{(e^x+1)^2}$,
+\item $\dint \sin^2 x\, dx$,
+\item $\dint \cos^4 (2x)\, dx$,
+\item $\dint x\sin^2 x \, dx$.
+\end{enumerate}
+\end{minipage}
+\end{tabular}
+
+\bigskip
+
+\noindent {\bf C.} Seien $P,Q$ Polynome von zwei Variablen und $R(x,y)=P(x,y)/Q(x,y)$. Wir möchten zeigen, dass
+$\dint R(\cos x,\sin x)\, dx$ immer eine elementare Funktion ist. Dafür werden wir die Substitution $x=2 \arctan t$ nutzen.
+
+\begin{enumerate}
+\item Beweisen Sie die Identitäten $\cos x= \dfrac{1-t^2}{1+t^2}$ und $\sin x=\dfrac{2t}{1+t^2}$.
+\item Leiten Sie her, dass es eine rationale Funktion $t\mapsto r(t)$ existiert mit
+\[
+\int R(\cos x,\sin x)\, dx = \int r(t)\, dt |_{t=\tan\frac{x}{2}}.
+\]
+\item Leiten Sie her, dass $\dint R(\cos x,\sin x)\, dx$ eine elementare Funktion ist.
+
+\item Berechnen Sie $\dint \dfrac{dx}{\cos x+\sin x}$.
+\end{enumerate}
+
+
+\end{document}

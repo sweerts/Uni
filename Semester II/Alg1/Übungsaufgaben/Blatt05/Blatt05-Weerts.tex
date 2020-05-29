@@ -1,0 +1,202 @@
+\documentclass[12pt]{article}
+
+\usepackage{a4}  
+\usepackage{color}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage{faktor}
+ 
+\newcommand{\corr}[1]{\textcolor{red}{#1}}
+\newcommand{\QED}{\begin{flushright} $\square$ \end{flushright}}
+\newcommand{\df}{\enspace\Longrightarrow\enspace}
+\newcommand{\koeff}[2]{\begin{pmatrix}#1 \\ #2\end{pmatrix}}
+\newcommand{\Char}{\operatorname{char}}
+\newcommand{\isIdeal}{\trianglelefteq}
+\newcommand{\ann}{\operatorname{ann}}
+\newcommand{\ideal}[1]{\langle#1\rangle}
+\newcommand{\N}{\operatorname{N}}
+\newcommand{\enorm}{\operatorname{d}}
+\newcommand{\gdw}{\;\Longleftrightarrow\;}
+\newcommand{\abs}[1]{\vert #1\vert}
+\newcommand{\ggT}{\operatorname{ggT}}
+\newcommand{\kgV}{\operatorname{kgV}}
+
+\newcommand{\aal}{a_{\alpha}}
+\newcommand{\ab}{a_{\beta}}
+\newcommand{\ba}{b_{\alpha}}
+\newcommand{\bb}{b_{\beta}}
+
+
+
+\begin{document}
+\section*{Abgabe Algebra 1, Blatt 05}
+
+Studierende(r): Weerts, Steffen, steffen.weerts@uni-oldenburg.de
+
+\subsection*{Aufgabe 5.1}
+\begin{enumerate}
+	\item[(a)] Sei $R$ faktorieller Ring und sei $P\subset R$ ein Vertretersystem der Assoziiertenklassen aller Primelemente von $R$. \\
+	Zu zeigen: $\forall a,b\in R\setminus\{0\}:b\mid a \gdw \upsilon_p(b)\leq\upsilon_p(a)$ für alle $p\in P$. \\
+	\begin{enumerate}
+		\item["$\Longrightarrow$"] Seien $a,b\in R\setminus\{0\}$ mit $b\mid a$. Es gilt:
+		\begin{align*}
+			&b\mid a \\
+			\df &\text{Es existieren Primfakorzerlegungen für $a$ und $b$,} \\
+			&\text{sodass }a=\varepsilon(a)\cdot\prod_{p\in P}p^{\upsilon_p(a)},b=\varepsilon(b)\cdot\prod_{p\in P}p^{\upsilon_p(b)} \\
+			\df &\varepsilon(b)\cdot\prod_{p\in P}p^{\upsilon_p(b)} \mid \varepsilon(a)\cdot\prod_{p\in P}p^{\upsilon_p(a)} \\
+			\df &\prod_{p\in P}p^{\upsilon_p(b)} \mid \prod_{p\in P}p^{\upsilon_p(a)} \\
+			\df &\prod_{p\in P}p^{0} \mid \prod_{p\in P}p^{\upsilon_p(a)-\upsilon_p(b)} \\
+			\df &\forall p\in P:\upsilon_p(a)-\upsilon_p(b)\geq 0 \\
+			\df &\forall p\in P:\upsilon_p(a)\geq\upsilon_p(b).
+		\end{align*}
+		
+		\item["$\Longleftarrow$"] Sei $\upsilon_p(a)\geq\upsilon_p(b)$ für alle $p\in P$. \\
+		Es gilt:
+		\begin{align*}
+			&\forall p\in P:\upsilon_p(a)\geq\upsilon_p(b) \\
+			\df &b=\varepsilon(b)\cdot\prod_{p\in P}p^{\upsilon_p(b)}=\varepsilon(b)\cdot\prod_{p\in P}p^{\min\{\upsilon_p(b),\upsilon_p(a)\}}=g,
+		\end{align*}
+		wobei $g$ ein größter gemeinsamer Teiler von $a$ und $b$ ist.
+		Also gilt: $$g\mid a \df b\mid a.$$
+		\QED
+	\end{enumerate}
+	
+	\item[(b)] Sei $R$ faktorieller Ring, $P\subset R$ Repräsentantensystem der Assoziiertenklassen aller Primelemente von $R$. \\
+	Seien $$d:=\prod_{p\in P}p^{\min\{\upsilon_p(a),\upsilon_p(b)\}}\quad\text{und}\quad k:=\prod_{p\in P}p^{\max\{\upsilon_p(a),\upsilon_p(b)\}}.$$
+	\begin{enumerate}
+		\item[(1)] Zu zeigen: $d$ ist ein größter gemeinsamer Teiler von $a$ und $b$. \\
+		Seien $a,b\in R\setminus\{0\}$. Es gilt:
+		$$d=\left.\prod_{p\in P}p^{\min\{\upsilon_p(a),\upsilon_p(b)\}} \quad\right\vert\quad \prod_{p\in P}p^{\upsilon_p(a)}=a$$
+		Außerdem gilt:
+		$$d=\left.\prod_{p\in P}p^{\min\{\upsilon_p(a),\upsilon_p(b)\}} \quad\right\vert\quad \prod_{p\in P}p^{\upsilon_p(b)}=b$$
+		Sei $c\in R\setminus\{0\}$ mit $c\mid a$ und $c\mid b$. \\
+		Zu zeigen: $c\mid d$. Es gilt:
+		\begin{align*}
+			&c=\varepsilon(c)\cdot\prod_{p\in P}p^{\upsilon_p(c)}\;\text{ mit }\upsilon_p(c)\leq\upsilon_p(a)\;\text{ und }\;\upsilon_p(c)\leq\upsilon_p(b) \\
+			\df &\upsilon_p(c)\leq\min\{\upsilon_p(a),\upsilon_p(b)\}\quad\forall p\in P \\
+			\df &c\mid d.
+		\end{align*}
+		
+		\item[(2)] Zu zeigen: $k$ ist ein kleinstes gemeinsames Vielfaches von $a$ und $b$. \\
+		Seien $a,b\in R\setminus\{0\}$. Es gilt:
+		$$a=\left.\prod_{p\in P}p^{\upsilon_p(a)} \quad\right\vert\quad \prod_{p\in P}p^{\max\{\upsilon_p(a),\upsilon_p(b)\}} = k.$$
+		Außerdem gilt:
+		$$b=\left.\prod_{p\in P}p^{\upsilon_p(b)} \quad\right\vert\quad \prod_{p\in P}p^{\max\{\upsilon_p(a),\upsilon_p(b)\}} = k.$$
+		Sei $f\in R\setminus\{0\}$ mit $a\mid f$ und $b\mid f$. \\
+		Zu zeigen: $k\mid f$. Es gilt: 
+		\begin{align*}
+			&a\mid f\text{ und }b\mid f \\
+			\df &\upsilon_p(f)\geq\upsilon_p(a)\text{ und }\upsilon_p(f)\geq\upsilon_p(b) \\
+			\df &\upsilon_p(f)\geq\max\{\upsilon_p(a),\upsilon_p(b)\} \\
+			\df &k=\varepsilon(k)\cdot\prod_{p\in P}p^{\max\{\upsilon_p(a),\upsilon_p(b)\}} \quad\mid\quad \varepsilon(f)\cdot\prod_{p\in P}p^{\upsilon_p(f)}=f \\
+			\df &k\text{ ist ein kleinstes gemeinsames Vielfaches von $a$ und $b$}.
+		\end{align*}
+		Ferner ist zu zeigen: $kd\sim db$, d. h. $\exists x\in R^*:kdc=db$. Es gilt:
+		\begin{align*}
+			kd =& \left(\varepsilon(k)\cdot\prod_{p\in P}p^{\max\{\upsilon_p(a),\upsilon_p(b)\}}\right)\cdot\left(\varepsilon(d)\cdot\prod_{p\in P}p^{\min\{\upsilon_p(a),\upsilon_p(b)\}}\right) \\
+			=& \varepsilon(k)\varepsilon(d)\cdot\prod_{p\in P}p^{\max\{\upsilon_p(a),\upsilon_p(b)\}+\min\{\upsilon_p(a),\upsilon_p(b)\}} \\
+			=& \varepsilon(k)\cdot\varepsilon(d)\cdot\prod_{p\in P}p^{\upsilon_p(a)+\upsilon_p(b)} \\
+			=& \varepsilon(k)\cdot\varepsilon(d)\cdot\prod_{p\in P}p^{\upsilon_p(a)}\cdot\prod_{p\in P}p^{\upsilon_p(b)} \\
+			=& \varepsilon(k)\cdot\varepsilon(d)\cdot ab
+		\end{align*}
+		$$\df \frac{kd}{\varepsilon(k)\varepsilon(d)}=kd\cdot c=ab.$$
+		\QED
+	\end{enumerate}
+\end{enumerate}
+
+\subsection*{Aufgabe 5.2}
+\begin{enumerate}
+	\item[(a)] Sei $n\in\mathbb{N},n\geq 2$ und sei $R:=\faktor{\mathbb{Z}}{n\mathbb{Z}}$. \\
+	Seien $f,g\in R[t], f:=t^2+[2]_nt+[1]_n, g:=[3]_nt^3+[6]_nt^2+[33]_nt+[15]_n$. \\
+	Zu zeigen: $f\mid g$ für $n\in\{3,5,15\}$. Es gilt:
+	$$f\mid g \gdw \exists h\in R[t]:f\cdot h=g.$$
+	Da $\deg(g)-\deg(f)=1$ für $n\neq 3$ gilt, gilt $f\mid g$ nur dann, wenn $[15]_n=[0]_n$, da ansonsten kein $h\in R[t]$ existiert, sodass $f\cdot h=g$.
+	 Es gilt:
+	 \begin{align*}
+	 	&[15]_n=[0]_n \gdw n\mid 15 \\
+	 	\df &n\in\{3,5,15\}.
+	 \end{align*}
+	 Für $n\notin\{3,5,15\}$ gilt: $f\nmid g$.
+	 Betrachte nun die einzelnen Fälle:
+	 \begin{enumerate}
+	 	\item[\underline{$n=3$}] Es gilt:
+	 	$$f=t^2+[2]_3t+[1]_3 \;\mid\; [0]_3=[3]_3t^3+[6]_3t^2+[33]_3t+[15]_3=g$$
+	 	
+	 	\item[\underline{$n=5$}] Es gilt:
+	 	$$f=t^2+[2]_5t+[1]_5 \;\mid\; [3]_5t^3+[1]_5t^2+[3]_5t=[3]_5t^3+[6]_5t^2+[33]_5t+[15]_5=g$$
+	 	
+	 	\item[\underline{$n=15$}] Es gilt:
+	 	$$f=t^2+[2]_{15}t+[1]_{15} \;\mid\; [3]_{15}t^3+[6]_{15}t^2+[3]_{15}t=[3]_{15}t^3+[6]_{15}t^2+[33]_{15}t+[15]_{15}=g$$
+	 \end{enumerate}
+	 Insgesamt ergibt sich, dass $f\mid g$ genau dann gilt, wenn $n\in\{3,5,15\}$ gilt.
+	 \QED
+	
+	\item[(b)] Sei $x:=2154878968\in\mathbb{Z}$. 
+	Zu zeigen: $x$ ist keine Quadratzahl. Es gilt:
+	\begin{align*}
+		2154878968 =& 2^3\cdot 269359871 \\
+		=& 2^3\cdot 11\cdot 24487261 \\
+		=& 2^3\cdot 11\cdot 71\cdot 344891 \\
+		=& 2^3\cdot 11\cdot 71\cdot 193.
+	\end{align*}
+	Da nicht alle Primfaktoren einen geraden Exponenten haben, kann man sie nicht so auseinanderziehen, dass jeweils die Hälfte der gleichen Primfaktoren zu einem Faktor gehört, d. h. es gibt keine Zerlegung, sodass:
+	$$x=\prod_{p\in P}p^{\upsilon_p(x)}=\left(\prod_{p\in P}p^{\frac{\upsilon_p(x)}{2}}\right)\cdot\left(\prod_{p\in P}p^{\frac{\upsilon_p(x)}{2}}\right)=\left(\prod_{p\in P}p^{\frac{\upsilon_p(x)}{2}}\right)^2$$
+	Daraus folgt, dass $x$ keine Quadratzahl ist.
+	\QED
+\end{enumerate}
+
+\subsection*{Aufgabe 5.3}
+\begin{enumerate}
+	\item[(a)] Seien $a,b,c\in\mathbb{Z}$ und es gelte $d:=\ggT(a,b)\mid c$. Weiter sei$(x_0,y_0)\in\mathbb{T}\times\mathbb{Z}$ eine partikuläre Lösung der linearen diophantischen Gleichung $aX+bY=c$. \\
+	Zu zeigen: $\left\{(x_0+k\frac{b}{d},y_0-k\frac{a}{d})\mid k\in\mathbb{Z}\right\}$ sind alle Lösungen der Gleichung $aX+bY=c$. \\
+	\begin{enumerate}
+		\item[(1)] Zu zeigen: $(x_0+k\frac{b}{d},y_0-k\frac{a}{d})$ ist Lösung von $aX+bY=c$. \\
+		Es gilt:
+		\begin{align*}
+			&c=a\left(x_0+k\frac{b}{d}\right)+b\left(y_0-k\frac{a}{d}\right) \\
+			\gdw &c=ax_0+k\frac{ab}{d}+by_0-k\frac{ab}{d} \\
+			\gdw &c=ax_0+by_0.
+		\end{align*}
+		Da $c=ax_0+by_0$ nach Vorraussetzung eine Lösung der Gleichung ist, ist somit auch $(x_0+k\frac{b}{d},y_0-k\frac{a}{d})$ eine Lösung der Gleichung. \\
+		
+		\item[(2)] Sei $(x,y)$ Lösung von $aX+bY=c$. \\
+		Zu zeigen: $(x,y)\in\left\{(x_0+k\frac{b}{d},y_0-k\frac{a}{d})\mid k\in\mathbb{Z}\right\}$. \\
+		Es gilt:
+		\begin{align*}
+			&(I)\; ax+by=c\quad\text{und}\quad (II)\; ax_0+by_0=c \\
+			\overset{(I)-(II)}{\df} &ax+by-ax_0-by_0=c-c \\
+			\df &a(x-x_0)+b(y-y_0)=0 \\
+			\df &a(x-x_0)=-b(y-y_0) \\
+			\df &a(x-x_0)=b(y_0-y) \\
+			\overset{d\mid a,b}{\df} &a(x-x_0)=-b(y-y_0) \\
+			\df &\frac{a}{d}(x-x_0)=\frac{b}{d}(y_0-y) \\
+			\overset{\frac{a}{d}\frac{b}{d} teilerfremd}{\df} \;&\frac{b}{d}\mid(x-x_0) \\
+			\df &\exists k\in\mathbb{Z}:k\frac{b}{d}=x-x_0 \\
+			\df &\exists k\in\mathbb{Z}:x=x_0+k\frac{a}{d}.
+		\end{align*}
+		In $(III)$ einsetzen:
+		\begin{align*}
+			&\frac{a}{d}\cdot z\frac{b}{d}=\frac{b}{d}(y_0-y) \\
+			\df &z\frac{a}{d}=y_0-y \\
+			\df &y=y_0-z\frac{a}{d}.
+		\end{align*}
+		Also ist die Lösung $(x,y)$ in der Menge $\left\{(x_0+k\frac{b}{d},y_0-k\frac{a}{d})\mid k\in\mathbb{Z}\right\}$ enthalten. Daraus folgt, dass die Menge $\left\{(x_0+k\frac{b}{d},y_0-k\frac{a}{d})\mid k\in\mathbb{Z}\right\}$ alle Lösungen der linearen diophantischen Gleichung $aX+bY=c$ enthält.
+	\end{enumerate}
+	\QED
+	
+	\item[(b)] Sei $105X+429Y=21$ eine lineare diophantische Gleichung. \\
+	Zu zeigen: $\left\{(86+143k,-21-35k)\mid k\in\mathbb{Z}\right\}$ enthält alle ganzzahligen Lösungen der Gleichung $105X+429Y=21$. \\
+	Es gilt:
+	$$105\cdot 86+429\cdot (-21)=9030-9009=21.$$
+	Außerdem gilt:
+	$$\ggT(105,429)=\ggT(3\cdot 5\cdot 7,3\cdot 11\cdot 13)=3.$$
+	Nach Aufgabe 5.3 (a) ist $$\left\{(86+k\frac{429}{3},-21-k\frac{105}{3})\mid k\in\mathbb{Z}\right\}=\left\{(86+143k,-21-35k)\mid k\in\mathbb{Z}\right\}$$ die Menge aller Lösungen der linearen diophantischen Gleichung $105X+429Y=21$.
+	\QED
+\end{enumerate}
+
+
+\bigskip
+
+\corr{korrigiert von \hspace{1cm} am }
+\end{document}

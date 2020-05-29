@@ -1,0 +1,205 @@
+\documentclass[12pt]{article}
+
+\usepackage{a4}  
+\usepackage{color}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage{faktor}
+ 
+\newcommand{\corr}[1]{\textcolor{red}{#1}}
+\newcommand{\QED}{\begin{flushright} $\square$ \end{flushright}}
+\newcommand{\df}{\enspace\Longrightarrow\enspace}
+\newcommand{\koeff}[2]{\begin{pmatrix}#1 \\ #2\end{pmatrix}}
+\newcommand{\Char}{\operatorname{char}}
+\newcommand{\isIdeal}{\trianglelefteq}
+\newcommand{\ann}{\operatorname{ann}}
+\newcommand{\ideal}[1]{\langle#1\rangle}
+\newcommand{\N}{\operatorname{N}}
+\newcommand{\enorm}{\operatorname{d}}
+\newcommand{\gdw}{\;\Longleftrightarrow\;}
+\newcommand{\abs}[1]{|\,#1\,|}
+\newcommand{\ggT}{\operatorname{ggT}}
+\newcommand{\kgV}{\operatorname{kgV}}
+
+\newcommand{\aal}{a_{\alpha}}
+\newcommand{\ab}{a_{\beta}}
+\newcommand{\ba}{b_{\alpha}}
+\newcommand{\bb}{b_{\beta}}
+
+
+
+\begin{document}
+\section*{Abgabe Algebra 1, Blatt 04}
+
+Studierende(r): Weerts, Steffen, steffen.weerts@uni-oldenburg.de
+
+\subsection*{Aufgabe 4.1}
+\begin{enumerate}
+	\item[(a)] Sei $R$ euklidischer Ring. \\
+	Zu zeigen: $R$ Hauptidealring. \\
+	Sei $I\isIdeal R$ beliebig. Sei $b\in I\setminus{0}$, sodass $\enorm(b)$ das kleinste Element der Menge $M=\{\enorm(x)\mid x\in I\setminus\{0\}\}\subseteq\mathbb{N}_0$ ist. \\
+	Beh.: $I=\ideal{b}$.
+	\begin{enumerate}
+		\item["$\supseteq$":] Es gilt: $$b\in I\df\ideal{b}\subseteq I.$$
+		
+		\item["$\subseteq$":] Sei $a\in I$ beliebig. \\
+		Da $b\neq 0$ und $R$ euklidischer Ring, gilt:
+		\begin{align*}
+			&\exists q,r\in R: a=qb+r\text{ und }\left(r=0\text{ oder }\enorm(r)<\enorm(b)\right) \\
+			\df &r=a-qb\in I,\text{ da $I$ Ideal, $a\in I$, $b\in I$ und $q\in R$}.
+		\end{align*}
+		Da $\enorm(b)$ das kleinste Element in $M$ ist, gilt: $$r=0\df a=qb\df I=\ideal{b}.$$
+		Daraus folgt, dass jedes Ideal in $R$ Hauptideal ist, also ist $R$ Haupt- idealring.
+		\QED
+	\end{enumerate}
+	
+	\item[(b)] Sei $R$ ein euklidischer Ring und seien $a,b\in R$ mit $b\neq 0$. Sei $d\in R$ ein größter gemeinsamer Teiler von a und b. \\
+	Zu zeigen: $\ideal{a,b}=\ideal{d}$.\\
+	
+	Sei $r_{n+1}$ aus dem euklidischen Algorithmus der Rest, der gleich $0$ ist. \\
+	Aufgrund der induktiven Vorgehensweise des euklidischen Algorithmus lässt sich jedes $r_i, i\in\{1,\cdots,n\}$ als Linearkombination von $a$ und $b$ schreiben, denn es gilt:
+	\begin{align*}
+		r_{-1}=q_{0}r_{0}+r_{1} &\gdw r_{1}=r_{-1}-q_{0}r_{0} \\
+		r_{0}=q_{1}r_{1}+r_{2} &\gdw r_{2}=r_{0}-q_{1}r_{1} \\
+		r_{1}=q_{2}r_{2}+r_{3} &\gdw r_{3}=r_{1}-q_{2}r_{2} \\
+		&\;\;\,\cdots  \\
+		r_{n-2}=q_{n-1}r_{n-1}+r_{n} &\gdw r_{n}=r_{n-2}-q_{n-1}r_{n-1}
+	\end{align*}
+	Durch Einsetzen der Gleichungen $r_i=r_{i-2}-q_{i-1}r_{i-1}\forall i\in\{1,\cdots,n-1\}$ erhält man eine Lösung für $r_n$, die eine Linearkombination von $r_{-1}=a$ und $r_0=b$ ist. \\
+	Da $r_n=:d$ der größte gemeinsame Teiler von $a$ und $b$ ist, sind alle Linearkombinationen von $a$ und $b$ Vielfache von $d$. Daraus folgt $\ideal{a,b}=\ideal{d}$.
+	\QED
+	
+\end{enumerate}
+
+\subsection*{Aufgabe 4.2}
+\begin{enumerate}
+	\item[(a)] Fehlt.
+	
+	\item[(b)] Sei $R=\mathbb{Z}$, $a,b\in\mathbb{Z},b\neq 0$. \\
+	Zu zeigen: $\ggT(a,b)\cdot\kgV(a,b)=\abs{ab}$. \\
+	Es gilt:
+	\begin{align}
+		&\kgV(a,b)\mid ab \nonumber\\
+		\df &\exists c\in\mathbb{Z}:\kgV(a,b)\cdot c=ab \nonumber \\
+		\df &c=\frac{ab}{\kgV(a,b)}
+	\end{align}
+	Außerdem gilt:
+	\begin{align*}
+		&c\cdot \frac{\kgV(a,b)}{b}=a\text{ und }c\cdot \frac{\kgV(a,b)}{a}=b \\
+		\df &c\mid a\text{ und }c\mid b \\
+		\df &c\text{ ist gemeinsamer Teiler von $a$ und $b$}.
+	\end{align*}
+	Sei $d$ eine weiterer gemeinsamer Teiler von $a$ und $b$. \\
+	Zu zeigen: $d\mid c$. \\
+	Es gilt:
+	\begin{align*}
+		&\frac{ab}{d}=a\cdot\frac{b}{d}=\frac{a}{d}\cdot b \\
+		\df &a\mid\frac{ab}{d}\text{ und }b\mid\frac{ab}{d} \\
+		\df &\kgV(a,b)\mid\frac{ab}{d} \\
+		\df &\exists z\in\mathbb{Z}:\kgV(a,b)\cdot z=\frac{ab}{d} \\
+		&\gdw d\cdot\kgV(a,b)\cdot z=ab \\
+		&\overset{(1)}{\gdw} d\cdot\kgV(a,b)\cdot z=c\cdot\kgV(a,b) \\
+		&\gdw d\cdot z=c \\
+		&\gdw d\mid c \\
+		\df &c=\ggT(a,b).
+	\end{align*}
+	Insgesamt ergibt sich also: $$\ggT(a,b)\cdot\kgV(a,b)=ab.$$
+	\QED
+\end{enumerate}
+
+\subsection*{Aufgabe 4.3}
+\begin{enumerate}
+	\item[(a)] 
+	\begin{enumerate}
+		\item[(i)] Sei $\mathbb{Z}[i\sqrt{n}]=\left\lbrack a+ib\sqrt{n}\mid a,b\in\mathbb{Z}\right\rbrack$ Unterring von $\mathbb{C}$. \\
+		Sei $$N:\mathbb{Z}[i\sqrt{n}]\rightarrow\mathbb{N}_0, \quad
+		\alpha:=a+ib\sqrt{n}\mapsto \N(\alpha)=\alpha\bar{\alpha}=a^2+nb^2.$$
+		Zu zeigen: $\forall\alpha,\beta\in\mathbb{Z}[i\sqrt{n}]:\N(\alpha\cdot\beta)=\N(\alpha)\N(\beta).$ \\
+		Seien $\alpha,\beta\in\mathbb{Z}[i\sqrt{n}]$ beliebig. Es gilt:
+		\begin{align*}
+			\N(\alpha\beta)=&(\aal+i\ba\sqrt{n})(\ab+i\bb\sqrt{n})\overline{(\aal+i\ab\sqrt{n})(\ab+i\bb\sqrt{n})} \\
+			=&(\aal+i\ba\sqrt{n})(\ab+i\bb\sqrt{n})(\aal-i\ab\sqrt{n})(\ab-i\bb\sqrt{n}) \\
+			=&(\aal+i\ba\sqrt{n})(\ab+i\bb\sqrt{n})(\aal\ab-i\ba\sqrt{n}\ab-\aal i\bb\sqrt{n}-\ba\sqrt{n}\bb\sqrt{n}) \\
+			=&(\aal+i\ba\sqrt{n})(\ab\aal\ab-\ab i\ba\sqrt{n}\ab-\ab\aal i\bb\sqrt{n}-\ab\ba\sqrt{n}\bb\sqrt{n} \\
+			&+i\bb\sqrt{n}\aal\ab-i\bb\sqrt{n}i\ba\sqrt{n}\ab-i\bb\sqrt{n}\aal i\bb\sqrt{n}-i\bb\sqrt{n}\ba\sqrt{n}\bb\sqrt{n}) \\
+			=&\aal\ab\aal\ab-\aal\ab i\ba\sqrt{n}\ab-\aal\ab\aal i\bb\sqrt{n}-\aal\ab\ba\sqrt{n}\bb\sqrt{n} \\
+			&+\aal i\bb\sqrt{n}\aal\ab-\aal i\bb\sqrt{n}i\ba\sqrt{n}\ab-\aal i\bb\sqrt{n}\aal i\bb\sqrt{n}-\aal i\bb\sqrt{n}\ba\sqrt{n}\bb\sqrt{n} \\		
+			&+i\ba\sqrt{n}\ab\aal\ab-i\ba\sqrt{n}\ab i\ba\sqrt{n}\ab-i\ba\sqrt{n}\ab\aal i\bb\sqrt{n}-i\ba\sqrt{n}\ab\ba\sqrt{n}\bb\sqrt{n} \\
+			&+i\ba\sqrt{n}i\bb\sqrt{n}\aal\ab-i\ba\sqrt{n}i\bb\sqrt{n}i\ba\sqrt{n}\ab-i\ba\sqrt{n}i\bb\sqrt{n}\aal i\bb\sqrt{n} \\
+			&-i\ba\sqrt{n}i\bb\sqrt{n}\ba\sqrt{n}\bb\sqrt{n} \\
+			=&\aal^2\ab^2+\aal^2\bb^2n+\ab^2\ba^2n+\ba^2\bb^2n^2 \\
+			=&(\aal^2+n\ba^2)(\ab^2+n\bb^2) \\
+			=&\N(\alpha)\N(\beta).
+		\end{align*}
+		\QED
+		
+		\item[(ii)] Sei $\mathbb{Z}[i\sqrt{n}]=\left\lbrack a+ib\sqrt{n}\mid a,b\in\mathbb{Z}\right\rbrack$ Unterring von $\mathbb{C}$. \\
+		Sei $$N:\mathbb{Z}[i\sqrt{n}]\rightarrow\mathbb{N}_0, \quad
+		\alpha:=a+ib\sqrt{n}\mapsto \N(\alpha)=\alpha\bar{\alpha}=a^2+nb^2.$$
+		Zu zeigen: $\N(\alpha)=1\gdw\alpha\in\mathbb{Z}[i\sqrt{n}]^*$.
+		\begin{enumerate}
+			\item["$\Rightarrow$"] Sei $\N(a)=a^2+nb^2=1$. \\
+			Es gilt:
+			\begin{align*}
+				&a^2+nb^2=1 \\
+				\df &(a=0, n=1, b=\pm 1)\text{ oder }(b=0, a=1) \\
+				\df &\alpha=1\text{ oder }(\alpha=\pm i,n=1) \\
+				\df &\mathbb{Z}[i\sqrt{n}]\ni\alpha=1=\frac{1}{1}\text{ oder }\left(\mathbb{Z}[i\sqrt{1}]\ni\alpha=\pm i\df\frac{i}{i}=1\in\mathbb{Z}[i\sqrt{1}]\right) \\
+				\df &\alpha\in\mathbb{Z}[i\sqrt{n}]^*.
+			\end{align*}
+			
+			\item["$\Leftarrow$"] Sei $\alpha\in\mathbb{Z}[i\sqrt{n}]^*$. \\
+			Es gilt:
+			\begin{align*}
+				&\alpha\in\mathbb{Z}[i\sqrt{n}]^* \\
+				\df &\exists\beta\in\mathbb{Z}[i\sqrt{n}]^*:\alpha\beta=1 \\
+				\df &\alpha\beta=(\aal+i\ba\sqrt{n})(\ab+i\bb\sqrt{n}) \\
+				&=\aal\ab+\aal*i\bb\sqrt{n}+\ab*i\ba\sqrt{n}+i^2\ba\bb*n \\
+				&=\aal\ab+\aal*i\bb\sqrt{n}+\ab*i\ba\sqrt{n}-\ba\bb*n \\
+				&=1 \\
+				\df &\aal*i\bb\sqrt{n}+\ab*i\ba\sqrt{n}=0\text{ und }\aal\ab-\ba\bb*n=1
+			\end{align*}
+			Sei $\beta\neq\bar{\alpha}$.
+			Es gilt:
+			\begin{align*}
+				\alpha\beta=&1 \\
+				\neq&\aal\ab+\aal*i\bb\sqrt{n}+\ab*i\ba\sqrt{n}-\ba\bb*n \\
+				=&\aal^2+\aal*i(-\ba)\sqrt{n}+\aal*i\ba\sqrt{n}-\ba(-\ba)*n \\
+				=&\aal^2+\ba^2*n \\
+				=&1.\text{ Widerspruch $\alpha\beta=1\neq 1$.} \\
+				\df &\beta=\bar{\alpha} \\
+				\df &\N(\alpha)=\alpha\bar{\alpha}=1.
+			\end{align*}
+		\end{enumerate}
+		Wenn $n\geq 2$, dann ist $\mathbb{Z}[i\sqrt{n}]^*=\{\pm 1\}$, denn es gilt:
+		\begin{align*}
+			&\N(\alpha)=1\gdw \alpha\in\mathbb{Z}[i\sqrt{n}]^* \\
+			\df &\N(\alpha)=a^2+n*b^2\geq a^2+2*b^2
+		\end{align*}
+		Nun gilt für $n=2$:
+		\begin{align*}
+			\abs{b}=0 &\df\N(\alpha)=a^2. \\
+			\abs{b}=1 &\df\N(\alpha)=a^2+2. \\
+			\abs{b}\geq 2 &\df\N(\alpha)\geq a^2+4.
+		\end{align*}
+		Außerdem gilt für $n>2$:
+		\begin{align*}
+			\abs{b}=0 &\df\N(\alpha)=a^2. \\
+			\abs{b}=1 &\df\N(\alpha)>a^2+2. \\
+			\abs{b}\geq 2 &\df\N(\alpha)>a^2+4.
+		\end{align*}
+		Daraus folgt, dass $\N(\alpha)=1\gdw b=0$ für $n\geq 2$ gilt.
+		\QED
+	\end{enumerate}
+		
+	\item[(b)] Fehlt.
+\end{enumerate}
+
+
+
+
+\bigskip
+
+\corr{korrigiert von \hspace{1cm} am }
+\end{document}

@@ -1,0 +1,541 @@
+\documentclass[12pt,oneside]{article}
+
+\usepackage[german]{babel}
+\usepackage[latin1]{inputenc}
+
+%\usepackage{fouriernc}
+ 
+%\usepackage{showkeys}
+ 
+\renewcommand{\baselinestretch}{1.1}
+
+
+
+\hfuzz 2pt
+
+\usepackage{amsmath,amsfonts}
+\usepackage{amsthm}
+
+%\usepackage[mathcal]{euler}
+
+
+\usepackage{url}
+
+
+\newcommand{\dint}{\displaystyle\int}
+
+
+\newcommand{\la}{\langle}
+
+
+\newcommand{\ra}{\rangle}
+
+
+\renewcommand{\Tilde}{\widetilde}
+\renewcommand{\Hat}{\widehat}
+\renewcommand{\Bar}{\overline}
+
+\newcommand{\loc}{\mathrm{loc}}
+
+\newcommand{\TT}{\mathbb{T}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\NN}{\mathbb{N}}
+
+%\newcommand{\la}{\langle}
+%\newcommand{\ra}{\rangle}
+
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cH}{\mathcal{H}}
+\newcommand{\cG}{\mathcal{G}}
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\cK}{\mathcal{K}}
+\newcommand{\cJ}{\mathcal{J}}
+\newcommand{\cV}{\mathcal{V}}
+\newcommand{\cE}{\mathcal{E}}
+\newcommand{\cU}{\mathcal{U}}
+\newcommand{\cS}{\mathcal{S}}
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cF}{\mathcal{F}}
+
+\newcommand{\ELL}{\mathcal{L}}
+
+\DeclareMathOperator{\grad}{Grad}
+
+\renewcommand{\Re}{\mathop{\mathrm{Re}}}
+\renewcommand{\Im}{\mathop{\mathrm{Im}}}
+
+
+%\theoremstyle{theorem}
+
+\renewcommand{\proofname}{\bf Beweis}
+
+\newtheoremstyle{mytheorem}
+  {\topsep}   % ABOVESPACE
+  {\topsep}   % BELOWSPACE
+  {\itshape}  % BODYFONT
+  {}       % INDENT (empty value is the same as 0pt)
+  {\bfseries} % HEADFONT
+  {.}         % HEADPUNCT
+  {5pt plus 1pt minus 1pt} % HEADSPACE
+  {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}          % CUSTOM-HEAD-SPEC
+
+%\theoremstyle{plain}
+
+\theoremstyle{mytheorem}
+
+\newtheorem{satz}{Satz}
+\newtheorem*{satz*}{Satz}
+\newtheorem{prop}[satz]{Proposition}
+\newtheorem{lemma}[satz]{Lemma}
+\newtheorem{corol}[satz]{Korollar}
+
+%\theoremstyle{remark}
+
+
+\newtheoremstyle{mydefinition}
+  {\topsep}   % ABOVESPACE
+  {\topsep}   % BELOWSPACE
+  {\normalfont}  % BODYFONT
+  {}       % INDENT (empty value is the same as 0pt)
+  {\bfseries} % HEADFONT
+  {.}         % HEADPUNCT
+  {5pt plus 1pt minus 1pt} % HEADSPACE
+  {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}          % CUSTOM-HEAD-SPEC
+
+
+
+\theoremstyle{mydefinition}
+
+\newtheorem{defin}[satz]{Definition}
+\newtheorem{bsp}[satz]{Beispiel}
+\newtheorem{bmk}[satz]{Bemerkung}
+\newtheorem{ubg}{Übung}
+
+%\numberwithin{theorem}{sectio}
+%\numberwithin{exer}{section}
+%\numberwithin{equation}{section}
+
+\newcommand{\slim}{\mathop{\mathrm{s-lim}}}
+
+\newcommand{\eps}{\varepsilon}
+
+\DeclareMathOperator{\ess}{ess}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\spec}{spec}
+%\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\res}{res}
+\DeclareMathOperator{\ran}{ran}
+\DeclareMathOperator{\Ran}{ran}
+\DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\gr}{gr}
+\DeclareMathOperator{\vol}{vol}
+\DeclareMathOperator{\area}{area}
+
+\newcommand{\specd}{\spec_\mathrm{disc}}
+\newcommand{\spece}{\spec_\mathrm{ess}}
+\newcommand{\specp}{\spec_\mathrm{p}}
+
+\renewcommand{\proofname}{{\bf Proof}}
+
+%\parindent 0pt
+%\parskip 3pt
+%
+\sloppy
+
+\textwidth 150mm
+\textheight 230mm
+\oddsidemargin 4.6mm
+\topmargin -5.4mm
+
+\begin{document}
+
+
+\pagestyle{empty}
+
+\begin{center}
+\large
+
+~
+
+\vfil
+
+
+{\bf Analysis IIa}
+
+\bigskip
+
+Dozent: Konstantin Pankrashkin
+
+
+\bigskip
+
+
+\vfil
+
+\end{center}
+
+\clearpage
+
+%{
+
+%\footnotesize
+
+\tableofcontents
+
+%}
+
+%\clearpage
+
+\newpage
+
+\setcounter{page}{1}
+
+\pagestyle{plain}
+
+
+\begin{center}
+\large\bf Vorlesung 1
+\bigskip
+\end{center}
+
+\begin{defin}
+Seien $I\subset \RR$ ein Intervall und $f:I\to\RR$ eine Funktion. Eine {\bf Stammfunktion} von $f$
+ist eine differenzierbare Funktion $\Phi:I\to\RR$ mit $\Phi'(x)=f(x)$ für alle $x\in I$.
+\end{defin}
+
+
+Wir machen ein paar einfache aber wichtige Bemerkungen.
+
+\begin{bmk}
+Manchmal ist das Intervall $I$ wichtig, in diesem Fall ist von \emph{einer Stammfunktion auf $I$} die Rede.
+Ist $\Phi$ eine Stammfunktion von $f$ auf einem Intervall $I$, so ist $\Phi$ auch eine Stammfunktion von $f$
+auf jedem Teilintervall von $I$.
+\end{bmk}
+
+\begin{bmk}
+Ist $\Phi$ eine Stammfunktion von $f$, so hat jede Stammfunktion $\Psi$ von $f$
+die Form $\Psi=\Phi+C$, wobei $C$ eine Konstante ist. (Beweis: $(\Psi-\Phi)'=\Psi'-\Phi'=f-f=0$,
+also ist $\Psi-\Phi$ konstant.) Umgekehrt, jede Funktion $\Psi$ der Form $\Psi=\Phi+C$ mit einer Konstante $C$
+ist eine Stammfunktion von $f$, da $(\Phi+C)'=\Phi'=f$. Die ganze Familie der Stammfunktionen von $f$ (falls sie existieren) bezeichnet man als
+\[
+\int f
+\] 
+und das Zeichen $\int$ nennt sich {\bf unbestimmtes Integral}.\footnote{Später werden Sie auch andere Integrale lernen, z.B.
+$\displaystyle \int_a^b, \displaystyle\oint, \displaystyle\iint, \dint^\oplus$ usw.
+} Ist $\Phi$ eine konkrete Stammfunktion von $f$, so schreibt man auch
+\[
+\int f(x) dx =\Phi(x)+C
+\]
+(damit die Variable $x$ sichtbar bleibt). 
+Die Aufgabe, das unbestimmte Integral von $f$ auszurechnen, ist also äquivalent zu der Aufgabe, eine Stammfunktion von $f$ zu finden.
+Insbesondere haben wir für jede differenzierbare Funktion $f$ die Gleichheit
+\[
+\int f'(x) dx=f(x)+C.
+\]
+Die Schreibweise mit $dx$ ist besonders nützlich, falls es irgenwelche Parameter im Spiel sind. Zum Beispiel,
+\begin{align*}
+\int (x+2t)\, \underbrace{dx}_{!}&=\dfrac{x^2}{2}+2tx+C, &&\text{ weil } \dfrac{d}{dx}\Big(\dfrac{x^2}{2}+2tx+C\Big)=x+2t,\\
+\text{ aber } \int (x+2t)\underbrace{dt}_{!} &=tx+t^2+C, && \text{ weil } \dfrac{d}{dt}\big(tx+t^2+C\big)=x+2t.
+\end{align*}
+Die Operation $\int$ ist natürlich linear:
+\[
+\int (f+g) =\int f + \int g,
+\quad
+\int a f = a\int f
+\]
+(hier sind $f$ und $g$ Funktionen und $a$ eine Konstante. Beweis: $(\int f + \int g)'=(\int f)'+(\int g)'=f+g$ usw.).
+\end{bmk}
+
+
+\begin{bmk}
+Die Existenz einer Stammfunktion ist nicht automatisch. Das sieht man mit einem ganz einfachen Beispiel:
+\emph{Die Funktion $f:x\mapsto \begin{cases}
+1, & \text{ für } x\ge 0,\\
+-1, & \text{ für } x<0,
+\end{cases}
+$
+besitzt keine Stammfunktion auf $\RR$.}
+
+\begin{proof} (Widerspruchsbeweis) Sei $\Phi$ eine Stammfunktion von $f$ auf $\RR$, dann ist $\Phi$ auch eine Stammfunktion von $f$
+auf $(-\infty,0)$ und auf $(0,+\infty)$. F\"ur $x<0$ hat man also $\Phi'(x)=-1$. Die Stammfunktionen von $x\mapsto -1$
+haben die Form $x\mapsto -x+a$, wobei $a$ eine Konstante ist. Also gibt es eine Konstante $a$ mit $\Phi(x)=-x+a$
+für alle $x<0$. Mit derselben Logik zeigt man, dass es eine Konstante $b$ gibt mit $\Phi(x)=x+b$ für alle $x>0$.
+Da $\Phi$ eine Stammfunktion von $f$ ist, ist sie differenziebar und damit auch stetig. Insbesondere hat man
+\[
+\Phi(0)=\underbrace{\lim_{x\to 0^-} \Phi(x)}_{=a}=\underbrace{\lim_{x\to 0^+}\Phi(x)}_{=b}.
+\]
+Also gilt $b=a$ und $\Phi(0)=a$. Wir haben  beweisen, dass für eine Konstante $a$ gilt
+\[
+\Phi(x)=\begin{cases}
+-x +a, & x<0,\\
+a, & x=0,\\
+x+a, & x>0,
+\end{cases}
+\]
+was sich auch als $\Phi(x)=|x|+a$ für alle $x\in\RR$ schreiben lässt. Aber die Funktion $x\mapsto |x|$ ist nicht differenizerbar für $x=0$ (Analysis 1),
+also kann auch $\Phi$ nicht differenzierbar sein, was mit der Definition einer Stammfunktion nicht vereinbar ist.
+\end{proof}
+Wir werden in nächsten Vorlesungen sehen, dass stetige Funktionen immer Stammfunktionen besitzen.
+\end{bmk}
+
+\begin{bmk}
+Beim Berechnen der Ableitungen  sieht man schnell folgendes: ist $f$ eine elementare Funktion (d.h. entsteht durch endlich viele Verkettungen und algebraische Operationen mit $\exp$, $\log$, $\sin$, $\cos$ usw.), so ist auch $f'$ eine elementare Funktion. Im Allgemeinen, sind Stammfunktionen
+von elementaren Funktion aber keine elementare Funktionen (Z.B. sind Stammfunktionen von $x\mapsto e^{-x^2}$ und $x\mapsto \frac{\sin x}{x}$ keine elementare Funktionen: das werden wir aber nicht beweisen.)
+Natürlich ist es interessant, für möglichst viele Funktionen ihre Stammfunktionen explizit ausrechnen zu können.
+Dafür kann man z.B. die aus der Analysis~1 bekannte Tabelle der Ableitungen ``umkehren'' anfangen, siehe Tabelle unten.
+Auch folgende Regeln können nützlich sein:
+\begin{prop}
+Sei $\Phi$ eine Stammfunktion von $f$, dann
+\begin{align*}
+\int f(x+a)dx&=\Phi(x+a)+C, \quad a\in \RR,\\
+\int f(ax) dx&=\dfrac{1}{a}\, \Phi(ax), \quad a\in \RR\setminus\{0\}.
+\end{align*}
+\end{prop}
+
+\begin{proof}
+Die erste Identität folgt aus $\dfrac{d}{dx} \big( \Phi(x+a)\big)= \Phi'(x+a)=f(x+a)$,
+und die zweite folgt aus $\dfrac{d}{dx} \big( \Phi(ax)\big)=a \Phi'(ax)=a f(ax)$.
+\end{proof}
+
+
+
+
+\begin{figure}\label{}
+\centering
+\fbox{\begin{tabular}{cc}
+$f(x)$ & $\displaystyle\int f(x) dx$ (ohne Konstante $C$)\\ \hline
+$x^a$, $a\ne -1$ & $\dfrac{x^{a+1}}{a+1}$\\
+$\dfrac{1}{x}$ & $\ln |x|$\\
+$\sin x$ & $-\cos x$\\
+$\cos x$ & $\sin x$\\
+$e^{ax}$, $a\ne 0$ & $\dfrac{1}{a}\, e^{ax}$\\
+$\dfrac{1}{1+x^2}$ & $\arctan x$\\
+$\dfrac{1}{\sqrt{1-x^2}}$ & $\arcsin x$
+\end{tabular}}
+\end{figure}
+
+\end{bmk}
+
+Es gibt leider keine allgemeine Methode, Stammfunktionen zum Produkt $fg$ und zur Verkettung $f\circ g$
+zu finden, auch wenn man Stammfunktionen von $f$ und $g$ kennt. Daher ist das Integrieren \emph{viel}
+komplexer als das Differenizeren. Wir werden aber zwei wichtige Methoden
+beschreiben, mit deren Hilfe man doch viele Stammfunktionen finden kann.
+
+\begin{satz}[Partielle Integration]
+Für differenzierbare Funktionen $f$ und $g$ gilt
+\[
+\int f' g=fg- \int f g'.
+\]
+\end{satz}
+\begin{proof}
+Wir müssen einfach zeigen, dass die Ableitung der Funktion auf der linken Seite mit der Ableitung der Funktion auf der rechten Seite übereinstimmt.
+Auf der linken Seite haben wir: $(\int f' g)'=f'g$. Auf der rechten Seite nutzt man die Leibniz-Regel:
+\[
+\Big(fg- \int f g'\Big)'= (fg)'- fg'= f'g+fg'-fg'=f'g. \qedhere
+\]
+\end{proof}
+
+Die partielle Integration macht natürlich nur dann Sinn, wenn die neue Funktion $fg'$ ``einfacher'' ist als $f'g$.
+
+\begin{bsp}
+$\dint x e^x dx$.
+
+Hier steht unter dem Integral schon ein Produkt. Die beiden Funktionen $x$ und $e^x$
+lassen sich einfach differenzieren und integrieren. Aber die Ableitung $1$ von $x$ ist ``einfacher'' als ihre Stammfunktionen $x^2/2+C$.
+Est ist also günstig, $f(x)=e^x$ und $g(x)=x$ zu nehmen. Mit Hilfe der partiellen Integration bekommt man also:
+\begin{align*}
+\int \underbrace{x}_{g(x)} \underbrace{e^x}_{f'(x)} dx&=\underbrace{x}_{g(x)} \underbrace{e^x}_{f(x)}-\int \underbrace{1}_{g'(x)} \underbrace{e^x}_{f(x)}dx\\
+&= xe^x - \int e^x dx = xe^x-e^x+C.
+\end{align*}
+Wichtig: es ist relativ einfach zu prüfen, ob das Ergebnis richtig ist: man muss einfach das Ergebnis differenzieren, und die Ableitung muss mit der Funktion
+im Integral übereinstimmen. Hier hat man also $(x e^x - e^x +C)=(xe^x)'-(e^x)'=e^x+xe^x-e^x=xe^x$: alles ist in Ordnung.
+\end{bsp}
+
+
+\begin{bsp}
+Manchmal steht im Integral kein explizites Produkt. Man kann aber immer mit dem Faktor $1$ multiplizieren, dabei gilt
+natürlich $1=f'(x)$ für $f(x)=x$. Zum Beispiel:
+\begin{align*}
+\int \ln x \,dx &= \int 1\cdot \ln x \,dx= \int \underbrace{1}_{f'(x)} \underbrace{\ln x}_{g(x)}\, dx\\
+&= \underbrace{x}_{f(x)} \underbrace{\ln x}_{g(x)}- \int \underbrace{x}_{f(x)}\cdot \underbrace{\dfrac{1}{x}}_{g'(x)}\,dx\\
+&=x\ln x - \int 1 \,dx=x\ln x - x+C.
+\end{align*}
+\end{bsp}
+
+\begin{bsp}\label{bsp-in}
+Zeige, dass für jedes $n\in\NN$ das Integral $I_n(x)=\displaystyle\int \dfrac{dx}{(1+x^2)^n}$ eine elementare Funktion ist\footnote{Statt $\displaystyle\int \dfrac{1}{\text{irgendwas}}\, dx$
+schreibt man fast immer $\displaystyle\int \dfrac{dx}{\text{irgendwas}}$.}.
+
+Für $n=1$ hat man eine Funktion ``aus der Tabelle'', also $I_1(x)=\arctan x+C$. Für grössere $n$ kann man versuchen, die Rechnung für $I_n$
+auf die Rechnung für $I_{n-1}$ zu reduzieren. Dabei hilft die partielle Integration mit $f(x)=x$:
+\begin{equation}
+\label{eq001}
+\begin{aligned}
+I_n(x)&=\dint \underbrace{1}_{f'(x)}\cdot\underbrace{\dfrac{1}{(1+x^2)^n}}_{g(x)}\, dx\\
+&=\underbrace{x}_{f(x)}\cdot\underbrace{\dfrac{1}{(1+x^2)^n}}_{g(x)}- \dint \underbrace{x}_{f(x)} \cdot \underbrace{\bigg( -\dfrac{n \cdot 2x}{(1+x^2)^{n+1}}\bigg)}_{g'(x)}\, dx\\
+&=\dfrac{x}{(1+x^2)^n}+2n \dint \dfrac{x^2}{(1+x^2)^{n+1}}\, dx.
+\end{aligned}
+\end{equation}
+Zur Zeit sieht man überhaupt nicht, warum diese Rechnung hilft: das Integral auf der rechten Seite
+sieht nicht einfacher aus als das usprüngliche Integral. Aber man kann
+die Identität $1-1=0$ richtig einsetzen:
+\begin{align*}
+\dint \dfrac{x^2}{(1+x^2)^{n+1}}\, dx&=\dint \dfrac{0+x^2}{(1+x^2)^{n+1}}\, dx=\dint \dfrac{-1+ (1+ x^2)}{(1+x^2)^{n+1}}\, dx\\
+&=\dint \Big(-\dfrac{1}{(1+x^2)^{n+1}} + \dfrac{1}{(1+x^2)^n}\Big)\, dx=-I_{n+1}(x)+I_{n}(x).
+\end{align*}
+Mit Hilfe der letzten Identität kann man \eqref{eq001} wie folgt umschreiben:
+\[
+I_n(x)=\dfrac{x}{(1+x^2)^n} +2n \big( -I_{n+1}(x) + I_{n}(x)\big),
+\]
+also $I_{n+1}=\dfrac{1}{2n}\, \dfrac{x}{(1+x^2)^n} + \dfrac{2n-1}{2n} \, I_n(x)$.
+Ist $I_n$ eine elementare Funktion, so ist auch $I_{n+1}$ eine elementare Funktion. Da sich $I_1$ explizit ausrechnen lässt,
+sind alle $I_n$ elementare Funktionen.
+\end{bsp}
+
+Jetzt kommt die zweite wichtige Methode:
+\begin{satz}[Substitution]
+Seien $\varphi$ eine differenzierbare Funktion auf einem Intervall $I$, $J$ ein Intervall mit $\varphi(I)\subset J$,
+$f:J\to \RR$ eine Funktion und $\Phi:J\to \RR$ ihre Stammfunktion. Dann gilt
+\[
+\int f\big(\varphi(x)\big) \varphi'(x)\, dx = \Phi\big(\varphi(x)\big) +C.
+\]
+\end{satz}
+\begin{proof} Mit unseren Voraussetzungen ist $x\mapsto \Phi\big(\varphi(x)\big)$
+differenzierbar auf $I$, und die Ableitung davon ist (Kettenregel) $\Phi'\big(\varphi(x)\big)\varphi'(x)$.
+Das ist genau die Funktion unter dem Integral auf der linken Seite.
+\end{proof}
+Beim Rechnen nutzt man oft eine andere Schreibweise:
+\[
+\int f\big(\varphi(x)\big)\varphi'(x)\, dx=\int f(\varphi)\, d\varphi \Big|_{\varphi=\varphi(x)},
+\]
+wobei die Substitution $\varphi=\varphi(x)$ ganz am Ende gemacht wird.
+Die Rechnungen werden übersichtlicher, falls man $\varphi'(x)dx$ als $d\varphi$ schreibt.
+\begin{bsp} $\dint x e^{x^2}\, dx$.
+
+1. Lösung: man sieht, dass $x$ ``fast'' die Ableitung von $x^2$ is (es fehlt nur ein konstanter Faktor).
+Man führt also $\varphi(x)=x^2$ ein und schreibt das Integral um:
+\begin{multline*}
+\dint x e^{x^2}\, dx=\dfrac{1}{2} \dint 2x e^{x^2}\, dx= \dfrac{1}{2} \dint \varphi'(x) e^{\varphi (x)}\, dx \\
+= \dfrac{1}{2} \int e^\varphi\, d\varphi=\dfrac{1}{2}\, e^\varphi +C= \dfrac{1}{2}\, e^{x^2}+C.
+\end{multline*}
+
+2. Lösung: am meisten stört uns (=den Dozenten) der Term $x^2$ in der Exponente. Wir können also $x=\sqrt{t}$ einführen um $e^t$ statt $e^{x^2}$ zu haben
+(da $t=x^2$), dann  $dx =(\sqrt t)'dt= \dfrac{1}{2\sqrt t}\, dt$ und
+\[
+\dint x e^{x^2}\, dx= \dint \sqrt{t} e^t \dfrac{1}{2\sqrt{t}}\, dt=\dfrac{1}{2}\dint e^t+C=\dfrac{1}{2}\, e^t+ C =\dfrac{1}{2}\, e^{x^2}+C.
+\]
+\end{bsp}
+
+\begin{bsp}
+Die Substitution nutzt man oft beim Integrieren von trigonometrischen Funktionen. Zum Beispiel $\dint \cos^3 x\, dx$:
+\begin{align*}
+\dint \cos^3 x\, dx&=\dint \cos^2 x \cdot \cos x\, dx=\dint (1-\sin^2 x) \cos x\, dx.
+\end{align*}
+Hier kann man $\varphi(x)=\sin x$ einführen, dann $\cos x \, dx= d\varphi$ und
+\[
+\dint (1-\sin^2 x) \cos x\, dx=\dint (1-\varphi^2)\, d\varphi=\varphi-\dfrac{\varphi^3}{3} +C
+=\sin x-\dfrac{\sin^3 x}{3}+C.
+\]
+\end{bsp}
+Im letzten Beispiel sieht man, dass algebraische Identitäten sehr nutzlich sein können (hier $\cos^2 x+\sin^2 x=1$).
+Insbesondere kann man mit algebraischen Ideen
+eine grosse Klasse von Funktionen finden, deren Stammfunktionen elemntare Funktionen sind.
+
+\begin{defin}
+Eine {\bf rationale Funktion} ist eine Funktion der Form $x\mapsto \dfrac{P(x)}{Q(x)}$
+mit Polynomen $P$ und $Q$ (mit reellen Koeffizienten).
+\end{defin}
+
+\begin{satz} Jede rationale Funktion besitzt eine elementare Stammfunktion.
+\end{satz}
+
+\begin{proof}
+Unser Beweis wird auch eine Berechnungmethode liefern. Seien $P$ und $Q$ Polynome und $f=\dfrac{P}{Q}$. Wir wollen also $\int f$ ausrechnen.
+
+{\bf Schritt 1.} Ist $Q$ konstant, dann ist $f$ auch ein Polynom, und seine Stammfunktionen sind Polynome (und damit Elementarfunktionen).
+Man kann also annehmen, dass $Q$ nichtkonstant ist.
+
+{\bf Schritt 2.} Wir können $P$ wie folgt darstellen: $P(x)=p_1(x)Q(x)+p_0(x)$, wobei $p_0$ und $p_1$ Polynome sind
+mit $\grad p_0<\grad Q$. Dann gilt $f=p_1+\dfrac{p_0}{Q}$ und $\int f=\int p_1 + \int \dfrac{p_0}{Q}$.
+Das Integral $\int p_1$ lässt sich explizit ausrechnen (das ist wieder ein Polynom), mann muss sich also nur um den zweiten Term kümmern.
+
+Nach den Schritten 1 und 2 wird es klar, dass man vom Anfang an voraussetzen kann, dass $Q$ nichtkonstant ist und dass $\grad P<\grad Q$.
+Ab jetzt werden wir nur diesen Fall betrachten.
+
+
+{\bf Schritt 3.} Wir nutzen jetzt den Hauptsatz der Algebra: jedes nichtkonstantes komplexes Polynom besitzt (mindestens) eine komplexe Nullstelle.
+Seit $a$ eine Nullstelle von $Q$, dann gilt $Q(x)=(x-a)Q_0(x)$, wobei $Q_0$ ein Polynom ist
+mit $\grad Q_0=\grad Q-1$. Man kann auf dieselbe Weise auch $Q_0$ zerlegen, am Ende landet man bei der Darstellung
+\[
+Q(x)=A \prod_{j=1}^k (x-a_j)^{m_k}, \quad A\in\RR, \quad a_j\in\CC.
+\]
+Hier sind $a_j$ die Nullstellen von $Q$ (und wir nehmen an, dass $a_i\ne a_j$ für $i\ne j$) und $m_j$
+sind ihre Multiplizitäten: man hat $m_j\ge 1$ und $m_1+\dots+m_k=\grad Q$.
+In unserem Fall ist $Q$ ein Polynom mit rellen Koeffizienten, und das ist eine zusätzliche Eigenschaft, die man wie folgt nutzen kann:
+falls $a$ eine nichtrelle Nullstelle von $Q$ ist, dann ist auch $\Bar a$ Nulstelle mit derselben Multiplizität. Ist $m$ die zugehörige Multiplizität,
+so lässt sich das Produkt $(x-a)^m(x-\Bar a)^m$ als $(x^2+2bx +c)^m$ schreiben mir $b=-\Re a$ und $c=|a|^2$ (insbesondere gilt $c-b^2=|\Im a|^2>0$).
+Durch solches Gruppieren der Faktoren kann man also $Q$ wie folgt zerlegen:
+\[
+Q(x)=A \prod_{j=1}^\ell (x-a_j)^{m_j} \prod_{j=1}^s (x^2+2b_j x+c_j)^{k_j}
+\]
+mit $a_j\in\RR$ (immer noch $a_i\ne a_j$ für $i\ne j$), $b_j,c_j\in \RR$ mit $c_j-b_j^2>0$,
+und $m_j,k_j\ge 1$ mit $m_1+\dots+m_\ell+2k_1+\dots2k_s=\grad Q$.
+
+{\bf Schritt 4.} Man kann beweisen, dass es reelle Konstanten $A_{j,k}$, $B_{j,k}$, $C_{j,k}$ existieren\footnote{Wir verzichten auf Beweis, da dieser sehr algebraisch ist und ganz wenig mit der Analysis zu tun hat.} mit
+\begin{equation}
+  \label{eq-pbz}
+\dfrac{P(x)}{Q(x)}=\sum_{j=1}^\ell\sum_{k=1}^{m_j} \dfrac{A_{j,k}}{(x-a_j)^k}
++\sum_{j=1}^s \sum_{k=1}^{k_j} \dfrac{B_{j,k} x+ C_{j,k}}{(x^2+2b_j x+ c_j)^k}.
+\end{equation}
+Die Darstellung \eqref{eq-pbz} nennt man die \emph{Partialbruchzerlegung} von $f=P/Q$. Um unsere Behauptung zu beweisen,
+müssen wir lediglich zeigen, dass man eine elementare Stammfunktion zu jedem Term auf der rechten Seite von \eqref{eq-pbz} finden kann.
+Es gibt aber nur Terme von zwei Typen, die wir jetzt einzeln betrachten.
+Für relle $a$ hat man 
+\[
+\int \dfrac{dx}{(x-a)^m}=\begin{cases} \ln|x-a|+C, & m=1,\\
+ -\dfrac{1}{(m-1)(x-a)^{m-1}}+C, &m\ge 2,
+\end{cases}
+\]
+damit sind alle Terme in der ersten Summe schon gedeckt. Jetzt müssen wir nur
+$\dint \dfrac{B x+ C}{(x^2+2b x+ c)^m}\,dx$ mit $c-b^2>0$ ausrechnen. Wir nutzen die Substitution $x=\sqrt{c-b^2}t-b$, dann gilt $dx=\sqrt{c-b^2}$ und
+\begin{multline*}
+\int \dfrac{B x+ C}{(x^2+2b x+ c)^m}dx\\=B (c-b^2)^{1-m}\dint \dfrac{ t \,dt}{(1+t^2)^m} + (C-Bb) (c-b^2)^{\frac12-m} \dint \dfrac{ dt}{(1+t^2)^m}.
+\end{multline*}
+Das zweite Integral ist das im Beispiel~\ref{bsp-in} betrachtete $I_m$, und das ist also eine elementare Funktion.
+Im ersten Integral kann man $\varphi(t)=t^2$ einführen, dann ist
+\[
+\dint \dfrac{ t dt}{(1+t^2)^m}=\dfrac{1}{2} \dint\dfrac{d\varphi}{(1+\varphi)^m}=\dfrac{1}{2}\,\begin{cases} \ln(1+\varphi)+C, & m=1,\\
+-\dfrac{1}{(m-1)(1+\varphi)^{m-1}}+C, &m\ge 2,
+\end{cases} 
+\]
+eine elementare Funktion.
+\end{proof}
+
+
+\begin{bsp}
+$\dint \dfrac{dx}{x^2-1}$.
+
+Die Nullstellen von $x^2-1$ sind $\pm1$, und $x^2-1=(x-1)(x+1)$. Es müssen also $A,B\in\RR$ existieren mit
+\[
+\dfrac{1}{x^2-1}=\dfrac{A}{x-1}+\dfrac{B}{x+1}.
+\]
+Die genauen Werte von $A$ and $B$ findet man durch Koeffizientenvergleich:
+\[
+\dfrac{A}{x-1}+\dfrac{B}{x+1}=\dfrac{A(x+1)+B(x-1)}{x^2-1}=\dfrac{(A+B)x+(A-B)}{x^2-1}.
+\]
+Für alle $x$ muss also $(A+B)x+(A-B)=1$ gelten, d.h. $A+B=0$ und $A-B=1$. Damit findet man $A=\frac12$ und $B=-\frac 12$, und
+\[
+\dint \dfrac{dx}{x^2-1}=\dfrac{1}{2} \dint \dfrac{dx}{x-1}-\dfrac{1}{2}\dint \dfrac{d}{x+1}
+=\dfrac{1}{2}\ln|x-1|-\dfrac{1}{2}\ln|x+1|+C.
+\]
+\end{bsp}
+Weitere (und kompliziertere) Beispiele werden in der Übung betrachtet.
+
+\end{document}

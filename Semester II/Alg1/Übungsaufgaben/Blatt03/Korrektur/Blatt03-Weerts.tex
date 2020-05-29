@@ -1,0 +1,154 @@
+\documentclass[12pt]{article}
+
+\usepackage{a4}  
+\usepackage{color}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage{faktor}
+ 
+\newcommand{\corr}[1]{\textcolor{red}{#1}}
+\newcommand{\QED}{\begin{flushright} $\square$ \end{flushright}}
+\newcommand{\df}{\enspace\Longrightarrow\enspace}
+\newcommand{\koeff}[2]{\begin{pmatrix}#1 \\ #2\end{pmatrix}}
+\newcommand{\Char}{\operatorname{char}}
+\newcommand{\isIdeal}{\trianglelefteq}
+\newcommand{\ann}{\operatorname{ann}}
+\newcommand{\ideal}[1]{\langle#1\rangle}
+
+
+
+\begin{document}
+\section*{Abgabe Algebra 1, Blatt 03}
+
+Studierende(r): Weerts, Steffen, steffen.weerts@uni-oldenburg.de
+
+\subsection*{Aufgabe 3.1}
+\begin{enumerate}
+	\item[(a)] Sei $R$ Ring und $I\isIdeal R$ Ideal von $R$. \\
+	Zu zeigen: $\ann(I)\isIdeal R$. Es gilt:
+	\begin{enumerate}
+		\item[(1)] Zu zeigen: $\ann(I)\neq\emptyset$.
+		\begin{align*}
+			&\forall a\in I:0\cdot a=0=0\cdot a \\
+			\df &0\in\ann(I) \\
+			\df &\ann(I)\neq\emptyset.
+		\end{align*}
+		
+		\item[(2)] Zu zeigen: $\forall a,b\in\ann(I):a+b\in\ann(I)$. \\
+		Seien $a,b\in\ann(I)$ beliebig. Es gilt:
+		\begin{align*}
+			&\forall x,y\in I: ax=xa=0=bx=xb \\
+			\df &(a+b)x=ax+bx=0=xa+xb=x(a+b) \\
+			\df &a+b\in\ann(I).
+		\end{align*}
+		
+		\item[(3)] Zu zeigen: $\forall a\in\ann(I)\forall r\in R:ar\in\ann(I)$. \\
+		Seien $a\in\ann(I)$ beliebig, $r\in R$ beliebig und $x\in I$ beliebig. Es gilt:
+		\begin{align*}
+			&(ar)x=a(rx) \overset{rx\in I}{=}0 \\
+			\df &ar\in\ann(I).
+		\end{align*}
+\corr{Es fehlt, dass $x(ar)\in \ann(I)$. Außerdem muss für ein Ideal noch gezeigt werden, dass $r\cdot a \in \ann(I)$. $-1$ P}
+	\end{enumerate}
+	\QED
+\corr{Punkte Teil a): $2/3$}
+	
+	\item[(b)] Sei $R$ kommutativer Ring und seien $I,J\isIdeal R$ Ideale von $R$. \\
+	Zu zeigen: $\sqrt{IJ}=\sqrt{I\cap J}=\sqrt{I}\cap\sqrt{J}$.
+	Es gilt:
+	\begin{align*}
+		&IJ\subseteq I\cap J \\
+		\df &\sqrt{IJ} = \{r\in R:r^n\in IJ\text{ für ein }n\in\mathbb{N}\} \\
+		\subseteq&\{r\in R:r^n\in I\cap J\text{ für ein }n\in\mathbb{N}\}=\sqrt{I\cap J} \\
+		\subseteq&\{r\in R:r^n\in I\text{ für ein }n\in\mathbb{N}\}\cap\{r\in R:r^n\in J\text{ für ein }n\in\mathbb{N}\}=\sqrt{I}\cap\sqrt{J}.
+	\end{align*}
+	Sei $a\in\sqrt{I}\cap\sqrt{J}$.	Dann gilt:
+	\begin{align*}
+		&\exists n,m\in\mathbb{N}:a^n\in I\text{ und }a^m\in J \\
+		\df &\exists n,m\in\mathbb{N}:a^{n+m}=a^na^m\in IJ \\
+		\df &a\in\sqrt{IJ} \\
+		\df &\sqrt{I}\cap\sqrt{J}\subseteq\sqrt{IJ}.
+	\end{align*}
+	Mit $\sqrt{IJ}\subseteq\sqrt{I\cap J}\subseteq\sqrt{I}\cap\sqrt{J}$ und $\sqrt{I}\cap\sqrt{J}\subseteq\sqrt{IJ}$ ergibt sich:
+	$$\sqrt{IJ}=\sqrt{I\cap J}=\sqrt{I}\cap\sqrt{J}.$$
+	\QED
+\corr{Punkte Teil b): $5/5$}
+\end{enumerate}
+\corr{$7/8$ P}
+
+\subsection*{Aufgabe 3.2}
+\begin{enumerate}
+	\item[(a)] Sei $R$ kommutativer Ring, seien $I,J\isIdeal R$ beliebig. \\
+	Zu zeigen: $I\cup J$ ist im Allgemeinen kein Ideal von R. \\
+	Seien $I=\ideal{2},J=\ideal{3}$. Es gilt:
+	\begin{align*}
+		\ideal{2}\cup\ideal{3}=&\{2x:x\in R\}\cup\{3x:x\in R\} \\
+		= &\{x\in R:2\mid x\text{ oder }3\mid x\} \\
+		= &\{\cdots,-6,-4,-3,-2,0,2,3,4,6,\cdots\} \\
+	\end{align*}
+	Aber für $3\in\ideal{3}\text{ und }2\in\ideal{2}$ gilt: \\
+	$$1\cdot 3+(-1)\cdot 2=1\notin\ideal{2}\cup\ideal{3}.$$
+	Daher ist die Vereinigung zweier Ideale im Allgemeinen kein Ideal.
+	\QED
+\corr{Punkte Teil a): $2/2$}
+	
+	\item[(b)] Sei $R$ kommutativer Ring, seien $I,J\isIdeal R$ teilerfremde Ideale von $R$. \\
+	Zu zeigen: $IJ=I\cap J$.
+	\begin{enumerate}
+		\item["$\subseteq$"] Sei $a\in IJ$, $b\in I$, $c\in J$, $a=bc$. \\
+\corr{Die Elemente aus dem Idealprodukt sind auch Summen von Produkten. Nicht alle $a$ lassen sich also als $b\cdot c$ darstellen. $-0,5$ P}\\
+		Zu zeigen: $a\in I\cap J$. Es gilt:
+		\begin{align*}
+			&a=bc \\
+			\df &\exists d_1,d_2\in R:a=b\cdot d_1\text{ und }a=d_2\cdot c \\
+			\overset{d_1\in I,c\in J}{\df}&a\in I\text{ und }a\in J \\
+			\df &a\in(I\cap J).
+		\end{align*}
+		
+		\item["$\supseteq$"] Sei $0\neq a\in I\cap J$. \\
+		Zu zeigen: $i\in I$ und sei $j\in J$, sodass $a+b=1$. \corr{$i+j=1$? $-0,5$ P}\\
+ Es gilt für alle $c\in I\cap J$:
+		$$c=c\cdot 1=c\cdot(i+j)=ci+cj\in JI+IJ\overset{\text{R kommutativ}}{=}IJ+IJ=IJ.$$
+	\end{enumerate}
+	\QED
+\corr{Punkte Teil b): $1/2$}
+	
+	\item[(c)]
+	\begin{enumerate}
+		\item[Vor.:] Sei $R=\mathbb{Z}$ Ring. Seien $I=\ideal{2}$ und $J=\ideal{4}$ Ideale von $R$. \\
+		\item[Beh.:] $IJ\neq I\cap J$. \\
+		\item[Bew.:] $$IJ=\ideal{2}\cdot\ideal{4}=\ideal{8}\neq\ideal{2}\overset{J\subset I}{=}\ideal{2}\cap\ideal{4}=I\cap J.$$
+\corr{$\ideal{2}\cap\ideal{4}=\ideal{4}$. $-0,5$ P}
+	\end{enumerate}
+	\QED
+\corr{Punkte Teil c): $1,5/2$}
+\end{enumerate}
+\corr{$4,5/6$ P}
+
+\subsection*{Aufgabe 3.3}
+\begin{enumerate}
+	\item[(a)] Sei $R$ Integritätsring, aber $R$ kein Körper. \\
+		Zu zeigen: $R[t]$ über $R$ ist kein Hauptidealring, d.h. $\exists I\isIdeal R[t]\forall a\in R[t]: I\neq\ideal{a}$.  \\
+		Sei $I=\ideal{1,t}$. Annahme: $I$ Hauptideal, d.h. $\exists a\in R[t]: I=\ideal{a}$. \\
+		Es gilt: $$I=\ideal{1,t}\df 1\in I\df\deg(a)=0.$$
+		Aber:
+		$$t\in I\df\deg(a)=1.$$
+		Da nun der Widerspruch $\deg(a)=0\neq 1\deg(a)$ auftritt, muss die Annahme falsch sein. Es gilt folglich $I=\ideal{1,t}$ ist kein Hauptideal von $R[t]$. \\
+\corr{$\ideal{1,t} = \ideal{1} =r$, da $1\in I \Rightarrow I=R$ gilt. $-2$ P}\\
+		Daraus folgt, dass $R[t]$ über $R$ kein Hauptidealring ist.
+		\QED
+\corr{Punkte Teil a): $2/3$}
+		
+		\item[(b)] Fehlt.
+\end{enumerate}
+\corr{$2/6$ P}
+
+\bigskip
+
+\corr{Insgesamt $13,5/20$ Punkten.}
+
+\bigskip
+
+\corr{korrigiert von Tom Engels am 14.05.2020}
+\end{document}

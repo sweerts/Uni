@@ -1,0 +1,207 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7350 64-bit) (preloaded format=pdflatex 2020.4.20)  27 APR 2020 20:00
+entering extended mode
+**./Blatt01-Weerts.tex
+(Blatt01-Weerts.tex
+LaTeX2e <2020-02-02> patch level 5
+L3 programming layer <2020-03-06>
+("C:\Program Files\MiKTeX 2.9\tex/latex/base\article.cls"
+Document Class: article 2019/12/20 v1.4l Standard LaTeX document class
+("C:\Program Files\MiKTeX 2.9\tex/latex/base\size12.clo"
+File: size12.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
+)
+\c@part=\count167
+\c@section=\count168
+\c@subsection=\count169
+\c@subsubsection=\count170
+\c@paragraph=\count171
+\c@subparagraph=\count172
+\c@figure=\count173
+\c@table=\count174
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen134
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/graphics\graphicx.sty"
+Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/graphics\keyval.sty"
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks15
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/graphics\graphics.sty"
+Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/graphics\trig.sty"
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/graphics-cfg\graphics.cfg"
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 105.
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/graphics-def\pdftex.def"
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen135
+\Gin@req@width=\dimen136
+)
+(C:\Users\Anwender\AppData\Roaming\MiKTeX\2.9\tex/latex/geometry\geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+
+("C:\Program Files\MiKTeX 2.9\tex/generic/iftex\ifvtex.sty"
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+
+("C:\Program Files\MiKTeX 2.9\tex/generic/iftex\iftex.sty"
+Package: iftex 2020/03/06 v1.0d TeX engine tests
+))
+\Gm@cnth=\count175
+\Gm@cntv=\count176
+\c@Gm@tempcnt=\count177
+\Gm@bindingoffset=\dimen137
+\Gm@wd@mp=\dimen138
+\Gm@odd@mp=\dimen139
+\Gm@even@mp=\dimen140
+\Gm@layoutwidth=\dimen141
+\Gm@layoutheight=\dimen142
+\Gm@layouthoffset=\dimen143
+\Gm@layoutvoffset=\dimen144
+\Gm@dimlist=\toks16
+
+(C:\Users\Anwender\AppData\Roaming\MiKTeX\2.9\tex/latex/geometry\geometry.cfg))
+("C:\Program Files\MiKTeX 2.9\tex/latex/l3backend\l3backend-pdfmode.def"
+File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
+\l__kernel_color_stack_int=\count178
+\l__pdf_internal_box=\box45
+)
+(Blatt01-Weerts.aux)
+\openout1 = `Blatt01-Weerts.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+
+("C:\Program Files\MiKTeX 2.9\tex/context/base/mkii\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count179
+\scratchdimen=\dimen145
+\scratchbox=\box46
+\nofMPsegments=\count180
+\nofMParguments=\count181
+\everyMPshowfont=\toks17
+\MPscratchCnt=\count182
+\MPscratchDim=\dimen146
+\MPnumerator=\count183
+\makeMPintoPDFobject=\count184
+\everyMPtoPDFconversion=\toks18
+) ("C:\Program Files\MiKTeX 2.9\tex/latex/epstopdf-pkg\epstopdf-base.sty"
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(73.97733pt, 441.01773pt, 82.51282pt)
+* v-part:(T,H,B)=(85.35826pt, 660.10394pt, 99.58464pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=441.01773pt
+* \textheight=660.10394pt
+* \oddsidemargin=1.70734pt
+* \evensidemargin=1.70734pt
+* \topmargin=-23.91173pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=44.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+<OMP_Blatt01_Weerts_Klassendiagramm_a.jpg, id=1, 752.8125pt x 371.3875pt>
+File: OMP_Blatt01_Weerts_Klassendiagramm_a.jpg Graphic file (type jpg)
+<use OMP_Blatt01_Weerts_Klassendiagramm_a.jpg>
+Package pdftex.def Info: OMP_Blatt01_Weerts_Klassendiagramm_a.jpg  used on inpu
+t line 13.
+(pdftex.def)             Requested size: 376.40532pt x 185.69328pt.
+<Quellcode_Pflanze.png, id=2, 604.50844pt x 465.99094pt>
+File: Quellcode_Pflanze.png Graphic file (type png)
+<use Quellcode_Pflanze.png>
+Package pdftex.def Info: Quellcode_Pflanze.png  used on input line 19.
+(pdftex.def)             Requested size: 392.92583pt x 302.89052pt.
+<Quellcode_Tier_1.png, id=4, 554.82281pt x 718.18312pt>
+File: Quellcode_Tier_1.png Graphic file (type png)
+<use Quellcode_Tier_1.png>
+Package pdftex.def Info: Quellcode_Tier_1.png  used on input line 20.
+(pdftex.def)             Requested size: 388.37332pt x 502.72476pt.
+<Quellcode_Tier_2.png, id=5, 546.54187pt x 596.98032pt>
+File: Quellcode_Tier_2.png Graphic file (type png)
+<use Quellcode_Tier_2.png>
+Package pdftex.def Info: Quellcode_Tier_2.png  used on input line 22.
+(pdftex.def)             Requested size: 382.57669pt x 417.88336pt.
+[1
+
+{C:/Users/Anwender/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./OMP_Bl
+att01_Weerts_Klassendiagramm_a.jpg> <./Quellcode_Pflanze.png>] [2 <./Quellcode_
+Tier_1.png>]
+<OMP_Blatt01_Weerts_Klassendiagramm.jpg, id=17, 752.8125pt x 401.5pt>
+File: OMP_Blatt01_Weerts_Klassendiagramm.jpg Graphic file (type jpg)
+<use OMP_Blatt01_Weerts_Klassendiagramm.jpg>
+Package pdftex.def Info: OMP_Blatt01_Weerts_Klassendiagramm.jpg  used on input 
+line 27.
+(pdftex.def)             Requested size: 376.40532pt x 200.7495pt.
+ [3 <./Quellcode_Tier_2.png> <./OMP_Blatt01_Weerts_Klassendiagramm.jpg>]
+<Quellcode_BioTest.png, id=22, 552.56438pt x 458.46281pt>
+File: Quellcode_BioTest.png Graphic file (type png)
+<use Quellcode_BioTest.png>
+Package pdftex.def Info: Quellcode_BioTest.png  used on input line 33.
+(pdftex.def)             Requested size: 386.79242pt x 320.92177pt.
+<OMP_Blatt01_Weerts_Objektdiagramm.jpg, id=23, 722.7pt x 351.3125pt>
+File: OMP_Blatt01_Weerts_Objektdiagramm.jpg Graphic file (type jpg)
+<use OMP_Blatt01_Weerts_Objektdiagramm.jpg>
+Package pdftex.def Info: OMP_Blatt01_Weerts_Objektdiagramm.jpg  used on input l
+ine 38.
+(pdftex.def)             Requested size: 361.3491pt x 175.6558pt.
+ [4 <./Quellcode_BioTest.png> <./OMP_Blatt01_Weerts_Objektdiagramm.jpg>] (Blatt
+01-Weerts.aux) ) 
+Here is how much of TeX's memory you used:
+ 1691 strings out of 480934
+ 25717 string characters out of 2909673
+ 266034 words of memory out of 3000000
+ 17585 multiletter control sequences out of 15000+200000
+ 533847 words of font info for 29 fonts, out of 3000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 30i,5n,25p,269b,238s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmb
+x12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb>
+Output written on Blatt01-Weerts.pdf (4 pages, 378820 bytes).
+PDF statistics:
+ 35 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
+
