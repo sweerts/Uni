@@ -1,0 +1,150 @@
+\documentclass[12pt]{article}
+
+\usepackage{a4}  
+\usepackage{color}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage{faktor}
+ 
+\newcommand{\corr}[1]{\textcolor{red}{#1}}
+\newcommand{\QED}{\begin{flushright} $\square$ \end{flushright}}
+\newcommand{\df}{\enspace\Longrightarrow\enspace}
+\newcommand{\koeff}[2]{\begin{pmatrix}#1 \\ #2\end{pmatrix}}
+\newcommand{\Char}{\operatorname{char}}
+\newcommand{\isIdeal}{\trianglelefteq}
+\newcommand{\ann}{\operatorname{ann}}
+\newcommand{\ideal}[1]{\langle#1\rangle}
+\newcommand{\N}{\operatorname{N}}
+\newcommand{\enorm}{\operatorname{d}}
+\newcommand{\gdw}{\;\Longleftrightarrow\;}
+\newcommand{\abs}[1]{\vert #1\vert}
+\newcommand{\ggT}{\operatorname{ggT}}
+\newcommand{\kgV}{\operatorname{kgV}}
+
+\newcommand{\aal}{a_{\alpha}}
+\newcommand{\ab}{a_{\beta}}
+\newcommand{\ba}{b_{\alpha}}
+\newcommand{\bb}{b_{\beta}}
+
+
+
+\begin{document}
+\section*{Abgabe Algebra 1, Blatt 06}
+
+Studierende(r): Weerts, Steffen, steffen.weerts@uni-oldenburg.de
+
+\subsection*{Aufgabe 6.1}
+\begin{enumerate}
+	\item[(a)] Zu zeigen: $\faktor{\left(\faktor{\mathbb{Z}}{18\mathbb{Z}}\right)}{\left(\faktor{6\mathbb{Z}}{18\mathbb{Z}}\right)} \cong \faktor{\mathbb{Z}}{6\mathbb{Z}}$. \\
+	Es gilt:
+	\begin{align*}
+		&\mathbb{Z}\text{ Ring, $18\mathbb{Z}$, $6\mathbb{Z}$ Ideale in $R$} \\
+		\overset{\text{2. Isom.}}{\df} &\varphi: \faktor{\left(\faktor{\mathbb{Z}}{18\mathbb{Z}}\right)}{\left(\faktor{6\mathbb{Z}}{18\mathbb{Z}}\right)} \rightarrow \faktor{\mathbb{Z}}{6\mathbb{Z}} \text{ Ringisomorphismus} \\
+		\df &\faktor{\left(\faktor{\mathbb{Z}}{18\mathbb{Z}}\right)}{\left(\faktor{6\mathbb{Z}}{18\mathbb{Z}}\right)} \cong \faktor{\mathbb{Z}}{6\mathbb{Z}}
+	\end{align*}
+	\QED
+	
+	\item[(b)] Fehlt.
+	
+	\item[(c)] Sei $S=\mathbb{Z}[t], I=t\mathbb{R}[t], R=\mathbb{Z}$. \\
+	Zu zeigen: $\faktor{(\mathbb{Z}[t]+t\mathbb{R}[t])}{t\mathbb{R}[t]} \cong \mathbb{Z} \cong \faktor{\mathbb{Z}[t]}{t\mathbb{Z}[t]} \cong \faktor{\mathbb{Z}[t]}{(\mathbb{Z}[t] \cap t\mathbb{R}[t])}$.
+	\begin{enumerate}
+		\item[(1)] Zu zeigen: $\faktor{(\mathbb{Z}[t]+t\mathbb{R}[t])}{t\mathbb{R}[t]} \cong \faktor{\mathbb{Z}[t]}{(\mathbb{Z}[t] \cap t\mathbb{R}[t])}$. \\
+		Es gilt:
+		$$\faktor{\mathbb{Z}[t]}{(\mathbb{Z}[t] \cap t\mathbb{R}[t])} \overset{\text{2. Isom.}}{\cong} \faktor{(\mathbb{Z}[t]+t\mathbb{R}[t])}{t\mathbb{R}[t]}.$$
+		
+		\item[(2)] Zu zeigen: $\faktor{\mathbb{Z}[t]}{t\mathbb{Z}[t]} \cong \faktor{\mathbb{Z}[t]}{(\mathbb{Z}[t] \cap t\mathbb{R}[t])}$
+		Es gilt:
+		\begin{align*}
+			\mathbb{Z}[t]\cap t\mathbb{Z}[t] = &\left\lbrace\sum_{i=0}^{\infty}a_it^i \mid (a_i)_{i\in\mathbb{N}_0}\in\mathbb{Z}^{(\mathbb{N}_0)}\right\rbrace \cap \left\lbrace t\sum_{i=0}^{\infty}a_it^i \mid (a_i)_{i\in\mathbb{N}_0}\in\mathbb{R}^{(\mathbb{N}_0)}\right\rbrace \\
+			= &\left\lbrace\sum_{i=0}^{\infty}a_it^i \mid (a_i)_{i\in\mathbb{N}_0}\in\mathbb{Z}^{(\mathbb{N}_0)}\right\rbrace \cap \left\lbrace t\sum_{i=0}^{\infty}a_it^i \mid (a_i)_{i\in\mathbb{N}_0}\in\mathbb{Z}^{(\mathbb{N}_0)}\right\rbrace \\
+			= &\left\lbrace t\sum_{i=0}^{\infty}a_it^i \mid (a_i)_{i\in\mathbb{N}_0}\in\mathbb{Z}^{(\mathbb{N}_0)}\right\rbrace \\
+			= &t\mathbb{Z}[t].
+		\end{align*}
+		$\df \faktor{\mathbb{Z}[t]}{t\mathbb{Z}[t]} \cong \faktor{\mathbb{Z}[t]}{(\mathbb{Z}[t] \cap t\mathbb{R}[t])}$.
+		
+		\item[(3)] Zu zeigen: $\mathbb{Z} \cong \faktor{\mathbb{Z}[t]}{t\mathbb{Z}[t]}$. \\
+		Es gilt:
+		\begin{align*}
+			t\mathbb{Z}[t]\text{ Ideal} \df &\exists\varphi:\mathbb{Z}[t]\rightarrow\mathbb{Z}\text{ Ringhomomorphismus mit }\ker(\varphi)=t\mathbb{Z}[t]. \\
+			\overset{\text{Homom.-Satz}}{\df} &\;\psi:\faktor{\mathbb{Z}[t]}{t\mathbb{Z}[t]}\rightarrow\text{Im}(\varphi), [a]\mapsto\varphi(a)\text{ Ringisomorphismus} \\
+			\overset{\text{Im}(\varphi)=\mathbb{Z}}{\df} &\;\faktor{\mathbb{Z}[t]}{t\mathbb{Z}[t]}\cong\mathbb{Z}.
+		\end{align*}
+	\end{enumerate}
+	\QED
+\end{enumerate}
+
+\subsection*{Aufgabe 6.2}
+Sei $R$ Hauptidealring, $g\in R$. \\
+Zu zeigen: $a+gR=[a]_g\in\left(\faktor{R}{gR}\right)^*\gdw 1\text{ ist ein $\ggT$ von $a$ und }$g. \\
+Beweis fehlt.
+\begin{enumerate}
+	\item[(a)] Sei $K=\mathbb{Q}, f:=t^3-3t^2+2t,g:=t^2-1$. \\
+	Es gilt:
+	$$\ggT(t^3-3t^2+2t,t^2-1)\overset{\text{EA}}{=}3t-3 \df [f]_g\notin\left(\faktor{R}{gR}\right)^*.$$
+	
+	
+	\item[(b)] Fehlt.
+\end{enumerate}
+
+\subsection*{Aufgabe 6.3}
+\begin{enumerate}
+	\item[(a)] Zu zeigen: $\psi:\mathbb{Z}\times\mathbb{Z}\rightarrow\faktor{\mathbb{Z}}{3\mathbb{Z}},\;(a,b)\mapsto b+3\mathbb{Z}$ Ringepimorphismus. \\
+	\begin{enumerate}
+		\item[(1)] Zu zeigen: $\forall a,b\in \mathbb{Z}\times\mathbb{Z}: \psi(a+b)=\psi(a)+\psi(b)$.
+		Es gilt:
+		\begin{align*}
+			\psi(a+b) = &\psi((a_1,a_2)+(b_1,b_2)) \\
+			= &a_2+b_2+3\mathbb{Z} \\
+			= &a_2+b_2+3\mathbb{Z}+3\mathbb{Z} \\
+			= &a_2+3\mathbb{Z}+b_2+3\mathbb{Z} \\
+			= &\psi(a)+\psi(b).
+		\end{align*}
+		
+		\item[(2)] Zu zeigen: $\forall a,b\in \mathbb{Z}\times\mathbb{Z}: \psi(a\cdot b)=\psi(a)\cdot\psi(b)$. \\
+		Es gilt:
+		\begin{align*}
+			\psi(a\cdot b) = &\psi((a_1,a_2)\cdot(b_1,b_2)) \\
+			= &\psi((a_1b_1,a_2b_2)) \\
+			= &a_2b_2+3\mathbb{Z} \\
+			= &a_2b_2+a_1\cdot 3\mathbb{Z}+b_1\cdot 3\mathbb{Z} + 3\mathbb{Z}\cdot 3\mathbb{Z} \\
+			= &(a_2 + 3\mathbb{Z})\cdot(b_2+3\mathbb{Z}) \\
+			= &\psi((a_1,a_2))\cdot\psi((b_1,b_2)) \\
+			= &\psi(a)\cdot\psi(b).
+		\end{align*}
+		
+		\item[(3)] Zu zeigen: $\psi((1,1))=1+3\mathbb{Z}$. \\
+		Es gilt:
+		$$\psi((1,1)) = 1+3\mathbb{Z}.$$	
+	\end{enumerate}
+	$\df \psi$ Ringhomomorphismus.
+	
+	Weiter ist zu zeigen, dass $\psi$ surjektiv ist, d. h. $\forall b\in \faktor{\mathbb{Z}}{3\mathbb{Z}} \exists a\in\mathbb{Z}\times\mathbb{Z}:\psi(a)=b$. \\
+	Es gilt:
+	\begin{align*}
+		&\psi((a,b)) = b+3\mathbb{Z} \\
+		\overset{b\in\mathbb{Z}}{\df} &\psi\text{ surjektiv}.
+	\end{align*}
+	$\df \psi$ ist Ringepimorphismus.
+	\QED
+	
+	\item[(b)] Fehlt.
+	\end{enumerate}
+
+\subsection*{Aufgabe 6.4}
+Sei $K$ Körper, $R=K[t]$. \\
+Seien $\ideal{5}$ und $\ideal{7}$ Ideale in $R$. Seien $1$ und $5$ aus $R$. \\
+Nach dem Chinesischen Restsatz existiert ein $b\in R$, dass die simultanen Kongruenzen
+$$b\equiv 1\mod \ideal{5}$$
+$$b\equiv 5\mod \ideal{7}$$
+erfüllt. Die Lösung ist eindeutig modulo $\ideal{5}\cdot\ideal{7}=\ideal{35}$.
+
+In diesem Fall ist $b=26$ eine Lösung der Kongruenzen, denn es gilt:
+$$26=1+4\cdot5 \equiv 1\mod\ideal{5}\quad\text{ und }\quad 26=5+3\cdot 7\equiv 5\mod\ideal{7}.$$
+Alle Lösungen sind in diesem Fall also $26+\ideal{35}$.
+
+\bigskip
+
+\corr{korrigiert von \hspace{1cm} am }
+\end{document}
