@@ -1,0 +1,26 @@
+JavaFX Installation
+-------------------
+
+1. Download JavaFX 13:
+   Lade JavaFX 13 herunter:
+   - https://gluonhq.com/products/javafx/
+
+2. Extract and copy it to a target location:
+   Entpacke es und kopiere es an einen Zielort:
+   - /path/to/fx/
+
+3. Set environment variable:
+   Setze eine Umgebungsvariable:
+   - Windows: set PATH_TO_FX="path\to\fx\lib"
+   - Linux/Mac: export PATH_TO_FX=path/to/fx/lib
+
+4. Add jar-files to Eclipse project:
+   Füge die jar-Dateien zum Eclipse Projekt hinzu:
+   - Configure build path -> Libraries -> Classpath -> Add external jars
+
+5. Run your JavaFX application, which will show an error
+   Führe deine JavaFX Anwendung aus, dies wird zunächst zu einem Fehler führen
+
+6. Then edit the run configuration:
+   Dann bearbeite die run configuration:
+   - Arguments -> VM Arguments: --module-path "/path/to/fx/lib" --add-modules javafx.controls,javafx.fxml
