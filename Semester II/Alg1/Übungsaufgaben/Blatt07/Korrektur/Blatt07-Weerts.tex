@@ -1,0 +1,315 @@
+\documentclass[12pt]{article}
+
+\usepackage{a4}  
+\usepackage{color}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage{faktor}
+ 
+\newcommand{\corr}[1]{\textcolor{red}{#1}}
+\newcommand{\QED}{\begin{flushright} $\square$ \end{flushright}}
+\newcommand{\df}{\enspace\Longrightarrow\enspace}
+\newcommand{\koeff}[2]{\begin{pmatrix}#1 \\ #2\end{pmatrix}}
+\newcommand{\Char}{\operatorname{char}}
+\newcommand{\isIdeal}{\trianglelefteq}
+\newcommand{\ann}{\operatorname{ann}}
+\newcommand{\ideal}[1]{\langle#1\rangle}
+\newcommand{\N}{\operatorname{N}}
+\newcommand{\enorm}{\operatorname{d}}
+\newcommand{\gdw}{\;\Longleftrightarrow\;}
+\newcommand{\abs}[1]{\vert #1\vert}
+\newcommand{\ggT}{\operatorname{ggT}}
+\newcommand{\kgV}{\operatorname{kgV}}
+\newcommand{\grad}{\operatorname{deg}}
+\newcommand{\LC}{\operatorname{LC}}
+
+\newcommand{\aal}{a_{\alpha}}
+\newcommand{\ab}{a_{\beta}}
+\newcommand{\ba}{b_{\alpha}}
+\newcommand{\bb}{b_{\beta}}
+
+
+
+\begin{document}
+\section*{Abgabe Algebra 1, Blatt 07}
+
+Studierende(r): Weerts, Steffen, steffen.weerts@uni-oldenburg.de
+
+\subsection*{Aufgabe 7.1}
+\begin{enumerate}
+	\item[(a)] Bestimmen Sie all Lösungen $x\in\mathbb{Z}$ der folgenden simultanen Kongruenzen:
+	\begin{enumerate}
+		\item[(i)] $2X\equiv 1\mod 3,\;3X\equiv 2\mod 5,\;X\equiv 1\mod 11,\;X\equiv -11\mod 14$. \\
+		Es gilt:
+		$$2X\equiv 1\mod 3\gdw 2X\equiv 4\mod 3\gdw X\equiv 2\mod 3,$$
+		$$3X\equiv 2\mod 5\gdw 3X\equiv -3\mod 5\gdw X\equiv 4\mod 5,$$
+		$$X\equiv 1\mod 11,$$
+		$$X\equiv -11\mod 14\gdw X\equiv 3\mod 14.$$
+		Seien $m_1=3,m_2=5,m_3=11,m_4=14;m=3\cdot 5\cdot 11\cdot 14=2310$. \\
+		Außerdem seien:
+		\begin{align*}
+			N_1=&\frac{m}{m_1}=770, &N_2=\frac{m}{m_2}=462, \\
+			N_3=&\frac{m}{m_3}=210, &N_4=\frac{m}{m_4}=165.
+		\end{align*}
+		Bestimme nun Inverse zu $[N_i]_{m_i}\;\forall 1\leq i\leq 4$. \\
+		Es gilt:
+		\begin{align*}
+			[N_1]_{m_1}=[770]_3=[2]_3&\df[N_1]_{m_1}\cdot[y_1]_{m_1}=[2]_3\cdot[2]_3=[1]_3, \\
+			[N_2]_{m_2}=[462]_5=[2]_5&\df[N_2]_{m_2}\cdot[y_2]_{m_2}=[2]_5\cdot[3]_5=[1]_5, \\
+			[N_3]_{m_3}=[210]_{11}=[1]_{11}&\df[N_3]_{m_3}\cdot[y_3]_{m_3}=[1]_{11}\cdot[1]_{11}=[1]_{11}, \\
+			[N_4]_{m_4}=[165]_{14}=[11]_{14}&\df[N_4]_{m_4}\cdot[y_4]_{m_4}=[11]_{14}\cdot[9]_{14}=[1]_{14}.
+		\end{align*}
+		Nach Bemerkung 4.7.12 gilt:
+		$$b=2\cdot770\cdot2+4\cdot462\cdot3+1\cdot210\cdot1+3\cdot165\cdot9=3080+5544+210+4455=13269.$$
+\corr{$=13289$. $-0,5$ P}\\
+		Die Lösung der simultanen Kongruenzen ist nach Satz 4.7.5 eindeutig modulo $m$. Die Lösungsmenge ist also
+		$$\left\{13269+2310z\mid z\in\mathbb{Z}\right\}=\left\{1719+2310z\mid z\in\mathbb{Z}\right\}.$$
+		\QED
+		
+		\item[(ii)] Es gilt $X\equiv2\mod3,\;X\equiv1\mod5,\;X\equiv5\mod84$. \\
+		Da $3\mid84$ gilt:
+		$$X\equiv5\mod84\df X\equiv5\mod3\df X\equiv2\mod3.$$
+		Demnach ist die Kongruenz $X\equiv2\mod3$ in der Kongruenz $X\equiv5\mod84$ enthalten, weshalb sie weggelassen werden kann. \\
+		
+		Betrachte also die Kongruenzen $X\equiv1\mod5,\;X\equiv5\mod84$. \\
+		Sei $m=5\cdot84=420$.
+		Seien außerdem $$N_1=\frac{m}{m_1}=84,\quad\quad\quad N_2=\frac{m}{m_2}=5.$$
+		Es gilt:
+		\begin{align*}
+			[N_1]_{m_1}&=[84]_5&=[4]_5&\df[N_1]_{m_1}\cdot[y_1]_{m_1}=[4]_5\cdot[4]_5=[1]_5, \\
+			[N_2]_{m_2}&=[5]_{84}& &\df[N_2]_{m_2}\cdot[y_2]_{m_2}=[5]_{84}\cdot[17]_{84}=[85]_{84}=[1]_5.
+		\end{align*}
+		Nach Bemerkung 4.7.12 gilt:
+		$$b=1\cdot84\cdot4+5\cdot5\cdot17=336+425=761.$$
+		Die Lösung $b$ der simultanen Kongruenzen ist nach Satz 4.7.5 eindeutig modulo $m$. Die Lösungsmenge ist also
+		$$\left\{761+420z\mid z\in\mathbb{Z}\right\}=\left\{341+420z\mid z\in\mathbb{Z}\right\}.$$
+		Probe:
+		Es gilt: $3\mid 420z,\;5\mid420z,\;84\mid420z\;\forall z\in\mathbb{Z}$, daher muss nur gezeigt werden, dass die Kongruenzen für $341$ gelten. \\
+		\begin{align*}
+			341 = 113*3+2 \equiv 2\mod3. \\
+			341 = 68*5+1 \equiv 1\mod5. \\
+			341 = 4*84+5 \equiv 5\mod84.
+		\end{align*}
+		\QED
+	\end{enumerate}
+\corr{Punkte Teil a): $3,5/4$}
+	
+	\item[(b)] Sei $R[t]=\mathbb{Z}_3[t]$. Es gilt $X\equiv1\mod(t+1),\;X\equiv t+2\mod(t^2+1),X\equiv t^2+t\mod(t^3+t^2+2)$. Sei
+	\begin{align*}
+		N=&m_1\cdot m_2\cdot m_3 \\
+		=&(t+1)\cdot(t^2+1)\cdot(t^3+t^2+2) \\
+		=&t^6+t^5+2t^3+t^4+t^3+2t+t^5+t^4+2t^2+t^3+t^2+2 \\
+		=&t^6+2t^5+2t^4+t^3+2t+2.
+	\end{align*}
+	Seien
+	\begin{align*}
+		N_1&=(t^2+1)\cdot(t^3+t^2+2) & &=t^5+t^4+2t^2+t^3+t^2+2 & &=t^5+t^4+t^3+2, \\
+		N_2&=(t+1)\cdot(t^3+t^2+2) & &=t^4+t^3+2t+t^3+t^2+2 & &=t^4+2t^3+t^2+2t+2, \\
+		N_3&=(t+1)\cdot(t^2+1) & &=t^3+t+t^2+1 & &=t^3+t^2+t+1.
+	\end{align*}
+	Es gilt:
+	\begin{align*}
+		[N_1]_{m_1}&=[t^5+t^4+t^3+2]_{t+1}=[1]_{t+1} \\
+		&\df[N_1]_{m_1}\cdot[y_1]_{m_1}=[1]_{t+1}\cdot[1]_{t+1}=[1]_{t+1} \\
+		[N_2]_{m_2}&=[t^4+2t^3+t^2+2t+2]_{t^2+1}=[2]_{t^2+1} \\
+		&\df[N_1]_{m_2}\cdot[y_1]_{m_2}=[2]_{t^2+1}\cdot[2]_{t^2+1}=[1]_{t^2+1} \\
+		[N_3]_{m_3}&=[t^3+t^2+t+1]_{t^3+t^2+2}=[t-1]_{t^3+t^2+2} \\
+		&\df[N_1]_{m_3}\cdot[y_1]_{m_3}=[t-1]_{t^3+t^2+2}\cdot[2t^2+t+1]_{t^3+t^2+2}=[1]_{t^3+t^2+2}.
+	\end{align*}
+	Definiere $b_1+b_2+b_3=b$ so, dass sie Summe aus Bemerkung 4.7.12 sind:
+	\begin{align*}
+		b_1:=&\,1\cdot(t^5+t^4+t^3+2)\cdot1 \\
+		=&\,t^5+t^4+t^3+2, \\
+		b_2:=&\,(t+2)\cdot(t^4+2t^3+t^2+2t+2)\cdot2 \\
+		=&\,(t\cdot(t^4+2t^3+t^2+2t+2)+2\cdot(t^4+2t^3+t^2+2t+2))\cdot2 \\
+		=&\,(t^5+2t^4+t^3+2t^2+2t+2t^4+t^3+2t^2+t+1)\cdot2 \\
+		=&\,(t^5+t^4+2t^3+t^2+1)\cdot2 \\
+		=&\,2t^5+2t^4+t^3+2t^2+2, \\
+		b_3:=&\,(t^2+t)\cdot(t^3+t^2+t+1)\cdot(2t^2+t+1) \\
+		=&\,((t^5+t^4+t^3+t^2)+(t^4+t^3+t^2+t))\cdot(2t^2+t+1) \\
+		=&\,(t^5+2t^4+2t^3+2t^2+t)\cdot(2t^2+t+1) \\
+		=&\,(2t^7+t^6+t^5+t^4+2t^3)+(t^6+2t^5+2t^4+2t^3+t^2)+(t^5+2t^4+2t^3+2t^2+t) \\
+		=&\,2t^7+2t^6+t^5+2t^4+t.
+	\end{align*}
+	Nach Bemerkung 4.7.12 gilt:
+	\begin{align*}
+		b&=b_1+b_2+b_3 \\
+		&=t^5+t^4+t^3+2+2t^5+2t^4+t^3+2t^2+2+2t^7+2t^6+t^5+2t^4+t \\
+		&=2t^7+2t^6+t^5+2t^4+2t^3+2t^2+t+1.
+	\end{align*}
+	Die Lösung $b$ der simultanen Kongruenzen ist nach Satz 4.7.5 eindeutig modulo $N$. Mit $f:=2t^7+2t^6+t^5+2t^4+2t^3+2t^2+t+1,g:=t^6+2t^5+2t^4+t^3+2t+2\in\mathbb{Z}_3[t]$ ist die Lösungsmenge ist also
+	$$\left\{b+Nz\mid z\in\mathbb{Z}\right\}=\left\{f+gz\mid z\in\mathbb{Z}\right\}.$$
+	\QED
+\corr{Punkte Teil b): $3/3$}
+	
+	\item[(c)] Sei $R=\mathbb{Z}[i],m_1:=11\in R,m_2:=3+2i\in R,m_3:=13\in R$. \\
+	Es gilt: $$X\equiv1\mod11,X\equiv2\mod(3+2i),X\equiv2\mod13.$$
+	Da $m_2=(3+2i)\mid(3+2i)\cdot(3-2i)=13=m_3$ gilt, ist $X\equiv2\mod13$ eine stärkere Einschränkung als $X\equiv2\mod(3+2i)$. Betrachte daher nur $$X\equiv1\mod11,X\equiv2\mod13.$$
+	Definiere:
+	\begin{align*}
+		N:=&\,m_1\cdot m_2=11\cdot13=143, \\
+		N_1:=&\,m_3=13, \\
+		N_2:=&\,m_1=11.
+	\end{align*}
+	Es gilt:
+	\begin{align*}
+		[N_1]_{m_1}&=[13]_{11}=[2]_{11}&\df[N_1]_{m_1}\cdot[y_1]_{m_1}=[2]_{11}\cdot[6]_{11}=[1]_{11}, \\
+		[N_2]_{m_2}&=[11]_{13}&\df[N_2]_{m_2}\cdot[y_2]_{m_2}=[11]_{13}\cdot[6]_{13}=[1]_{13}.
+	\end{align*}
+	Nach Bemerkung 4.7.12 gilt:
+	\begin{align*}
+		b&=1\cdot N_1\cdot y_1+2\cdot N_2\cdot y_2 \\
+		&=13\cdot6+2\cdot11\cdot6 \\
+		&=78+132 \\
+		&=210.
+	\end{align*}
+	Die Lösung $b$ der simultanen Kongruenzen ist nach Satz 4.7.5 eindeutig modulo $N$. Die Lösungsmenge ist also
+	$$\left\{210+143z\mid z\in\mathbb{Z}\right\}=\left\{67+143z\mid z\in\mathbb{Z}\right\}.$$
+	\QED
+\corr{Punkte Teil c): $2/2$}
+\end{enumerate}
+\corr{$6,5/7$ P $+2$ P}
+
+\subsection*{Aufgabe 7.2}
+\begin{enumerate}
+	\item[(a)] Sei $f:=t^4-2t^3-7t^2+\frac{11}{3}t-\frac{4}{3}\in\mathbb{Q}$. \\
+	Zu zeigen: Das Polynom $f$ besitzt eine rationale Nullstelle. \\
+	Sei $\alpha=4\in\mathbb{Q}$. Es gilt:
+	\begin{align*}
+		E_\alpha(f)=&4^4-2\cdot4^3-7\cdot4^2-\frac{11}{3}\cdot4-\frac{4}{3} \\
+		=&256-128-112-\frac{44}{3}-\frac{4}{3} \\
+		=&128-112-16 \\
+		=&0.
+	\end{align*}
+	$\df \alpha$ ist rationale Nullstelle von $f$. \\
+\corr{Wie bist Du auf die $4$ gekommen?}\\
+	Ferner ist zu zeigen, dass $f=\left(t-4\right)\cdot\left(t^3+2t^2+t+\frac{1}{3}\right)$ die Faktorisierung von $f$ in irreduzible Polynome ist. \\
+	Es gilt:
+	\begin{align*}
+		f&=t^4-2t^3-7t^2+\frac{11}{3}t-\frac{4}{3} \\
+		&=\left(t-4\right)\cdot\left(t^3+2t^2+t+\frac{1}{3}\right) \\
+		&=\frac{1}{3}\cdot\left(t-4\right)\cdot\left(3t^3+6t^2+3t+1\right)
+	\end{align*}
+	\begin{enumerate}
+		\item[(i)] Zu zeigen $g:=\left(t^3+2t^2+t+\frac{1}{3}\right)$ irreduzibel. \\
+		Sei $\mathbb{Q}\ni\alpha=\frac{A}{B}$ rationale Nullstelle von $g$ mit $A,B\in\mathbb{Z}$ teilerfremd.\\
+		Es gilt:
+		\begin{align*}
+			& t^3+2t^2+t+\frac{1}{3}=0 \\
+&\corr{\text{Das gilt nicht. Polynome sind genau dann 0, wenn alle Koeffizienten 0 sind.}}\\
+			\overset{5.2.2}{\df} &B\mid1\text{ und }A\mid\frac{1}{3} \\
+			\df &B\in\{-1,1\},A\in\{-1,1\} \\
+			\df &\alpha\in\left\{-1,1\right\}.
+		\end{align*}
+\corr{Satz 5.2.2 lässt sich nur auf Polynome aus $R[t]$ anwenden, hier also $\mathbb{Z}[t]$. Ansonsten ergäbe die Teilbarkeitsbedingung wenig Sinn, da in einem Körper alle Elemente außer der 0 assoziiert zueinander sind. $-1$ P.}\\
+		Damit ergibt sich für die Nullstellen:
+		\begin{align*}
+			E_{-1}(g)&=(-1)^3+2\cdot(-1)^2+(-1)+\frac{1}{3} \\
+			&=-1+2-1+\frac{1}{3} \\
+			&=\frac{1}{3}\neq0, \\
+			E_{1}(g)&=1^3+2\cdot1^2+1+\frac{1}{3} \\
+			&=1+2+1+\frac{1}{3} \\
+			&=\frac{13}{3}\neq0.
+		\end{align*}
+		Alle möglichen Funktionswerte von $g(\alpha)$ sind ungleich $0$. Dies steht im Widerspruch zu $\alpha$ rationale Nullstelle von $g$. Daraus folgt, dass $g$ keine rationale Nullstelle besitzt. \\
+		Nach Satz 5.1.6 ist $g\in\mathbb{Q}[t]$ irreduzibel.
+		
+		\item[(ii)] Zu zeigen: $h:=t-4$ irreduzibel in $\mathbb{Q}[t]$. \\
+		Es gilt: $$\mathbb{Q}\text{ Körper, }\grad(t-4)=1\overset{5.1.2}{\df}t-4\in\mathbb{Q}[t]\text{ irreduzibel}.$$
+	\end{enumerate}
+	Daraus folgt, dass $f=\left(t-4\right)\cdot\left(t^3+2t^2+t+\frac{1}{3}\right)$ eine Faktorisierung von $f$ in irreduzible Polynome in $\mathbb{Q}[t]$ ist.
+	\QED
+\corr{Punkte Teil a): $1/2$}	
+
+	\item[(b)] Seien $R$ Integritätsring, $f\in R[t]$ und $\varphi:R[t]\rightarrow R[t]$ ein Ringisomorphismus. \\
+	Zu zeigen: $f$ ist irreduzibel $\gdw$ $\varphi(f)$ ist irreduzibel. \\
+	\begin{enumerate}
+		\item["$\Longrightarrow$":] Sei $f$ irreduzibel. Es gilt:
+		\begin{align*}
+			&\forall a,b\in R\corr{[t]},f=a\cdot b:a\in R\corr{[t]}^*\text{ oder }b\in R\corr{[t]}^* \corr{\text{\quad $-0,5$ P}} \\
+			\df&\forall a,b\in R\corr{[t]},f=a\cdot b:\varphi(f)=\varphi(a\cdot b)=\varphi(a)\cdot\varphi(b) \\
+			\overset{2.3.3b)}{\df}&\varphi(a)\in R\corr{[t]}^*\text{ oder }\varphi(b)\in R\corr{[t]}^* \\
+			\df&\varphi(f)\text{ ist irreduzibel}.
+		\end{align*}
+\corr{Es ist noch zu zeigen, dass jede Zerlegung von $\varphi(f)$ die Form $\varphi(f)= \varphi(g)\cdot \varphi(h)$ hat mit $f=g \cdot h$. Nur für diesen Fall wurde Irreduzibilität gezeigt. $-0,5$ P.}
+		
+		\item["$\Longleftarrow$":] Sei $\varphi(f)$ irreduzibel. Sei $\varphi^{-1}$ der inverse Ringisomorphismus zu $\varphi$. Es gilt:
+		\begin{align*}
+			&\forall a,b\in R\corr{[t]},\varphi(f)=a\cdot b:a\in R\corr{[t]}^*\text{ oder }b\in R\corr{[t]}^* \\
+			\overset{f=\varphi^{-1}(\varphi(f))}{\df}&\forall a,b\in R\corr{[t]},\varphi(f)=a\cdot b:f=\varphi^{-1}(\varphi(f))=\varphi^{-1}(a\cdot b)=\varphi^{-1}(a)\cdot\varphi^{-1}(b) \\
+			\overset{2.3.3}{\df}&\varphi^{-1}(a)\in R\corr{[t]}^*\text{ oder }\varphi^{-1}(b)\in R\corr{[t]}^* \\
+			\df&f\text{ irreduzibel}.
+		\end{align*}
+\corr{S.o.}
+	\end{enumerate}
+	\QED
+\corr{Punkte Teil b): $1/2$}
+	
+	\item[(c)] Fehlt.
+\end{enumerate}
+\corr{$2/6$ P}
+
+\subsection*{Aufgabe 7.3}
+\begin{enumerate}
+	\item[(a)] Sei $R[t]=\mathbb{Z}_5[t], f=t^3+t^2+2\in\mathbb{Z}_5[t]$. \\
+	Zu zeigen: $f$ ist irreduzibel über in $\mathbb{Z}_5[t]$. \\
+	Es gilt: $$R=\mathbb{Z}_5\text{ ist nullteilerfreier Ring und }\LC(f)=1\in R^*$$
+	$$\overset{\grad(f)=3}{\df} (f\text{ irreduzibel}\gdw f\text{ besitzt Nullstelle in }R)$$
+	Es gilt:
+	\begin{align*}
+		&\forall z\in\mathbb{Z}_5:z\in\{0,\cdots,4\} \\
+		\df &\forall z\in\mathbb{Z}_5:z\geq0 \\
+		\df &\forall z\in\mathbb{Z}_5:z^3+z^2\geq0 \\
+		\df &\forall z\in\mathbb{Z}_5:z^3+z^2+2\geq2 \\
+		\df &f\text{ besitzt keine Nullstelle in }\mathbb{Z}_5 \\
+		\df &f\text{ irreduzibel über }\mathbb{Z}_5.
+	\end{align*}
+	\QED
+\corr{Es gibt in $\mathbb{Z}_5$ kein $>,<$. Wenn man die Elemente als Elemente in $\mathbb{Z}$ auffasst, ist das möglich, doch dann führt $>0$ nicht zu $\neq0$, da $5>0$ in $\mathbb{Z}$, jedoch $5=0$ in $\mathbb{Z}_5$. Es wurde also nicht gezeigt, dass $f$ keine Nullstellen hat. $-1,5$ P}\\
+\corr{$0,5/2$ P}
+	
+	\item[(b)] Sei $R[t]=\mathbb{Q}[t], f=5t^{10}-3t^6+18t^2+9t-6\in\mathbb{Z}[t]$. \\
+	Zu zeigen: $f$ irreduzibel in $\mathbb{Q}[t]$. \\
+	Es gilt:
+	\begin{align*}
+		\ggT(5,-3,18,9,-6)&=\ggT(5,3,18,9,6) \\
+		&=\ggT(5,\ggT(3,\ggT(18,\ggT(9,6)))) \\
+		&=\ggT(5,\ggT(3,\ggT(18,3))) \\
+		&=\ggT(5,\ggT(3,3)) \\
+		&=\ggT(5,3) \\
+		&=1 \\
+		\df &f\text{ primitiv}.
+	\end{align*}
+	Sei $p=3,n:=\grad(f)=10$. Es gilt:
+	\begin{enumerate}
+		\item[(i)] $$p=3\nmid5=a_n.$$
+		
+		\item[(ii)] 
+		\begin{align*}
+			&\forall0\leq i<n:p\mid a\corr{_i}, \\
+			\text{denn } a_i\in\{0,-3,18,9,&-6\}\text{ und }3\mid0,3\mid -3, 3\mid18,3\mid9,3\mid-6.
+		\end{align*}
+		
+		\item[(iii)] $$p^2=9\nmid-6=a_0.$$
+	\end{enumerate}
+	Nach dem Kriterium von Eisenstein ist $f$ irreduzibel in $\mathbb{Q}[t]$.
+	\QED
+\corr{Punkte Teil b): $2/2$}
+	
+	\item[(c)] Fehlt.
+	
+	\item[(d)] Fehlt.
+\end{enumerate}
+\corr{$2,5/7$ P}
+
+\bigskip
+
+\corr{Insgesamt $12,5/20$ Punkten.}
+
+
+
+\bigskip
+
+\corr{korrigiert von Tom Engels am 11.06.2020}
+\end{document}
