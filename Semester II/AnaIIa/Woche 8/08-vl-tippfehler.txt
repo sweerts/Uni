@@ -1,0 +1,7 @@
+In der ersten Version gab es leider einige kleine Tippfehler (sorry!), sie sind in den jetzigen Version korrigiert worden.
+
+Hier de Liste (z.B. falls Sie die erste Version ausgedruckt haben und nicht erneut drucken wollen):
+
+*) Proposition 118: es fehlte die Konstante L in der Ungleichung.
+*) Kurz danach: für die Kontraktionen ist die Lipschitz-Konstante <1 (und nicht <=1)
+*) Satz 126: I ist eine Teilmenge von R (nicht von R^n)
