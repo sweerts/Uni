@@ -1,0 +1,310 @@
+\documentclass[12pt]{article}
+
+\usepackage{a4}  
+\usepackage{color}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage{faktor}
+ 
+\newcommand{\corr}[1]{\textcolor{red}{#1}}
+\newcommand{\QED}{\begin{flushright} $\square$ \end{flushright}}
+\newcommand{\QEDD}{\begin{flushright} "$\square$" \end{flushright}}
+\newcommand{\df}{\enspace\Longrightarrow\enspace}
+\newcommand{\koeff}[2]{\begin{pmatrix}#1 \\ #2\end{pmatrix}}
+\newcommand{\koefff}[3]{\begin{pmatrix}#1 \\ #2 \\ #3\end{pmatrix}}
+\newcommand{\Char}{\operatorname{char}}
+\newcommand{\isIdeal}{\trianglelefteq}
+\newcommand{\ann}{\operatorname{ann}}
+\newcommand{\ideal}[1]{\langle#1\rangle}
+\newcommand{\N}{\operatorname{N}}
+\newcommand{\enorm}{\operatorname{d}}
+\newcommand{\gdw}{\;\Longleftrightarrow\;}
+\newcommand{\abs}[1]{\vert #1\vert}
+\newcommand{\ggT}{\operatorname{ggT}}
+\newcommand{\kgV}{\operatorname{kgV}}
+\newcommand{\grad}{\operatorname{deg}}
+\newcommand{\LC}{\operatorname{LC}}
+\newcommand{\determinante}{\operatorname{det}}
+
+\newcommand{\aal}{a_{\alpha}}
+\newcommand{\ab}{a_{\beta}}
+\newcommand{\ba}{b_{\alpha}}
+\newcommand{\bb}{b_{\beta}}
+
+
+
+\begin{document}
+\section*{Abgabe Algebra I, Blatt 08}
+
+Studierende(r): Weerts, Steffen, steffen.weerts@uni-oldenburg.de
+
+\subsection*{Aufgabe 8.1}
+\begin{enumerate}
+	\item[(a)] Sei $R$ faktorieller Ring mit $\Char(R)\neq2$. Sei $R[t_1,t_2]=(R[t_1])[t_2]$ Polynomring in zwei Variablen. \\
+	Zu zeigen: $f=t_1^2+t_2^2+1\in R[t_1,t_2]$ ist irreduzibel in $R[t_1,t_2]$. \\
+	Sei $a_0:=t_1^2+1\in R[t_1]$. Es gilt: $$f=t_2^2+t_1^2+1=t_2^2+a_0\in R[t_1,t_2].$$
+	Da $R$ faktorieller Ring ist, sind nach dem Lemma von Gauß auch $R[t_1]$ und $R[t_1,t_2]$ faktorielle Ringe. \\
+	Das Polynom $f$ ist primitiv, denn $f=t_2^2+(t_1^2+1)=1\cdot t_2^2+a_0\cdot t_2^0,\; a_0\in R[t_1]$ und somit ist $\ggT(1,0,a_0)=\ggT(1,\ggT(0,a_0))=\ggT(1,a_0)=1$. Dies gilt, da $f\in (R[t_1])[t_2]$ Koeffizienten aus dem Ring $R[t_1]$ besitzt. Der Grad von $f$ ist $\grad(f)=2$. \\
+	Da $a_0=t_1^2+1$ irreduzibel ist, ist $a:=a_0=t_1^2+1$ prim in $R[t_1]$. \\
+\corr{$a_0$ ist nicht unbedingt irreduzibel z.B. für $R=\mathbb{C}$. Dadurch wurden folgende Rechnungen vereinfacht. $-1$ P.}\\
+	Es gelten die Voraussetzungen:
+	\begin{enumerate}
+		\item[(i)] $a=t_1^2+1\nmid q=a_2$,
+		\item[(ii)] $a=t_1^2+1\mid 0=a_1$, $a=t_1^2+1\mid t_1^2+1=a_0$,
+		\item[(iii)] $a^2=(t_1^2+1)^2=t_1^4+2t_1^2+1\nmid t_1^2+1=a_0$.
+	\end{enumerate}
+	Daraus folgt nach dem Kriterium von Eisenstein, dass $f$ irreduzibel in $R[t_1,t_2]$ ist.
+	\QED
+\corr{Punkte Teil a): $2/3$}
+	
+	\item[(b)] Fehlt.
+	
+	\item[(c)] Fehlt.
+\end{enumerate}
+\corr{$2/9$ P}
+
+\subsection*{Aufgabe 8.2}
+\begin{enumerate}
+	\item[(a)] Sei $\alpha:=\frac{1-\sqrt[3]{6}}{2}\in\mathbb{R}$. \\
+	Zu zeigen: $f_{\alpha,\mathbb{Q}}=$ ist Minimalpolynom von $\alpha$ über $\mathbb{Q}$. \\
+	Angenommen, $\grad(f_{\alpha,\mathbb{Q}})=1$. Es gilt:
+	\begin{align*}
+		&f_{\alpha,\mathbb{Q}}=\alpha+a_0\overset{!}{=}0 \\
+		\df&a_0=-\alpha\notin\mathbb{Q} \\
+		\df&\grad(f_{\alpha,\mathbb{Q}})\neq1.
+	\end{align*}
+	
+	Angenommen, $\grad(f_{\alpha,\mathbb{Q}})=2$. Es gilt:
+	\begin{align*}
+		&f_{\alpha,\mathbb{Q}}=\alpha^2+a_1\alpha+a_0=\left(\frac{1-\sqrt[3]{6}}{2}\right)^2+a_1\alpha+a_0 \\
+		&\quad\quad\quad\quad=\left(\frac{1}{2}\right)^2-2\frac{1}{2}\frac{\sqrt[3]{6}}{2}+\left(\frac{\sqrt[3]{6}}{2}\right)^2+a_1\alpha+a_0 \\
+		&\quad\quad\quad\quad=\frac{1}{4}-\frac{\sqrt[3]{6}}{2}+\frac{\sqrt[3]{6}^2}{4}+a_1\alpha+a_0 \\
+		&\quad\quad\quad\quad=\frac{1}{4}-\frac{\sqrt[3]{6}}{2}+\frac{\sqrt[3]{6}^2}{4}+a_1\frac{1}{2}+a_1\frac{\sqrt[3]{6}}{2}+a_0\overset{!}{=}0 \\
+		\df&a_0=-\frac{1}{4}-\frac{a_2}{2}-(a_1-1)\frac{\sqrt[3]{6}}{2}-\frac{\sqrt[3]{6}^2}{4}\notin\mathbb{Q} \\
+&\corr{\text{Warum kann $(a_1-1)\frac{\sqrt[3]{6}}{2}-\frac{\sqrt[3]{6}^2}{4}$ nicht $\in \mathbb{Q}$ sein? Genau begründen. $-0,5$ P}}\\
+		\df&\grad(f_{\alpha,\mathbb{Q}})\neq2.
+	\end{align*}
+	
+	Angenommen, $\grad(f_{\alpha,\mathbb{Q}})=3$. Es gilt:
+	\begin{align*}
+		&f_{\alpha,\mathbb{Q}}=\alpha^3+a_2\alpha^2+a_1\alpha+a_0 \\
+		&\quad\quad\quad\quad=\left(\frac{1-\sqrt[3]{6}}{2}\right)^3+a_2\alpha^2+a_1\alpha+a_0 \\
+		&\quad\quad\quad\quad=\left(\frac{1}{2}\right)^3-3\left(\frac{1}{2}\right)^2\frac{\sqrt[3]{6}}{2}+3\frac{1}{2}\left(\frac{\sqrt[3]{6}}{2}\right)^2-\left(\frac{\sqrt[3]{6}}{2}\right)^3 \\
+		&\quad\quad\quad\quad\quad\quad+a_2\alpha^2+a_1\left(\frac{1-\sqrt[3]{6}}{2}\right)+a_0 \\
+		&\quad\quad\quad\quad=\frac{1}{8}-\frac{3}{4}\frac{\sqrt[3]{6}}{2}+\frac{3}{2}\left(\frac{\sqrt[3]{6}}{2}\right)^2-\frac{6}{8}+a_2\alpha^2+\frac{a_1}{2}-a_1\frac{\sqrt[3]{6}}{2}+a_0 \\
+		&\quad\quad\quad\quad=\frac{1}{8}-\frac{6}{8}+\frac{a_1}{2}+a_0+\left(-a_1-\frac{3}{4}\right)\frac{\sqrt[3]{6}}{2}+\frac{3}{2}\left(\frac{\sqrt[3]{6}}{2}\right)^2+a_2\alpha^2 \\
+		&\quad\quad\quad\quad=-\frac{5}{8}+\frac{a_1}{2}+a_0+\left(-a_1-\frac{3}{4}\right)\frac{\sqrt[3]{6}}{2}+\frac{3}{2}\left(\frac{\sqrt[3]{6}}{2}\right)^2+a_2\left(\frac{1-\sqrt[3]{6}}{2}\right)^2 \\
+		&\quad\quad\quad\quad=-\frac{5}{8}+\frac{a_1}{2}+a_0+\left(-a_1-\frac{3}{4}\right)\frac{\sqrt[3]{6}}{2}+\frac{3}{2}\left(\frac{\sqrt[3]{6}}{2}\right)^2 \\
+		&\quad\quad\quad\quad\quad\quad+a_2\left(\left(\frac{1}{2}\right)^2-2\frac{1}{2}\frac{\sqrt[3]{6}}{2}+\left(\frac{\sqrt[3]{6}}{2}\right)^2\right) \\
+	\end{align*}
+	\begin{align*}		
+		&\quad\quad\quad\quad=-\frac{5}{8}+\frac{a_2}{4}+\frac{a_1}{2}+a_0+\left(-a_1-\frac{3}{4}-a_2\right)\frac{\sqrt[3]{6}}{2}+\left(\frac{3}{2}+a_2\right)\left(\frac{\sqrt[3]{6}}{2}\right)^2\overset{!}{=}0 \\
+		\df&a_2=-\frac{3}{2},a_1=\frac{3}{4},a_0=\frac{5}{8} \\
+		\df&f_{\alpha,\mathbb{Q}}=t^3-\frac{3}{2}\corr{t^2}+\frac{3}{4}\corr{t}+\frac{5}{8}\text{ ist Minimalpolynom von $\alpha$ über $\mathbb{Q}$}.
+	\end{align*}
+\corr{Es wurde nicht gezeigt, dass $f_{\alpha,\mathbb{Q}}$ irreduzibel ist.  $-0,5$ P}
+	
+	Da $\grad(f_{\alpha,\mathbb{Q}})=3$ gilt, folgt $$\left[\mathbb{Q}(\alpha):\mathbb{Q}\right]=\grad(f_{\alpha,\mathbb{Q}})=3.$$
+	\QED
+\corr{Punkte Teil a): $1/2$}	
+
+	\item[(b)] Sei $\alpha:=\sqrt{5}+i\in\mathbb{C}$ und $K=\mathbb{Q}(\sqrt{5},i)$. \\
+	Zu zeigen: $f_{\alpha,\mathbb{Q}}=t^4-8t^2+36$ ist Minimalpolynom von $\alpha$ über $\mathbb{Q}$. \\
+	Es gilt: $$\left[\mathbb{Q}(\sqrt{5},i):\mathbb{Q}\right]=\left[\mathbb{Q}(\sqrt{5},i):\mathbb{Q}(\sqrt{5})\right]\cdot\left[\mathbb{Q}(\sqrt{5}):\mathbb{Q}\right]$$
+	Bestimme zunächst $\left[\mathbb{Q}(\sqrt{5},i):\mathbb{Q}(\sqrt{5})\right]$. \\
+	Angenommen, $\grad(f_{i,\mathbb{Q}(\sqrt{5})})=1$. Es gilt:
+	\begin{align*}
+		&f_{i,\mathbb{Q}(\sqrt{5})}(i)=i+a_0\overset{!}{=}0 \\
+		\df&a_0=-i\notin\mathbb{Q}(\sqrt{5}) \\
+		\df&\grad(f_{i,\mathbb{Q}(\sqrt{5})})\neq1.
+	\end{align*}
+	
+	Angenommen, $\grad(f_{i,\mathbb{Q}(\sqrt{5})})=2$. Es gilt:
+	\begin{align*}
+		&f_{i,\mathbb{Q}(\sqrt{5})}(i)=i^2+a_1i+a_0=a_1i+a_0-1\overset{!}{=}0 \\
+		\df&\left(a_0=1-a_1i\notin\mathbb{Q}(\sqrt{5})\gdw a_1=0\right) \\
+		\df&f_{i,\mathbb{Q}(\sqrt{5})}=t^2+1,\;\grad(f_{i,\mathbb{Q}(\sqrt{5})})=2.
+	\end{align*}
+\corr{Das gilt nur unter der Annahme, dass $deg(f_{\alpha,\mathbb{Q}})=2$ ist. $-0,5$ P.}\\
+	Da $\mathbb{Q}(\sqrt{5})$ ein Körper ist, gilt $\left[\mathbb{Q}(\sqrt{5},i):\mathbb{Q}(\sqrt{5})\right]=\grad(f_{i,\mathbb{Q}(\sqrt{5})})=2$.
+	Bestimme nun $\left[\mathbb{Q}(\sqrt{5}):\mathbb{Q}\right]$. \\
+	Angenommen, $\grad(f_{\sqrt{5},\mathbb{Q}})=1$. Es gilt:
+	\begin{align*}
+		&f_{\sqrt{5},\mathbb{Q}}(\sqrt{5})=\sqrt{5}+a_0\overset{!}{=}0 \\
+		\df&a_0=-\sqrt{5}\notin\mathbb{Q} \\
+		\df&\grad(f_{\sqrt{5},\mathbb{Q}})\neq1.
+	\end{align*}
+	Angenommen, $\grad(f_{\sqrt{5},\mathbb{Q}})=2$. Es gilt:
+	\begin{align*}
+		&f_{\sqrt{5},\mathbb{Q}}(\sqrt{5})=\sqrt{5}^2+a_1\sqrt{5}+a_0=a_1\sqrt{5}+a_0+5\overset{!}{=}0 \\
+		\df&\left(a_0=-a_1\sqrt{5}-5\in\mathbb{Q}\gdw a_1=0\right) \\
+		\df&f_{\sqrt{5},\mathbb{Q}}=t^2-5,\;\grad(f_{\sqrt{5},\mathbb{Q}})=2.
+	\end{align*}
+\corr{s.o.}\\
+
+	Da $\mathbb{Q}$ ein Körper ist, gilt $\left[\mathbb{Q}(\sqrt{5}):\mathbb{Q}\right]=\grad(f_{\sqrt{5},\mathbb{Q}})=2$. \\
+	Also ergibt sich 
+	\begin{align*}
+		&\left[\mathbb{Q}(\sqrt{5},i):\mathbb{Q}\right]=\left[\mathbb{Q}(\sqrt{5},i):\mathbb{Q}(\sqrt{5})\right]\cdot\left[\mathbb{Q}(\sqrt{5}):\mathbb{Q}\right] \\
+		=&\,\grad(f_{i,\mathbb{Q}(\sqrt{5})})\cdot\grad(f_{\sqrt{5},\mathbb{Q}}) \\
+		=&\,2\cdot2 \\
+		=&\,4.
+	\end{align*}
+	Daraus folgt, dass das Minimalpolynom $f_{\alpha,\mathbb{Q}}$ einen Grad von $\grad(f_{\alpha,\mathbb{Q}})=\left[\mathbb{Q}(\sqrt{5},i):\mathbb{Q}\right]=4$ besitzt. \\
+Daher existieren $a_0,a_1,a_2,a_3$ so, dass $f_{\alpha,\mathbb{Q}}\corr{(\alpha)}=\alpha^4+a_3\alpha^3+a_2\alpha^2+a_1\alpha+a_0=0$ gilt.
+	Es gilt:
+	\begin{align*}
+		\alpha&=\sqrt{5}+i, \\
+		\alpha^2&=(\sqrt{5}+i)^2 \\
+		&=\sqrt{5}^2+2\sqrt{5}i+i^2 \\
+		&=4+2\sqrt{5}i, \\
+		\alpha^3&=(\sqrt{5}+i)^3 \\
+		&=\sqrt{5}^3+3\sqrt{5}^2i+3\sqrt{5}i^2+i^3 \\
+		&=5\sqrt{5}+15i-3\sqrt{5}-i \\
+		&=2\sqrt{5}+14i, \\
+		\alpha^4&=(\sqrt{5}+i)^4 \\
+		&=\sqrt{5}^4+4\sqrt{5}^3i+6\sqrt{5}^2i^2+4\sqrt{5}i^3+i^4 \\
+		&=25+20\sqrt{5}i-30-4\sqrt{5}i+1 \\
+		&=-4+16\sqrt{5}i. \\
+	\end{align*}
+	\begin{align*}		
+		f_{\alpha,\mathbb{Q}}\corr{(\alpha)}&=\alpha^4+a_3\alpha^3+a_2\alpha^2+a_1\alpha+a_0 \\
+		&=-4+16\sqrt{5}i+a_3(2\sqrt{5}+14i)+a_2(4+2\sqrt{5}i)+a_1(\sqrt{5}+i)+a_0 \\
+		&=-4+4a_2+a_0+2a_3\sqrt{5}+a_1\sqrt{5}+16\sqrt{5}i+14a_3i+2a_2\sqrt{5}i+a_1i \\
+		&=-4+4a_2+a_0+(2a_3+a_1)\sqrt{5}+(16\sqrt{5}+14a_3+2a_2\sqrt{5}+a_1)i \\
+		&=-4+4a_2+a_0+(2a_3+a_1)\sqrt{5}+(14a_3+a_1+(16+2a_2)\sqrt{5})i \\
+		&\overset{!}{=}0.
+	\end{align*}
+	Damit $f_{\alpha,\mathbb{Q}}\corr{(\alpha)}=0$ gilt, müssen folgende Gleichungen erfüllt sein:\\
+\corr{Ein Polynom ist keine Zahl. $-0,5$ P}
+	\begin{enumerate}
+		\item[(I)] $-4+4a_2+a_0=0$.
+		\item[(II)] $2a_3+a_1=0$.
+		\item[(III)] $14a_3+a_1=0$.
+		\item[(IV)] $16+2a_2=0$.\\
+		
+		\item[ad (IV):] $16+2a_2=0\gdw a_2=-8$.
+		\item[ad (I):] $-4+4a_2+a_0=-4+4\cdot(-8)+a_0=0\gdw a_0=36$.
+		\item[ad (II),(III):] (II) und (III)$\gdw a_1=a_3=0$.
+	\end{enumerate}
+	Daraus folgt, dass $f_{\alpha,\mathbb{Q}}=t^4-8t^2+36\in\mathbb{Q}[t]$ gelten muss. \\
+	
+	Zu zeigen: $(1,\sqrt{5},i,\sqrt{5}i)$ ist Basis von $\mathbb{Q}(\alpha)$. \\
+	Es gilt:
+	\begin{align*}
+		&(1,\sqrt{5})\text{ ist Basis von }\mathbb{Q}(\sqrt{5})\text{ bezüglich }\mathbb{Q} \\
+		&\text{ und }(1,i)\text{ ist Basis von }\mathbb{Q}(\sqrt{5},i)\text{ bezüglich }\mathbb{Q}(\sqrt{5}) \\
+		\df&\forall a\in\mathbb{Q}(\sqrt{5})\exists x,y\in\mathbb{Q}:x\cdot1+y\cdot\sqrt{5}=a \\
+		&\text{ und }\forall b\in\mathbb{Q}(\sqrt{5},i)\exists x,y\in\mathbb{Q}(\sqrt{5}):x\cdot1+y\cdot i=b \\
+		\df&\forall c\in\mathbb{Q}(\sqrt{5},i)\exists w,x,y,z\in\mathbb{Q}:(w\cdot1+x\cdot\sqrt{5})\cdot1+(y\cdot1+z\cdot\sqrt{5})\cdot i=c \\
+		\df&\forall c\in\mathbb{Q}(\sqrt{5},i)\exists w,x,y,z\in\mathbb{Q}:w+x\cdot\sqrt{5}+y\cdot i+z\cdot\sqrt{5}i=c \\
+		\df&(1,\sqrt{5},i,\sqrt{5}i)\text{ ist Basis von }\mathbb{Q}(\sqrt{5},i).
+	\end{align*}
+\corr{Daraus folgt nur, dass $(1,\sqrt{5},i,\sqrt{5}i)$ ein Erzeugendensystem ist. $-0,5$ P}\\
+\corr{Ist $K$ eine einfache Erweiterung von $\mathbb{Q}$? $-0,5$ P}
+	\QED
+\corr{Punkte Teil b): $1/3$}
+\end{enumerate}
+\corr{$2/5$ P}
+
+\subsection*{Aufgabe 8.3}
+\begin{enumerate}
+	\item[(a)] Sei $p\in\mathbb{N}$ eine Primzahl und $\alpha:=\sqrt{p+\sqrt{p}}\in\mathbb{R}$. \\
+	Zu zeigen: $f_{\alpha,\mathbb{Q}}=t^4-2pt^2+p^2-p$ ist Minimalpolynom von $\alpha$ über $\mathbb{Q}$. \\
+	Prüfe nun, welchen Grad $f_{\alpha,\mathbb{Q}}$ besitzt, indem überprüft wird, ob $\sum_{i=0}^na_i\alpha^i$ rational ist. Der Grad des Minimalpolynoms ist das niedrigste $n\in\mathbb{N}$, für das $\sum_{i=0}^na_i\alpha^i$ rational ist.\\
+	
+	Angenommen, $\grad(f_{\alpha,\mathbb{Q}})=1$. Es gilt:
+	$$f_{\alpha,\mathbb{Q}}=\alpha+a_0\overset{!}{=}0\overset{\alpha\notin\mathbb{Q}}{\df}\grad(f_{\alpha,\mathbb{Q}})\neq1.$$
+	
+	Angenommen, $\grad(f_{\alpha,\mathbb{Q}})=2$. Es gilt:
+	\begin{align*}
+		f_{\alpha,\mathbb{Q}}&=\alpha^2+a_1\alpha+a_0 \\
+		&=\sqrt{p+\sqrt{p}}^2+a_1\sqrt{p+\sqrt{p}}+a_0 \\
+		&=p+\sqrt{p}+a_1\sqrt{p+\sqrt{p}}+a_0 \\
+		\overset{\sqrt{p}+a_1\alpha\notin\mathbb{Q}}{\df}&\grad(f_{\alpha,\mathbb{Q}})\neq2.
+	\end{align*}
+\corr{Warum kann $\sqrt{p}+a_1\alpha$ nicht aus $\mathbb{Q}$ stammen? Genau begründen. $-0,5$ P.}\\
+	
+	Angenommen, $\grad(f_{\alpha,\mathbb{Q}})=3$. Es gilt:
+	\begin{align*}
+		f_{\alpha,\mathbb{Q}}&=\alpha^3+a_2\alpha^2+a_1\alpha+a_0 \\
+		&=\sqrt{p+\sqrt{p}}^3+a_2\sqrt{p+\sqrt{p}}^2+a_1\sqrt{p+\sqrt{p}}+a_0 \\
+		&=(p+\sqrt{p})\cdot\sqrt{p+\sqrt{p}}+a_2(p+\sqrt{p})+a_1\sqrt{p+\sqrt{p}}+a_0 \\
+		&=p\cdot\sqrt{p+\sqrt{p}}+\sqrt{p}\cdot\sqrt{p+\sqrt{p}}+a_2p+a_2\sqrt{p}+a_1\sqrt{p+\sqrt{p}}+a_0 \\
+		\overset{(p+\sqrt{p})\alpha\notin\mathbb{Q}}{\df}&\grad(f_{\alpha,\mathbb{Q}})\neq3.
+	\end{align*}
+\corr{Warum können die Summen nicht doch wieder in $\mathbb{Q}$ liegen?}\\
+	
+	Angenommen, $\grad(f_{\alpha,\mathbb{Q}})=3$. Es gilt:
+	\begin{align*}
+		f_{\alpha,\mathbb{Q}}&=\alpha^4+a_3\alpha^3+a_2\alpha^2+a_1\alpha+a_0 \\
+		&=\sqrt{p+\sqrt{p}}^4+a_3\sqrt{p+\sqrt{p}}^3+a_2\sqrt{p+\sqrt{p}}^2+a_1\sqrt{p+\sqrt{p}}+a_0 \\
+		&=(p+\sqrt{p})^2+a_3(p+\sqrt{p})\sqrt{p+\sqrt{p}}+a_2(p+\sqrt{p})+a_1\sqrt{p+\sqrt{p}}+a_0 \\
+		&=p^2+2p\sqrt{p}+\sqrt{p}^2+a_3(p+\sqrt{p})\sqrt{p+\sqrt{p}}+a_2p+a_2\sqrt{p}+a_1\sqrt{p+\sqrt{p}}+a_0 \\
+		&=p^2+p+a_2p+a_0+2p\sqrt{p}+a_2\sqrt{p}+a_3(p+\sqrt{p})\sqrt{p+\sqrt{p}}+a_1\sqrt{p+\sqrt{p}} \\
+		&=p^2+p+a_2p+a_0+(2p+a_2)\sqrt{p}+(a_3(p+\sqrt{p})+a_1)\sqrt{p+\sqrt{p}} \\
+		&\overset{!}{=}0.
+	\end{align*}
+	Um diese Gleichung zu lösen, kann man ein lineares Gleichungssystem verwenden:
+	\begin{enumerate}
+		\item[(I)] $p^2+p+a_2p+a_0=0$,
+		\item[(II)] $2p+a_2=0$,
+		\item[(III)] $a_3(p+\sqrt{p})+a_1=0$.
+	\end{enumerate}
+\corr{Warum muss $f_{\alpha, \mathbb{Q}}$ diese Gleichungen erfüllen (lineare Unabh. von ($1,\alpha, \alpha^2,\alpha^3$))?}
+	\begin{enumerate}
+		\item[ad (II):] $2p+a_2=0\gdw a_2=-2p$.
+		\item[ad (I):] $p^2+p+a_2p+a_0=p^2+p+(-2p)p+a_0=0\gdw a_0=p^2-p$.
+		\item[ad (III):] $a_3(p+p\sqrt{p})+a_1=0\overset{\sqrt{p}\notin\mathbb{Q}}{\gdw}a_1=a_3=0$.
+	\end{enumerate}
+	Setzt man nun die berechneten Werte von $a_0,a_1,a_2,a_3$ in die Gleichung $f_{\alpha,\mathbb{Q}}=\alpha^4+a_3\alpha^3+a_2\alpha^2+a_1\alpha+a_0$ ein und ersetzt $\alpha$ durch die Variable $t$, so erhält man das Minimalpolynom
+	$$f_{\alpha,\mathbb{Q}}=t^4-2pt^2+p^2-p.$$
+\corr{Das wurde nur unter der Annahme gezeigt, dass $deg(f_{\alpha, \mathbb{Q}})=4$ ist. $-0,5$ P.}
+	
+	Zu zeigen: $\left[\mathbb{Q}(\alpha):\mathbb{Q}\right]=4$. \\
+	Es gilt: $$\left[\mathbb{Q}(\alpha):\mathbb{Q}\right]\overset{\alpha\text{ alg. über }\mathbb{Q}}{=}\left[\mathbb{Q}[\alpha]:\mathbb{Q}\right]=\grad(f_{\alpha,\mathbb{Q}})=4.$$
+	
+	Zu zeigen: $(1,\alpha,\alpha^2,\alpha^3)$ ist Basis von $\mathbb{Q}(\alpha)$. \\
+	Da $\alpha$ algebraisch über $\mathbb{Q}$ mit Minimalpolynom $f_{\alpha,\mathbb{Q}}$ vom Grad 4 ist, gilt nach Korollar 6.2.9, dass $(1,\alpha,\alpha^2,\alpha^3)$ Basis von $\mathbb{Q}(\alpha)$ ist.
+	
+	Zu zeigen: $\alpha^{-1}$. \\
+	Fehlt. \corr{$-0,5$ P}
+	
+	Zu zeigen: $\alpha^5=14\alpha^3-42\alpha$. \\
+	Es gilt:
+	\begin{align*}
+		\alpha&=\sqrt{7+\sqrt{7}}, \\
+		\alpha^2&=\sqrt{7+\sqrt{7}}^2 \\
+		&=7+\sqrt{7}, \\•
+		\alpha^3&=\sqrt{7+\sqrt{7}}^3 \\
+		&=\sqrt{7+\sqrt{7}}^2\cdot\alpha \\
+		&=(7+\sqrt{7})\cdot\alpha \\
+		&=7\alpha+\sqrt{7}\alpha.
+	\end{align*}
+	Nun gilt:
+	\begin{align*}
+		\alpha^5&=\alpha^2\alpha^2\alpha \\
+		&=(7+\sqrt{7})\cdot(7+\sqrt{7})\cdot\alpha \\
+		&=(49+14\sqrt{7}+\sqrt{7}^2)\cdot\alpha \\
+		&=56\alpha+14\sqrt{7}\alpha \\
+		&=56\alpha-14\cdot7\alpha+14\cdot7\alpha+14\sqrt{7}\alpha \\
+		&=(56-98)\cdot\alpha+14\alpha^3 \\
+		&=14\alpha^3-42\alpha.
+	\end{align*}
+	\QEDD
+
+\corr{Punkte Teil a): $1,5/3$}
+	\item[(b)] Fehlt.
+\end{enumerate}
+\corr{$1,5/6$ P}
+
+\bigskip
+
+\corr{Insgesamt $5,5/20$ Punkten.}
+
+
+\bigskip
+
+\corr{korrigiert von Tom Engels am 19.06.2020}
+\end{document}
