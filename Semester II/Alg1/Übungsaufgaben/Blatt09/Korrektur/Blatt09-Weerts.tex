@@ -1,0 +1,317 @@
+\documentclass[12pt]{article}
+
+\usepackage{a4}  
+\usepackage{color}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage{faktor}
+ 
+\newcommand{\corr}[1]{\textcolor{red}{#1}}
+\newcommand{\QED}{\begin{flushright} $\square$ \end{flushright}}
+\newcommand{\QEDD}{\begin{flushright} "$\square$" \end{flushright}}
+\newcommand{\df}{\enspace\Longrightarrow\enspace}
+\newcommand{\koeff}[2]{\begin{pmatrix}#1 \\ #2\end{pmatrix}}
+\newcommand{\koefff}[3]{\begin{pmatrix}#1 \\ #2 \\ #3\end{pmatrix}}
+\newcommand{\Char}{\operatorname{char}}
+\newcommand{\isIdeal}{\trianglelefteq}
+\newcommand{\ann}{\operatorname{ann}}
+\newcommand{\ideal}[1]{\langle#1\rangle}
+\newcommand{\N}{\operatorname{N}}
+\newcommand{\enorm}{\operatorname{d}}
+\newcommand{\gdw}{\;\Longleftrightarrow\;}
+\newcommand{\abs}[1]{\vert #1\vert}
+\newcommand{\ggT}{\operatorname{ggT}}
+\newcommand{\kgV}{\operatorname{kgV}}
+\newcommand{\grad}{\operatorname{deg}}
+\newcommand{\LC}{\operatorname{LC}}
+\newcommand{\determinante}{\operatorname{det}}
+
+\newcommand{\aal}{a_{\alpha}}
+\newcommand{\ab}{a_{\beta}}
+\newcommand{\ba}{b_{\alpha}}
+\newcommand{\bb}{b_{\beta}}
+
+
+
+\begin{document}
+\section*{Abgabe Algebra I, Blatt 09}
+
+Studierende(r): Weerts, Steffen, steffen.weerts@uni-oldenburg.de
+
+\subsection*{Aufgabe 9.1}
+\begin{enumerate}
+	\item[(a)] Sei $p$ eine Primzahl, $F_p:=\sum_{i=0}^{p-1}t^i\in\mathbb{Q}[t]$ und $\zeta_p:=e^{\frac{2\pi i}{p}}$. \\
+	Zu zeigen: $F_p$ ist Minimalpolynom von $\zeta_p$ über $\mathbb{Q}$. \\
+	Es gilt:
+	$$\left(e^{\frac{2\pi i}{p}}\right)^p=e^{2\pi i}=1.$$
+	$$\df\text{für }h:=t^p-1\text{ gilt }h(\zeta_p)=0.$$
+	Da jedoch $h$ nicht irreduzibel ist, ist $h$ nicht das Minimalpolynom von $\zeta_p$ über $\mathbb{Q}$. Es gilt:
+	\begin{align*}
+		t^p-1&=(t-1)(t^{p-1}+t^{p-2}+\cdots+t^2+t+1) \\
+		&=\corr{(t-1)}\sum_{i=0}^{p-1}t^i=(t-1)\cdot F_p. \\
+		\df e^{\frac{2\pi i}{p}}-1&=0\text{ oder }F_p/e^{\frac{2\pi i}{p}}=0.
+	\end{align*}		
+	Da $e^{\frac{2\pi i}{p}}-1=0\gdw p=1$, kann $e^{\frac{2\pi i}{p}}-1\neq0$, denn $p$ ist Primzahl und damit nicht $1$. Folglich muss $F_p(\zeta_p)=0$ gelten. \\
+	Zu zeigen: $F_p$ ist irreduzibel. \\
+	Es gilt:
+	\begin{align*}
+		&F_p=\sum_{i=0}^{p-1}t^i \\
+		\df&F_p\text{ konstant}\gdw p=1 \\
+		\overset{p\text{ Primzahl}}{\df}&F_p\text{ nicht konstant}.
+	\end{align*}
+	Sei $a:=1\in\mathbb{Q}$. Es gilt:
+	\begin{align*}
+		F_p(t+1)&=\sum_{i=0}^{p-1}(t+1)^i \\
+		&=(t+1)^{p-1}+(t+1)^{p-2}+\cdots+(t+1)^2+(t+1)^1+(t+1)^0 \\
+		&=\sum_{i=0}^{p-1}\koeff{p-1}{i}\cdot t^{p-1-i}\cdot1^i+\sum_{i=0}^{p-2}\koeff{p-2}{i}\cdot t^{p-2-i}\cdot1^i+\cdots \\
+		&\quad\quad+\sum_{i=0}^{2}\koeff{2}{i}\cdot t^{2-i}\cdot1^i+\sum_{i=0}^{1}\koeff{1}{i}\cdot t^{1-i}\cdot1^i+\sum_{i=0}^{01}\koeff{0}{i}\cdot t^{0-i}\cdot1^i \\
+	\end{align*}
+	\begin{align*}
+		&=\sum_{i=0}^{p-1}\left(\sum_{j=0}^{i}\koeff{i}{j}\cdot t^{i-j}\right) \\
+	\end{align*}
+	Die Koeffizienten der einzelnen Summen (für $n\in\{0,\cdots,p-1\})$) finden sich als Zeilen im Pascalschen Dreieck, wobei die Koeffizienten mit gleicher Potenz von $t$ auf einer Spalte (von rechts oben nach links unten) liegen. Diese Summe kann man also als Summe der Spalten bis zur Zeile $p-1$ auffassen. Diese ist:
+	$$\sum_{i=0}^{p-1}\left(t^i\cdot\sum_{j=0}^{p-1}\koeff{j}{i}\right)=\sum_{i=0}^{p-1}\left(t^i\cdot\sum_{j=i}^{p-1}\koeff{j}{i}\right).$$
+	Nach (A1) (siehe Anhang) gilt:
+	$$\sum_{i=0}^{p-1}\left(t^i\cdot\sum_{j=i}^{p-1}\koeff{j}{i}\right)\overset{\text{A1}}{=}\sum_{i=0}^{p-1}\koeff{p}{i+1}\cdot t^i =:f$$
+	Nun gilt:
+	\begin{enumerate}
+		\item[(i)] $p\nmid\koeff{p}{(p-1)+1}=1=\LC(F_p),$
+		\item[(ii)] $p\overset{(A2)}{\mid}\koeff{p}{i+1}=a_i\quad\quad\forall i=0,\cdots,p-2,$
+		\item[(iii)] $p^2\nmid\koeff{p}{1}=p=a_0.$
+	\end{enumerate}
+	$$\overset{\text{Eisenstein}}{\df}F_p\text{ Minimalpolynom von }\zeta_p\text{ über }\mathbb{Q}.$$
+\corr{Nach Eisenstein folgt zunächst nur Irreduzibilität in $\mathbb{Z}$ Es muss dafür noch überprüft werden, ob das Polynom in $\mathbb{Z}$ liegt und primitiv ist. $-0,5$ P}\\
+	
+	Zu zeigen: $[\mathbb{Q}(\zeta_p):\mathbb{Q}]=p-1$ und $(1,\zeta_p,\zeta_p^2,\cdots,\zeta_p^{p-2})$ ist Basis von $\mathbb{Q}(\zeta_p)$. \\
+	Es gilt:
+	\begin{align*}
+		&\zeta_p\text{ ist algebraisch über }\mathbb{Q} \\
+		\overset{6.2.9}{\df}&[\mathbb{Q}(\zeta_p):\mathbb{Q}]=\grad(F_p)=p-1\text{ und }(1,\zeta_p,\zeta_p^2,\cdots,\zeta_p^{p-2})\text{ ist Basis von }\mathbb{Q}(\zeta_p).
+	\end{align*}
+	
+	Zu zeigen: Alle Nullstellen von $F_p$ liegen in $\mathbb{Q}(\zeta_p)$. \\
+	Fehlt. \corr{$-1$ P}
+	\QEDD
+\corr{Punkte Teil a): $1,5/3$}
+	
+	
+	\item[(b)] 
+	\begin{enumerate}
+		\item[(i)] Sei $f_1=t^4-5\in\mathbb{Q}[t]$. \\
+		Es gilt:
+		\begin{align*}
+			f_1&=t^4-5 \\
+			&=(t^2+\sqrt{5})(t^2-\sqrt{5}) \\
+			&=(t+\sqrt[4]{5}i)(t-\sqrt[4]{5}i)(t+\sqrt[4]{5})(t-\sqrt[4]{5})
+		\end{align*}
+		Da $\pm\sqrt[4]{5},\pm\sqrt[4]{5}i\in\mathbb{Q}(\sqrt[4]{5},i)$, zerfällt $f_q$ über $\mathbb{Q}(\sqrt[4]{5},i)$. \\
+		
+		Zu zeigen: $[\mathbb{Q}(\sqrt[4]{5},i):\mathbb{Q}(\sqrt[4]{5})]=2$. \\
+		Da $f_{i,\mathbb{Q}(\sqrt[4]{5})}=t^2+1$, ist $[\mathbb{Q}(\sqrt[4]{5},i):\mathbb{Q}(\sqrt[4]{5})]=\grad(f_{i,\mathbb{Q}(\sqrt[4]{5})})=2$. \\
+\corr{Warum ist $f_{i,\mathbb{Q}(\sqrt[4]{5})}=t^2+1$?}\\
+		
+		Zu zeigen: $[\mathbb{Q}(\sqrt[4]{5}):\mathbb{Q}]=4$. \\
+\corr{Das Minimalpolynom zu einem $\alpha$ wird üblicherweise folgendermaßen bestimmt: Man nimmt sich ein Polynom, welches $\alpha$ als Nullstelle hat, dann überprüft man es auf Irreduzibilität. Ist es Irreduzibel, so normiert man es und erhält damit das Minimalpolynom. Ist es nicht Irreduzibel, so zerlegt man es in seine Faktoren und überprüft, welcher davon $\alpha$ als Nullstelle hat. Dann wiederholt man den Vorgang mit diesem neuen Polynom, bis man das Minimalpolynom erhält.}\\
+		Angenommen, $\grad(f_{\sqrt[4]{5},\mathbb{Q}})=1$. \\
+		Es gilt:
+		\begin{align*}
+			f_{\sqrt[4]{5},\mathbb{Q}}(\sqrt[4]{5})=\sqrt[4]{5}+a_0\overset{!}{=}0 \\
+			\df a_0=-\sqrt[4]{5}\notin\mathbb{Q} \\
+			\df \grad(f_{\sqrt[4]{5},\mathbb{Q}})\neq1.
+		\end{align*}
+		Angenommen, $\grad(f_{\sqrt[4]{5},\mathbb{Q}})=2$. \\
+		Es gilt:
+		\begin{align*}
+			&f_{\sqrt[4]{5},\mathbb{Q}}(\sqrt[4]{5})=\sqrt[4]{5}^2+a_1\sqrt[4]{5}+a_0\overset{!}{=}0 \\
+			\df &a_0=-\sqrt{5}-a_1\sqrt[4]{5}\notin\mathbb{Q}\quad\forall a_1\in\mathbb{Q} \\
+			\df &\grad(f_{\sqrt[4]{5},\mathbb{Q}})\neq2.
+		\end{align*}
+\corr{Warum ist $-\sqrt{5}-a_1\sqrt[4]{5}\notin\mathbb{Q}$? Genau begründen. $-0,5$ P.}\\
+		Angenommen, $\grad(f_{\sqrt[4]{5},\mathbb{Q}})=3$. \\
+		Es gilt:
+		\begin{align*}
+			&f_{\sqrt[4]{5},\mathbb{Q}}(\sqrt[4]{5})=\sqrt[4]{5}^3+a_2\sqrt[4]{5}^2+a_1\sqrt[4]{5}+a_0 \\
+			&\quad\quad\quad\quad=\sqrt{5}\sqrt[4]{5}+a_2\sqrt{5}+a_1\sqrt[4]{5}+a_0\overset{!}{=}0 \\
+			\df &a_0=-\sqrt{5}\sqrt[4]{5}-a_2\sqrt{5}-a_1\sqrt[4]{5}\notin\mathbb{Q}\quad\forall a_1,a_2\in\mathbb{Q} \\
+			\df &\grad(f_{\sqrt[4]{5},\mathbb{Q}})\neq3.
+		\end{align*}
+\corr{Warum gilt $-\sqrt{5}\sqrt[4]{5}-a_2\sqrt{5}-a_1\sqrt[4]{5}\notin\mathbb{Q}$? Woran kann man das erkennen?}\\
+		Angenommen, $\grad(f_{\sqrt[4]{5},\mathbb{Q}})=4$. \\
+		Es gilt:
+		\begin{align*}
+			&f_{\sqrt[4]{5},\mathbb{Q}}(\sqrt[4]{5})=\sqrt[4]{5}^4+a_3\sqrt[4]{5}^3+a_2\sqrt[4]{5}^2+a_1\sqrt[4]{5}+a_0 \\
+			&\quad\quad\quad\quad=5+a_3\sqrt{5}\sqrt[4]{5}+a_2\sqrt{5}+a_1\sqrt[4]{5}+a_0\overset{!}{=}0 \\
+			\df &a_0=-5-a_3\sqrt{5}\sqrt[4]{5}-a_2\sqrt{5}-a_1\sqrt[4]{5}\in\mathbb{Q}\text{ für }a_1=a_2=a_3=0 \\
+			\df &f_{\sqrt[4]{5},\mathbb{Q}}=t^4-5 \\
+			\df &[\mathbb{Q}(\sqrt[4]{5}):\mathbb{Q}]=\grad(f_{\sqrt[4]{5},\mathbb{Q}})=4.
+		\end{align*}
+\corr{Hier wurde unter der Annahme, dass das Minimalpolynom den Grad 4 hat, geschlussfolgert, dass der Körpererweiterungsgrad 4 ist. Es wurde nicht gezeigt, dass der Grad des Minimalpolynomes 4 ist. $-0,5$ P.}\\
+		Insgesamt ergibt sich: $$[\mathbb{Q}(\sqrt[4]{5},i):\mathbb{Q}]=[\mathbb{Q}(\sqrt[4]{5},i):\mathbb{Q}(\sqrt[4]{5})]\cdot[\mathbb{Q}(\sqrt[4]{5}):\mathbb{Q}]=2\cdot4=8.$$
+		\QED
+		
+		\item[(ii)] Sei $f_2=t^4+1$. \\
+		Es gilt:
+		\begin{align*}
+			f_2&=t^4+1 \\
+			&=(t^2+i)(t^2-i) \\
+			&=(t+i\sqrt{i})(t-i\sqrt{i})(t+\sqrt{i})(t-\sqrt{i}).
+		\end{align*}
+\corr{Wurzeln sind eigentlich nur für nicht negative reelle Zahlen definiert.}\\
+		Da $\sqrt{i},i\sqrt{i}\notin\mathbb{Q}$, zerfällt $f_2$ nicht über $\mathbb{Q}$, jedoch über $\mathbb{Q}(i,\sqrt{i})$, denn  $\sqrt{i},i\sqrt{i}$ sind die Nullstellen von $f_2$ in $\mathbb{Q}(i,\sqrt{i})$. \\
+		
+		Zu zeigen: $[\mathbb{Q}(i):\mathbb{Q}]=2$. \\
+		Es gilt:
+		\begin{align*}
+			&f_{i,\mathbb{Q}}=t^2+1. \\
+			\df &[\mathbb{Q}(i):\mathbb{Q}]=\grad(f_{i,\mathbb{Q}})=2.
+		\end{align*}
+		
+		Zu zeigen: $[\mathbb{Q}(i,\sqrt{i}):\mathbb{Q}(i)]=2$. \\
+		Angenommen, $\grad(f_{\sqrt{i},\mathbb{Q}(i)})=1$. \\
+		Es gilt:
+		\begin{align*}
+			f_{\sqrt{i},\mathbb{Q}(i)}(\sqrt{i})=\sqrt{i}+a_0\overset{!}{=}0 \\
+			\df a_0=-\sqrt{i}\notin\mathbb{Q}(i) \\
+			\df \grad(f_{\sqrt{i},\mathbb{Q}(i)})\neq1.
+		\end{align*}
+		Angenommen, $\grad(f_{\sqrt{i},\mathbb{Q}(i)})=2$. \\
+		Es gilt:
+		\begin{align*}
+			&f_{\sqrt{i},\mathbb{Q}(i)}(\sqrt{i})=\sqrt{i}^2+a_1\sqrt{i}+a_0 \\
+			&\quad\quad\quad=i+a_1\sqrt{i}+a_0\overset{!}{=}0 \\
+			\df &a_0=-i-a_1\sqrt{i} \\
+			\df &(a_0\in\mathbb{Q}(i)\gdw a_1=0) \\
+			\df &f_{\sqrt{i},\mathbb{Q}(i)}=t^2-i \\
+			\df &[\mathbb{Q}(i,\sqrt{i}):\mathbb{Q}(i)]=\grad(f_{\sqrt{i},\mathbb{Q}(i)})=2.
+		\end{align*}
+\corr{S.o. $-0,5$ P}\\
+		Insgesamt ergibt sich: $$[\mathbb{Q}(i,\sqrt{i}):\mathbb{Q}]=[\mathbb{Q}(i,\sqrt{i}):\mathbb{Q}(i)]\cdot[\mathbb{Q}(i):\mathbb{Q}]=2\cdot2=4.$$
+		\QED
+	\end{enumerate}
+\corr{Punkte Teil b): $2,5/4$}
+	
+
+	\item[(c)] 
+	\begin{enumerate}
+		\item[(i)] Sei $K:=\mathbb{Q}\subseteq\mathbb{Q}(i)=:L$ Körpererweiterung, $f=t^2+1\in K[t],n:=\grad(f)=2$. \\
+		Es gilt:
+		\begin{align*}
+			f&=t^2+1 \\
+			&=t^2-i^2 \\
+			&=(t+i)(t-i).
+		\end{align*}
+		Außerdem gilt: $$t+i,t-i\in L[t]\df f\text{ zerfällt über }L\text{, aber nicht über K, da }i\notin K.$$		
+		Zu zeigen: $[L:K]=2$. \\
+		Da $i\notin\mathbb{Q}$ ist, muss der Grad des Minimalpolymoms von $i$ größer als $1$ sein. Da $i^2+1=0$, ist $f$ das Minimalpolynom von $i$ über $\mathbb{Q}$. \\
+\corr{$f$ ist auch noch irreduzibel und normiert.}\\
+		Es gilt: $$[L:K]=\grad(f)=2.$$
+		\QED
+		
+		\item[(ii)] Sei $K=\mathbb{R}\subseteq\mathbb{C}=\mathbb{R}(i)=L$ eine Körpererweiterung, $f=t^2+1\in\mathbb{R}[t]$ Polynom. \\
+		Es gilt: $$f=t^2+1=(t+i)(t-i)$$
+		Außerdem gilt:
+		\begin{align*}
+			&i\text{ algebraisch über }\mathbb{R} \\
+			\df &[\mathbb{C}:\mathbb{Q}]=[\mathbb{Q}(i):\mathbb{Q}]=\grad(f)=2=2!.
+		\end{align*}
+		\QED
+		
+		\item[(iii)] Seien $K=\mathbb{Q}, L=\mathbb{Q}(\sqrt{2},i)$ Körper, $f:=t^3\in\mathbb{Q}[t]$ mit $n:=\grad(f)=3$. \\
+		Es gilt:
+		$$[L:K]=[\mathbb{Q}(\sqrt{2},i):\mathbb{Q}(\sqrt{2})]\cdot[\mathbb{Q}(\sqrt{2}):\mathbb{Q}]=2\cdot2=4$$
+\corr{Warum ist $[\mathbb{Q}(\sqrt{2},i):\mathbb{Q}(\sqrt{2})]=[\mathbb{Q}(\sqrt{2}):\mathbb{Q}]=2$? Genau begründen. $-0,5$ P}\\
+		Außerdem gilt:
+		$$n=3<4=[L:K]=4<6=3!=n!$$
+		Da $f$ über $\mathbb{Q}$ zerfällt, zerfällt $f$ auch über $\mathbb{Q}(\sqrt{2},i)$.
+		\QED
+	\end{enumerate}
+\corr{Punkte Teil c): $2,5/3$}
+\end{enumerate}
+\corr{$6,5/10$ P}
+
+\subsection*{Aufgabe 9.2}
+\begin{enumerate}
+	\item[(a)] Sei $f:=t^4+t^3+2t^2+1\in\mathbb{Z}_3[t]$. \\
+	Zu zeigen: $f=(t+1)\cdot(t^3+2t+1)$ ist eine Zerlegung von $f$ in irreduzible Polynome über $\mathbb{Z}_3$. \\
+	Es gilt:
+	\begin{align*}
+		f&=t^4+t^3+2t^2+1 \\
+		&=t^4+t^3+2t^2+2t+t+1 \\
+		&=(t+1)(t^3+2t+1).
+	\end{align*}
+	Zu zeigen: $t+1$ irreduzibel über $\mathbb{Z}_3$. \\
+	Es gilt: $$\mathbb{Z}_3\text{ Körper und }\grad(t+1)=1\overset{5.1.2}{\df} t+1\text{ irreduzibel über }\mathbb{Z}_3.$$
+	Zu zeigen: $h:=t^3+2t+1$ irreduzibel über $\mathbb{Z}_3$. \\
+	Angenommen, $h$ sei reduzibel über $\mathbb{Z}_3$. Da $\mathbb{Z}_3$ Körper ist und $\grad(h)=3$ hat $h$ nach Beobachtung 5.1.6 eine Nullstelle in $\mathbb{Z}_3$. Es gilt:
+	\begin{align*}
+		h(0)&=0^3+2\cdot0+1=1\neq0, \\
+		h(1)&=1^3+2\cdot1+1=1\neq0, \\
+		h(2)&=2^3+2\cdot2+1=1\neq0.
+	\end{align*}
+	Dies steht im Widerspruch zu Beobachtung 5.1.6, weshalb $h$ nicht reduzibel über $\mathbb{Z}_3$ sein kann. \\
+	Insgesamt ergibt sich, dass $f=(t+1)\cdot(t^3+2t+1)$ eine Zerlegung von $f$ in irreduzible Polynome über $\mathbb{Z}_3$ ist.
+	\QED
+\corr{Punkte Teil a): $2/2$}
+	
+	\item[(b)] Fehlt.\\
+\corr{Punkte Teil b): $0/3$}
+	\item[(c)] Fehlt.\\
+\corr{Punkte Teil c): $0/3$}
+\end{enumerate}
+\corr{$2/8$ P}
+
+\subsection*{Aufgabe 9.3}
+Sei $R:=\mathbb{Z}_6$ und $M:=R\times R$. \\
+Zu zeigen: $X:=((2,4))$ linear unabhängig. \\
+Es gilt:
+\begin{align*}
+	&0\neq3\in R \\
+	\df &3\cdot(2,4) = (3\cdot2,3\cdot4)=(0,0) \\
+	\df &((2,4))\text{ ist eine linear abhängige Familie}.
+\end{align*}
+\QED
+\corr{$2/2$ P}
+
+\subsection*{Anhang}
+\begin{enumerate}
+	\item[(A1)] Sei $n\in\mathbb{N}_0$, $p\in\mathbb{N}$. Dann ist $$\sum_{i=0}^{p-1}\koeff{n+i}{n}=\koeff{n+p}{n+1}.$$
+	Beweis:
+	\begin{enumerate}
+		\item[(IA)] Sei $\underline{p=1}$. Es gilt:
+		$$\sum_{i=0}^{1-1}\koeff{n+i}{n}=\koeff{n}{n}=\koeff{n+1}{n+1}=\koeff{n+p}{n+1}.$$
+		
+		\item[(IV)] Gelte die Behauptung für ein beliebiges, aber festes $p\in\mathbb{N}$.
+		
+		\item[(IS)] $\underline{p\leadsto p+1}$. \\
+		Es gilt:
+		\begin{align*}
+			\sum_{i=0}^{(p+1)-1}\koeff{n+i}{n}&=\sum_{i=0}^{p-1}\koeff{n+i}{n}+\koeff{n+p}{n} \\
+			&=\koeff{n+l}{n+1}+\koeff{n+p}{n}=\koeff{n+(p+1)}{n+1}.
+		\end{align*}
+	\end{enumerate}
+	\QED
+	
+	\item[(A2)] Sei $p$ Primzahl. Sei $n\in\{1,2,\cdots,p-1\}$. Dann gilt: $$p\mid\koeff{p}{n}.$$
+	 Beweis: \\
+	 Sei $p$ Primzahl, $n\in\{1,2,\cdots,p-1\}$. Es gilt:
+	 \begin{align*}
+	 	&\koeff{p}{n}\cdot n!=\frac{p!}{n!\cdot(p-n)!}\cdot n! \\
+	 	&\quad\quad\quad\quad=\frac{p!}{(p-n)!} \\
+	 	&\quad\quad\quad\quad=p(p-1)(p-2)\cdots(p-n+2)(p-n+1) \\
+	 	\df& p\mid\frac{p!}{(p-n)!} \\
+	 	\df& p\mid\koeff{p}{n}\cdot n! \\
+	 	\overset{p\text{ Primzahl}}{\underset{p>n>0}{\df}}&p\mid\koeff{p}{n}.
+	 \end{align*}
+	 \QED
+\end{enumerate}
+
+\bigskip
+
+\corr{Insgesamt $10,5/20$ Punkten.}
+
+
+\bigskip
+
+\corr{korrigiert von Tom Engels am 02.07.2020}
+\end{document}
