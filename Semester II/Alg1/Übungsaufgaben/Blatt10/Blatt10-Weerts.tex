@@ -1,0 +1,223 @@
+\documentclass[12pt]{article}
+
+\usepackage{a4}  
+\usepackage{color}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage{faktor}
+ 
+\newcommand{\corr}[1]{\textcolor{red}{#1}}
+\newcommand{\QED}{\begin{flushright} \mbox{$\square$} \end{flushright}}
+\newcommand{\QEDD}{\begin{flushright} "\mbox{$\square$}" \end{flushright}}
+\newcommand{\df}{\enspace\Longrightarrow\enspace}
+\newcommand{\koeff}[2]{\begin{pmatrix}#1 \\ #2\end{pmatrix}}
+\newcommand{\koefff}[3]{\begin{pmatrix}#1 \\ #2 \\ #3\end{pmatrix}}
+\newcommand{\Char}{\operatorname{char}}
+\newcommand{\isIdeal}{\trianglelefteq}
+\newcommand{\ann}{\operatorname{ann}}
+\newcommand{\ideal}[1]{\langle#1\rangle}
+\newcommand{\N}{\operatorname{N}}
+\newcommand{\enorm}{\operatorname{d}}
+\newcommand{\gdw}{\;\Longleftrightarrow\;}
+\newcommand{\abs}[1]{\vert #1\vert}
+\newcommand{\ggT}{\operatorname{ggT}}
+\newcommand{\kgV}{\operatorname{kgV}}
+\newcommand{\grad}{\operatorname{deg}}
+\newcommand{\LC}{\operatorname{LC}}
+\newcommand{\determinante}{\operatorname{det}}
+\newcommand{\homr}{Hom_R(R,M)}
+\newcommand{\kendo}{\operatorname{End}}
+
+\newcommand{\aal}{a_{\alpha}}
+\newcommand{\ab}{a_{\beta}}
+\newcommand{\ba}{b_{\alpha}}
+\newcommand{\bb}{b_{\beta}}
+
+
+
+\begin{document}
+\section*{Abgabe Algebra I, Blatt 10}
+
+Studierende(r): Weerts, Steffen, steffen.weerts@uni-oldenburg.de
+
+\subsection*{Aufgabe 10.1}
+\begin{enumerate}
+	\item[(a)] Seien $R$ kommutativer Ring und $M$ ein $R$-Modul. Definiere $\homr=\{\phi:R\rightarrow M\mid\phi\text{ ist ein $R$-Modulhomomorphismus}\}.$ \\
+	Zu zeigen: $\homr$ ist $R$-Modul mit den gegeben Operationen.
+	\begin{enumerate}
+		\item[(A)] Zu zeigen: $(\homr,+)$ abelsche Gruppe. \\
+		Seien $\varphi_1\varphi_2,\varphi_3\in\homr$. Sei $a\in R$. \\
+		Es gilt:
+		\begin{align*}
+			((\varphi_1+\varphi_2)+\varphi_3)(a)&=(\varphi_1+\varphi_2)(a)+\varphi_3(a) \\
+			&=(\varphi_1(a)+\varphi_2(a))+\varphi_3(a) \\
+			&\overset{\varphi_{1,2,3}\in M}{=}\varphi_1(a)+(\varphi_2(a)+\varphi_3(a)) \\
+			&=\varphi_1(a)+(\varphi_2+\varphi_3)(a) \\
+			&=(\varphi_1+(\varphi_2+\varphi_3))(a). \\
+			\df&(\homr,+)\text{ Halbgruppe}.
+		\end{align*}
+		Sei $\varphi:R\rightarrow M,a\mapsto 0.$ Sei $\phi\in\homr$ beliebig. Sei $a\in R$. \\
+		Es gilt:
+		\begin{align*}
+			(\phi+\varphi)(a)&=\phi(a)+\varphi(a) \\
+			&=\phi(a)+0 \\
+			&=\phi(a) \\
+			&=0+\phi(a) \\
+			&=\varphi(a)+\phi(a) \\
+			&=(\varphi+\phi)(a). \\
+			\df&(\homr,+)\text{ Monoid}.
+		\end{align*}
+		Sei $\phi\in\homr$ beliebig. Definiere $\varphi^{-1}:R\rightarrow M,a\mapsto-\varphi(a).$ \\
+		Es gilt:
+		\begin{align*}
+			(\varphi+\varphi^{-1})(a)&=\varphi(a)+\varphi^{-1}(a) \\
+			&=\varphi(a)+(-\varphi(a)) \\
+			&=0 \\
+			&=\varphi^{-1}(a)+\varphi(a) \\
+			&=(\varphi^{-1}+\varphi)(a). \\
+			\df&(\homr,+)\text{ Gruppe}.
+		\end{align*}
+		Seien $\varphi,\phi\in\homr$. Sei $a\in R$. \\
+		Es gilt:
+		\begin{align*}
+			(\varphi+\phi)(a)&=\varphi(a)+\phi(a) \\
+			&\overset{M\text{ Modul}}{=}(\phi+\varphi)(a) \\
+			&=(\phi+\varphi)(a). \\
+			\df&(\homr,+)\text{ abelsche Gruppe}.
+		\end{align*}
+		
+		\item[(S1)] Zu zeigen: $\forall\varphi\in\homr:1\cdot\varphi=\varphi$. \\
+		Sei $\varphi\in\homr$, sei $a\in R$. \\
+		Es gilt:
+		\begin{align*}
+			(1\cdot\varphi)(a)&=1\cdot\varphi(a) \\
+			&=\varphi(a). \\
+			\df&(S1).
+		\end{align*}
+		
+		\item[(S2)] Zu zeigen: $\forall\lambda,\mu\in R\forall\varphi\in\homr:\lambda\cdot(\mu\cdot\varphi)=(\lambda\cdot\mu)\cdot\varphi$. \\
+		Seien $\lambda,\mu\in R$. Sei $\varphi\in\homr$, sei $a\in R$. \\
+		Es gilt:
+		\begin{align*}
+			(\lambda\cdot(\mu\cdot\varphi))(a)&=\lambda\cdot(\mu\cdot\varphi)(a) \\
+			&=\lambda\cdot\mu\cdot(\varphi(a)) \\
+			&=(\lambda\cdot\mu)\cdot\varphi(a) \\
+			&=((\lambda\cdot\mu)\cdot\varphi)(a). \\
+			\df&(S2).
+		\end{align*}
+		
+		\item[(S3)] Zu zeigen: $\forall\lambda\in R\forall\varphi,\phi\in\homr:\lambda\cdot(\varphi+\phi)=\lambda\varphi+\lambda\phi$. \\
+		Sei $\lambda\in R$. Seien $\varphi,\phi\in\homr$. \\
+		Es gilt:
+		\begin{align*}
+			(\lambda\cdot(\varphi+\phi))(a)&=\lambda\cdot(\varphi+\phi)(a) \\
+			&=\lambda\cdot(\varphi(a)+\phi(a)) \\
+			&=\lambda\cdot\varphi(a)+\lambda\cdot\phi(a) \\
+			&=(\lambda\cdot\varphi)(a)+(\lambda\cdot\phi)(a) \\
+			&=(\lambda\cdot\varphi+\lambda\cdot\phi)(a). \\
+			\df&(S3).
+		\end{align*}
+		
+		\item[(S4)] Zu zeigen: $\forall\lambda,\mu\in R\forall\varphi\in\homr:(\lambda+\mu)\cdot\varphi=\lambda\cdot\varphi+\mu\cdot\varphi$. \\
+		Seien $\lambda,\mu\in R$. Sei $\varphi\in\homr$. \\
+		Es gilt:
+		\begin{align*}
+			((\lambda+\mu)\cdot\varphi)(a)&=(\lambda+\mu)\cdot\varphi(a) \\
+			&=\lambda\cdot\varphi(a)+\mu\cdot\varphi(a) \\
+			&=(\lambda\cdot\varphi)(a)+(\mu\cdot\varphi)(a) \\
+			&=(\lambda\cdot\varphi+\mu\cdot\varphi)(a). \\
+			\df&(S4).
+		\end{align*}
+		$$\df\homr\text{ ist ein $R$-Modul}.$$
+	\end{enumerate}
+	\QED
+	
+	\item[(b)] Fehlt.
+\end{enumerate}
+
+\subsection*{Aufgabe 10.2}
+\begin{enumerate}
+	\item[(a)] Seien $K$ ein Körper, $V$ ein $K$-Vektorraum und $F\in\kendo_K(V)$. \\
+	Zu zeigen: $V$ ist mit der gegebenen Skalarmultiplikation ein $K[t]$-Modul. \\
+	\begin{enumerate}
+		\item[(A)] Zu zeigen: $(V,+)$ abelsche Gruppe. \\
+		Es gilt: $$V\text{ ist }K\text{-Vektorraum}\df(V,+)\text{ abelsche Gruppe}.$$
+		
+		\item[(S1)] Zu zeigen: $\forall v\in V:1\cdot_F v=v$. \\
+		Es gilt: $$1\cdot_F v=1\cdot F^0(v)=F^0(v)=v\df(S1).$$
+		
+		\item[(S2)] Zu zeigen: $\forall p,q\in K[t]\forall v\in V: p\cdot_F(q\cdot_F v)=(p\cdot q)\cdot_F v$. \\
+		Seien $p,q\in K[t], v\in V$. \\
+		Es gilt:
+		\begin{align*}
+			p\cdot_F(q\cdot_F v)&=p\cdot_F\left(\left(\sum_{i=0}^{n}a_it^i\right)\cdot_F v\right) \\
+			&=p\cdot_F\left(\left(\sum_{i=0}^{n}a_iF^i\right)(v)\right) \\
+			&=p\cdot_F\left(\sum_{i=0}^{n}a_iF^i(v)\right) \\
+			&=\left(\sum_{j=0}^{m}b_jt^j\right)\cdot_F\left(\sum_{i=0}^{n}a_iF^i(v)\right) \\
+			&=\sum_{j=0}^{m}b_jF^j(\sum_{i=0}^{n}a_iF^i(v)) \\
+			&=\sum_{j=0}^{m}b_j\cdot(\sum_{i=0}^{n}a_i)\cdot F^j(F^i(v)) \\
+			&=\sum_{i=0}^{n}\sum_{j=0}^{m}a_ib_j\cdot F^{i+j}(v) \\
+			&=\left(\sum_{i=0}^{n}\sum_{j=0}^{m}a_ib_j\cdot t^{i+j}\right)\cdot_F v \\
+			&=\left(\left(\sum_{i=0}^{n}a_it^i\right)\cdot\left(\sum_{j=0}^{m}b_jt^j\right)\right)\cdot_F v \\
+			&=(p\cdot q)\cdot_F v. \\
+			\df&(S2).
+		\end{align*}
+		
+		\item[(S3)] Zu zeigen: $\forall p\in K[t]\forall v,w\in V:p\cdot_F(v+w)=p\cdot_F v+p\cdot_F w$. \\
+		Sei $p\in K[t]$. Seien $v,w\in V$. \\
+		Es gilt:
+		\begin{align*}
+			p\cdot_F(v+w)&=\left(\sum_{i=0}^{n}a_it^i\right)\cdot_F(v+w) \\
+			&=\sum_{i=0}^{n}a_iF^i(v+w) \\
+			&=\sum_{i=0}^{n}a_iF^i(v)+\sum_{i=0}^{n}a_iF^i(w) \\
+			&=\left(\sum_{i=0}^{n}a_it^i\right)\cdot_f v + \left(\sum_{i=0}^{n}a_it^i\right)\cdot_f w \\
+			&=p\cdot_F v + p\cdot_F w. \\
+			\df&(S3).
+		\end{align*}
+		
+		\item[(S4)] Zu zeigen: $\forall p,q\in K[t]\forall v\in V:(p+q)\cdot_F v=p\cdot_F v+q\cdot_F v$. \\
+		Seien $p,q\in K[t]$. Falls $\grad(p)\neq\grad(q)$ hat das Polynom, welches geringeren Grad hat, bis zum Grad $\max(n,m)$ Null als Koeffizienten. Sei $v\in V$. \\
+		Es gilt:
+		\begin{align*}
+			(p+q)\cdot_F v&=\left(\sum_{i=0}^{n}a_it^i+\sum_{j=0}^{m}b_jt^j\right)\cdot_F v \\
+			&=\left(\sum_{i=0}^{\max(n,m)}(a_i+b_i)t^i\right)\cdot_F v \\
+			&=\sum_{i=0}^{\max(n,m)}(a_i+b_i)F^i(v) \\
+			&=\sum_{i=0}^{n}a_iF^i(v)+\sum_{j=0}^{m}b_jF^j(v) \\
+			&=\left(\sum_{i=0}^{n}a_it^i\right)\cdot_F v + \left(\sum_{j=0}^{m}b_it^i\right)\cdot_F v \\
+			&=p\cdot_F v+q\cdot_F v. \\
+			\df&(S4).
+		\end{align*}
+		
+		$$\df V\text{ ist }K[t]\text{-Modul}.$$
+		\QED
+ 	\end{enumerate}
+	
+	\item[(b)] Fehlt.
+	
+	\item[(c)] Sei $F:\mathbb{R}^{2\times1}\rightarrow\mathbb{R}^{2\times1},\koeff{x}{y}\mapsto\koeff{x}{x+y}$.
+	Sei $\mathcal{B}=\left(\koeff{1}{0},\koeff{0}{1}\right)$. \\
+	Zu zeigen: $\mathcal{B}$ ist keine Basis des $\mathbb{R}[t]$-Moduls $\mathbb{R}^{2\times1}$. \\
+	Seien $p,q\in\mathbb{R}[t], p:=t-1,q:=-1$. \\
+	Es gilt:
+	\begin{align*}
+		p\cdot_F\koeff{1}{0}+q\cdot_F\koeff{0}{1}&=(t-1)\cdot_F\koeff{1}{0}+(-1)\cdot_F\koeff{0}{1} \\
+		&=(t-1\cdot t^0)\cdot_F\koeff{1}{0}+(-1\cdot t^0)\cdot_F\koeff{0}{1} \\
+		&=\left(F(\koeff{1}{0})-1\cdot F^0(\koeff{1}{0})\right)+\left(-1\cdot F^0(\koeff{0}{1})\right) \\
+		&=\left(\koeff{1}{1}-\koeff{1}{0}\right)-\koeff{1}{1} \\
+		&=\koeff{0}{1}-\koeff{0}{1} \\
+		&=\koeff{0}{0}. \\
+		\df&B\text{ linear abhängig über }\mathbb{R}[t] \\
+		\df&B\text{ keine Basis des }\mathbb{R}[t]\text{-Moduls }\mathbb{R}^{2\times1}.
+	\end{align*}
+	\QED
+\end{enumerate}
+
+\subsection*{Aufgabe 10.3}
+Fehlt.
+
+
+\bigskip
+
+\corr{korrigiert von \hspace{1cm} am }
+\end{document}
