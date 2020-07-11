@@ -1,0 +1,12 @@
+Es gab leider einige Tippfehler in der VL12 (nichtkritisch, aber unangenehn). Ich habe die Datei korrigiert, hier aber die Liste:
+
+
+Seite 93, Satz 166: ich habe Bild statt ran geschrieben. Die Bezeichnung ran hat dieselbe Bedeutung, aber scheint weniger bekannt zu sein.
+
+Seite 98, Satz 174: die erste grosse Formel mit Reihen, ||(tA)^j|| statt ||t A^j||
+
+Seite 99:
+
+Fall (d), es gab ein paar Probleme mit U und U^(-1)
+
+Fall (f): es fehlte t auf der rechten Seite von e^(tA)=e^(tD)e^(tN)
